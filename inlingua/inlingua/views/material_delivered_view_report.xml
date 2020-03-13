@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="report_view_material_delivered">
+        <t t-call="inlingua.inlingua_course_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="o">
+                    <div class="row">
+                        <div>
+
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td width="10%">Mod. 510</td>
+                                    <td style="text-align:center" width="70%">Modules for language service providers</td>
+                                    <td width="20%" style="border-bottom:1px solid white;text-align:center">Rev. 0</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center;font-size:16px" colspan="2">Model for educational material delivery</td>
+                                    <td style="border-top:1px solid white"></td>
+                                </tr>
+                            </table>
+                            <table class="table table-bordered" style="font-weight:bold">
+                                <tr>
+                                    <td>Company/Private: <span t-field="o.company_private"/></td>
+                                    <td>Office:
+                                        <span t-field="o.course_id.office_id.name"/>
+                                    </td>
+                                    <td>Course:
+                                        <span t-field="o.course_id.name"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <strong>N°</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Ctr/Ord</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Name</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Delivered Material</strong>
+                                        </th>
+                                        <th class="text-center">
+                                            <strong>Date</strong>
+                                        </th>
+                                        <td class="text-center">
+                                            <strong>
+                                                Signature
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <t t-set="number_student" t-value="0"/>
+                                <t t-foreach="o.course_id.project_student_ids" t-as="student">
+                                    <t t-set="number_student" t-value="number_student + 1"/>
+                                    <tr>
+                                        <td width="4%">
+                                            <span t-esc="number_student"/>
+                                        </td>
+                                        <td width="7%"></td>
+                                        <td width="25%">
+                                            <span t-field="student.student_id.name"/>
+                                        </td>
+                                        <td class="text-center" width="30%">
+                                            <span t-field="o.material_delivered"/>
+                                        </td>
+                                        <td width="10%"></td>
+                                        <td width="100%"></td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                    </div>
+                    <br/>
+                </t>
+            </div>
+        </t>
+    </template>
+
+
+    <record id="inlingua.report_material_delivered" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="paperformat_material_delivered"/>
+    </record>
+</odoo>

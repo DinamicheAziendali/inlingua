@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="report_private_contract">
+        <!--<t t-call="inlingua.inlingua_contract_layout">-->
+        <t t-call="report.external_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="o">
+                    <div class="row">
+                        <div style="text-align:center;font-weight:bold">
+                            Modulo di Iscrizione
+                        </div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td width="50%">
+                                    <div style="float:left">
+                                        Contratto
+                                        <br/>
+                                        Tipo Corso <![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                        <br/>
+                                        Recapito 1 <![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                    </div>
+                                    <div style="float:center">
+                                        <span t-field="o.number_contract"/>
+                                        del
+                                        <span t-field="o.date_contract"/>
+                                        <br/>
+                                        <span t-field="o.course_type_id.name"/>
+                                        <br/>
+                                        <span t-field="o.student_id.phone"/>
+                                    </div>
+                                </td>
+                                <td width="50%">
+                                    <div style="float:left">
+                                        Allievo <![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                        <br/>
+                                        Lingua <![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                        <br/>
+                                        Recapito 2 <![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                    </div>
+                                    <div style="float:center">
+                                        <span style="font-weight:bold" t-field="o.student_id.name"/>
+                                        <br/>
+                                        <span t-field="o.language_id.name"/>
+                                        <br/>
+                                        <span t-field="o.student_id.mobile"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <div style="text-align:justify">
+                            <div style="font-weight:bold">
+                                Il/la Sig/ra
+                                <span t-field="o.partner_id.name"/>
+                                <span t-if="o.partner_id.birthplace">
+                                    nato/a a
+                                    <span t-field="o.partner_id.birthplace"/>
+                                    <span t-if="o.partner_id.birthdate">
+                                        in data
+                                        <!--<span t-esc="o.partner_id.birthdate" t-field-options='{"format": "dd/MM/y"}'/>-->
+                                        <span t-esc="datetime.datetime.strptime(o.partner_id.birthdate, '%Y-%m-%d').strftime('%d/%m/%Y')"/>
+                                    </span>
+                                    <![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                </span>
+                                <span t-if="o.partner_id.fiscalcode">
+                                    Codice Fiscale
+                                    <span t-field="o.partner_id.fiscalcode"/>
+                                </span>
+                                domiciliato in
+
+                                <span t-field="o.partner_id.street"/>
+                                <span t-field="o.partner_id.city"/>
+                                <span t-if="o.partner_id.state_id">
+                                    (<span t-field="o.partner_id.state_id.code"/>)
+                                </span>
+                                <![CDATA[ &nbsp;&nbsp;&nbsp;&nbsp;]]>
+                                <span t-if="o.partner_id.phone">
+                                    Telefono
+                                    <span t-field="o.partner_id.phone"/>
+                                </span>
+                                si impegna ad acquistare, nell'interesse di
+                                <span t-field="o.student_id.name"/>,
+
+                                un corso di
+                                <span t-field="o.language_id"/>
+                                per l'importo complessivo di
+                                <span t-field="o.total_value"/>
+                                (oltre IVA nella misura dovuta)
+
+                                di cui
+                                <span t-field="o.cost_entry"/>
+
+                                per quota di iscrizione, e accetta di pagare nel modo seguente:
+                                <!--<span t-field="o.cost_entry"/>-->
+                                <!--al momento dell'iscrizione,-->
+                                <span t-field="o.deposit"/>
+                                in acconto ad inizio corso e successive
+                                <span t-field="o.number_rate"/>
+                                rate a cadenza
+                                <span t-field="o.type_due.name"/>
+                                di
+                                <span t-field="o.rate_amount"/>.
+                            </div>
+                            <br/>
+                            <div>
+                                Si impegna altresì al rispetto del seguente regolamento:
+                                <br/>
+                                <br/>
+                                1. Nel presente contratto, per ragioni di praticità, INTERNATIONAL SCHOOL OF LANGUAGES S.R.L. viene indicato con il
+                                termine
+                                'Istituto', mentre il Sig./ra
+                                <span t-field="o.partner_id.name"/>
+                                viene indicato con termine 'acquirente'.
+                                <br/>
+                                2. L'intero corso consta di n.
+                                <span t-field="o.number_of_module"/>
+                                moduli didattici,
+                                ove l'acquirente ritenesse di abbandonare l'Istituto per qualsivoglia ragione, si
+                                obbliga a completare il pagamento residuo di tutto quanto dovuto in una unica soluzione, a fronte del quale
+                                l'Istituto
+                                rilascia regolare quietanza (unica prova dell'eventuale pagamento) su carta intestata dell'Istituto, e con
+                                precisazione
+                                della
+                                causale.
+                                <br/>
+                                3. Gli allievi sono tenuti al rispetto dell'orario fissato per le lezioni prestabilite dalla Direzione Didattica
+                                impegnandosi diligentemente nello studio si da non compromettere nè pregiudicare il proprio progresso nè quello
+                                degli altri allievi.
+                                <br/>
+                                4. L'Istituto si riserva ogni diritto sia in ordine all'avvicendamento di altri insegnanti per lo stesso corso che
+                                alla
+                                soppressione di una o di più classi o, ancora, alla distribuzione degli allievi in altri corsi il cui livello
+                                linguistico
+                                al momento sia il medesimo del corso soppresso.
+                                <br/>
+                                5. Ogni modulo didattico dura
+                                <span t-field="o.module_type_id.name"/>
+                                minuti.
+                                <br/>
+                                6. L'iscrizione impegna l'allievo al pagamento dell'intera somma convenuta.
+                                <br/>
+                                7. L'Istituto ha il diritto di espellere dal corso, senza rimborso alcuno, l'allievo e/o allievi che commettono o
+                                abbiano
+                                commesso atti indegni sia nella scuola che nella vita privata, senza che però gli stessi siano esonerati dagli
+                                obblichi
+                                assunti con l'istituto con la sottoscrizione del presente contratto.
+                                <br/>
+                                8. I danni di qualsivoglia natura arrecati a cose mobili e/o immobili di proprietà dell'Istituto dovranno essere
+                                risarciti
+                                immediatamente dagli autori responsabili.
+                                <br/>
+                                9. L'istituto non assume alcuna responsabilità per oggetti di cui l'allievo dovesse reclamare la scomparsa.
+                                <br/>
+                                10. Qualunque variazione del presente accordo deve essere fatta per iscritto, sottoscritto dall'acquirente su carta
+                                intestata dell'istituto e controfirmato dal legale rappresentante dello stesso.
+                                <br/>
+                                11. Per corsi individuali flessibili (F.F.P.) le lezioni possono essere rinviate purchè se ne dia avviso dall'istituto
+                                entro e non oltre le 17.00 del giorno precedente.
+                                <br/>
+                                12. Il ritardo di venti minuti comporta per l'allievo la perdita del resto della lezione.
+                                <br/>
+                                13. In caso di controversie il foro competente è quello della sede legale dell'Istituto.
+                                <br/>
+                                14. L'I.V.A. da applicare è quella dovuta per legge.
+                                <br/>
+                                <br/>
+                                <i>
+                                    Ai sensi dell’art. 7 del Regolamento Europeo 2016/679, si acconsente al trattamento dei propri dati personali per le seguenti
+                                    finalità: iscrizione al corso ed a tutte le attività connesse all’erogazione del corso. L’interessato dichiara di essere a conoscenza che
+                                    il consenso può essere revocato in qualsiasi momento ma che la revoca del consenso non pregiudica la liceità del trattamento
+                                    basata sul consenso prima della revoca. L’interessato dichiara inoltre di prestare il consenso dopo aver ricevuto e letto l’informativa
+                                    per il trattamento dei dati personali ai sensi dell’art. 13 del Regolamento Europeo 2016/679.
+                                </i>
+                                <br></br>
+                                <br></br>
+                                <div style="float:right">
+                                    ___________________________________
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+
+                            <br/>
+                            <div style="font-weight:bold">
+                                <div style="float:left">Firma ................................</div>
+                                <div style="float:left;margin-left:250px">Per L'Istituto ............................</div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div>
+                                Si accettano espressamente le clausole: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14.
+                                <br/>
+                                <br/>
+                                <b>Firma ................................</b>
+                            </div>
+
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+
+    <record id="inlingua.action_report_private_contract" model="ir.actions.report.xml">
+        <field name="paperformat_id" ref="paperformat_private_contract"/>
+    </record>
+</odoo>

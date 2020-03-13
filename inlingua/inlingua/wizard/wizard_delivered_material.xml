@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="delivered_material_view_wizard" model="ir.ui.view">
+            <field name="name">material.delivered.view.wizard.form</field>
+            <field name="model">material.delivered.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Delivered Material">
+                    <group>
+                        <group>
+                            <field name="company_private"/>
+                            <field name="material_delivered"/>
+                            <field name="course_id" invisible="True"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button class="oe_highlight" type="object" string="Print Delivered Material" name="print_model_material_delivered"/>
+                        <button class="oe_highlight" special="cancel" string="Chiudi"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

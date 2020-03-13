@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- WIZARD STAMPA INCASSI CONTRATTI: start -->
+        <record id="print_contract_view_wizard" model="ir.ui.view">
+            <field name="name">print.contract.wizard.form</field>
+            <field name="model">print.contract.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Print Contract">
+                    <group>
+                        <field name="date_from" string="data stipula contratto da" />
+                        <field name="date_to" string="data stipula contratto a" />
+                        <field name="print_to_cash" string="Solo contratti con residuo da incassare"/>
+                    </group>
+                    <footer>
+                        <button class="oe_highlight" type="object" string="Print" name="button_export_pdf"/>
+                        <button class="oe_highlight" special="cancel" string="Chiudi"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <!-- WIZARD STAMPA INCASSI CONTRATTI: end -->
+    </data>
+</odoo>

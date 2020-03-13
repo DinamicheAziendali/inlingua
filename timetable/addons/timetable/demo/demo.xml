@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record model="timetable.allocation" id="allocation0">
+            <field name="start_time">2018-01-01</field>
+            <field name="end_time">2018-01-06</field>
+        </record>
+        <record model="timetable.allocation" id="allocation1">
+            <field name="start_time">2018-01-07</field>
+            <field name="end_time">2018-01-09</field>
+        </record>
+        <record model="timetable.allocation" id="allocation2">
+            <field name="start_time">2018-01-03</field>
+            <field name="end_time">2018-01-04</field>
+        </record>
+        <record model="timetable.allocation" id="allocation3">
+            <field name="start_time">2018-01-05</field>
+            <field name="end_time">2018-01-10</field>
+        </record>
+    </data>
+</odoo>

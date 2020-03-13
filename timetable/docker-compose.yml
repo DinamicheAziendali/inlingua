@@ -1,0 +1,31 @@
+version: '3'
+services:
+  odoo:
+    image: odoo:10
+    depends_on:
+      - db
+      - postfix
+    ports:
+      - "10000:8069"
+    tty: true
+    volumes:
+      - /opt/apps/inlingua-odoo/data:/var/lib/odoo
+      - /opt/apps/inlingua-odoo/addons:/mnt/extra-addons
+      - /opt/apps/inlingua-odoo/conf:/etc/odoo
+  db:
+    image: postgres:9.4
+    environment:
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_USER: odoo
+    ports:
+      - "10001:5432"
+    volumes:
+      - /opt/apps/inlingua-odoo/db:/var/lib/postgresql/data
+
+  postfix:
+      image: catatnight/postfix
+      environment:
+        maildomain: odoo.obuclabs.it
+        smtp_user:  odoousr:odoousr
+      ports:
+        - "10012:25"

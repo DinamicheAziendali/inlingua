@@ -1,0 +1,3239 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* inlingua
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-13 16:48+0000\n"
+"PO-Revision-Date: 2019-03-13 16:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+msgstr "&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+
+#. module: inlingua
+#. openerp-web
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:8
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:9
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:10
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:11
+#: code:addons/inlingua/static/src/xml/timetable.xml:8
+#: code:addons/inlingua/static/src/xml/timetable.xml:9
+#: code:addons/inlingua/static/src/xml/timetable.xml:10
+#: code:addons/inlingua/static/src/xml/timetable.xml:11
+#, python-format
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "(edit)"
+msgstr "(modifica)"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "(oltre IVA nella misura dovuta)\n"
+"\n"
+"                                di cui"
+msgstr "(oltre IVA nella misura dovuta)\n"
+"\n"
+"                                di cui"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid ",\n"
+"\n"
+"                                un corso di"
+msgstr ",\n"
+"\n"
+"                                un corso di"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "- che International School of Languages s.r.l. per"
+msgstr "- che International School of Languages s.r.l. per"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "1. Il committente, ai sensi del comma 2 dell’art. 61 del dlgs n. 276/2003 in applicazione della legge 30/2003,\n"
+"                                        conferisce incarico , il collaboratore dott."
+msgstr "1. Il committente, ai sensi del comma 2 dell’art. 61 del dlgs n. 276/2003 in applicazione della legge 30/2003,\n"
+"                                        conferisce incarico , il collaboratore dott."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "2. Il Collaboratore si impegna a prestare la propria attività in forma di collaborazione occasionale, senza\n"
+"                                        alcun vincolo di subordinazione, secondo le modalità e le richieste che saranno lui avanzate dagli organi\n"
+"                                        direttivi della società, nei limiti e con le modalità del presente contratto."
+msgstr "2. Il Collaboratore si impegna a prestare la propria attività in forma di collaborazione occasionale, senza\n"
+"                                        alcun vincolo di subordinazione, secondo le modalità e le richieste che saranno lui avanzate dagli organi\n"
+"                                        direttivi della società, nei limiti e con le modalità del presente contratto."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "3. In caso di eventi quali la malattia, l’infortunio o la maternità, che impediscano lo svolgimento della\n"
+"                                        prestazione concordata, si provvederà alla sostituzione del Collaboratore."
+msgstr "3. In caso di eventi quali la malattia, l’infortunio o la maternità, che impediscano lo svolgimento della\n"
+"                                        prestazione concordata, si provvederà alla sostituzione del Collaboratore."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "4. Il corrispettivo della prestazione viene stabilito in"
+msgstr "4. Il corrispettivo della prestazione viene stabilito in"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "5. Il recesso dal presente contratto da parte di una delle parti deve essere comunicato con preavviso di\n"
+"                                        almeno"
+msgstr "5. Il recesso dal presente contratto da parte di una delle parti deve essere comunicato con preavviso di\n"
+"                                        almeno"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "6. Eventuali controversie tra le parti sono da discutere dinanzi al Foro di Napoli."
+msgstr "6. Eventuali controversie tra le parti sono da discutere dinanzi al Foro di Napoli."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "7. Per tutto quanto non previsto nel presente contratto si intendono qui riportate le norme vigenti in materia\n"
+"                                        purché non in contrasto con quanto qui previsto."
+msgstr "7. Per tutto quanto non previsto nel presente contratto si intendono qui riportate le norme vigenti in materia\n"
+"                                        purché non in contrasto con quanto qui previsto."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "8. Tutte le clausole del presente atto sono da intendersi essenziali e inderogabili, talché l’inosservanza di\n"
+"                                        anche una sola di esse produrrà ipso iure la risoluzione del contratto, con obbligo del risarcimento dei danni\n"
+"                                        a carico della parte che si sarà resa inadempiente."
+msgstr "8. Tutte le clausole del presente atto sono da intendersi essenziali e inderogabili, talché l’inosservanza di\n"
+"                                        anche una sola di esse produrrà ipso iure la risoluzione del contratto, con obbligo del risarcimento dei danni\n"
+"                                        a carico della parte che si sarà resa inadempiente."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "9. Validità della collaborazione: dal"
+msgstr "9. Validità della collaborazione: dal"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<b>Art. 6</b>\n"
+"                                        Viene ribadito che il presente rapporto deve concretarsi in una prestazione d’opera continuativa e coordinata\n"
+"                                        a tempo determinato, prevalentemente personale, senza alcun assoggettamento al potere gerarchico disciplinare\n"
+"                                        del Committente, con il quale il Commissionario dovrà semplicemente coordinare l’attività professionale\n"
+"                                        nell’ambito della propria specializzazione, senza alcun vincolo di subordinazione e di dipendenza. Il\n"
+"                                        Commissionario dichiara, inoltre, di non avanzare alcuna richiesta, anche futura, circa la corresponsione\n"
+"                                        della indennità per cessazione di rapporti di collaborazione coordinata e continuativa, essendo tale incarico\n"
+"                                        a termine e risolvibile dalle parti ipso jure."
+msgstr "<b>Art. 6</b>\n"
+"                                        Viene ribadito che il presente rapporto deve concretarsi in una prestazione d’opera continuativa e coordinata\n"
+"                                        a tempo determinato, prevalentemente personale, senza alcun assoggettamento al potere gerarchico disciplinare\n"
+"                                        del Committente, con il quale il Commissionario dovrà semplicemente coordinare l’attività professionale\n"
+"                                        nell’ambito della propria specializzazione, senza alcun vincolo di subordinazione e di dipendenza. Il\n"
+"                                        Commissionario dichiara, inoltre, di non avanzare alcuna richiesta, anche futura, circa la corresponsione\n"
+"                                        della indennità per cessazione di rapporti di collaborazione coordinata e continuativa, essendo tale incarico\n"
+"                                        a termine e risolvibile dalle parti ipso jure."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            Il Commissionario dichiara, ai sensi e per gli effetti degli artt.1341 e 1342 del c.c., di accettare e di\n"
+"                                            approvare specificatamente ed espressamente, previa lettura, tutti gli articoli dal n.1 al n. 15."
+msgstr "<br/>\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            Il Commissionario dichiara, ai sensi e per gli effetti degli artt.1341 e 1342 del c.c., di accettare e di\n"
+"                                            approvare specificatamente ed espressamente, previa lettura, tutti gli articoli dal n.1 al n. 15."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                            Il commissionario\n"
+"                                            <br/>\n"
+"                                            Per accettazione dell'incarico\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            _____________________________"
+msgstr "<br/>\n"
+"                                            Il commissionario\n"
+"                                            <br/>\n"
+"                                            Per accettazione dell'incarico\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            _____________________________"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        - che la il/la Dott/Dott.ssa"
+msgstr "<br/>\n"
+"                                        - che la il/la Dott/Dott.ssa"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 10</b>\n"
+"                                        In riferimento a quanto disposto con D. Lgs. 30/06/03 N. 196, si precisa che per quanto riguarda il\n"
+"                                        trattamento dei dati personali esposti nel presente contratto, il Committente è espressamente esonerato\n"
+"                                        dall’obbligo di notificazione al Garante in quanto il trattamento stesso di tali dati è finalizzato unicamente\n"
+"                                        all’adempimento di specifici obblighi contabili, previdenziali, assistenziali e fiscali, nonché necessario per\n"
+"                                        le funzioni istituzionali dell’Ente. Ad ogni modo, in ottemperanza a quanto disposto dalla citata legge, il\n"
+"                                        Commissionario dichiara di avere preso visione dell’informativa di cui all’art. 10 e ne ha dato consenso\n"
+"                                        scritto al trattamento dei propri dati personali ai sensi dell’art. 11 del D.Lgs 30/06/03 N. 196 con documento\n"
+"                                        a parte."
+msgstr "<br/>\n"
+"                                        <b>Art. 10</b>\n"
+"                                        In riferimento a quanto disposto con D. Lgs. 30/06/03 N. 196, si precisa che per quanto riguarda il\n"
+"                                        trattamento dei dati personali esposti nel presente contratto, il Committente è espressamente esonerato\n"
+"                                        dall’obbligo di notificazione al Garante in quanto il trattamento stesso di tali dati è finalizzato unicamente\n"
+"                                        all’adempimento di specifici obblighi contabili, previdenziali, assistenziali e fiscali, nonché necessario per\n"
+"                                        le funzioni istituzionali dell’Ente. Ad ogni modo, in ottemperanza a quanto disposto dalla citata legge, il\n"
+"                                        Commissionario dichiara di avere preso visione dell’informativa di cui all’art. 10 e ne ha dato consenso\n"
+"                                        scritto al trattamento dei propri dati personali ai sensi dell’art. 11 del D.Lgs 30/06/03 N. 196 con documento\n"
+"                                        a parte."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 11</b>\n"
+"                                        Le parti dichiarano che in caso di controversia sarà competente il foro di Napoli."
+msgstr "<br/>\n"
+"                                        <b>Art. 11</b>\n"
+"                                        Le parti dichiarano che in caso di controversia sarà competente il foro di Napoli."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 12</b>\n"
+"                                        Copia del presente incarico dovrà essere controfirmata per accettazione e ritornata al Committente."
+msgstr "<br/>\n"
+"                                        <b>Art. 12</b>\n"
+"                                        Copia del presente incarico dovrà essere controfirmata per accettazione e ritornata al Committente."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 13</b>\n"
+"                                        Il presente contratto è soggetto a registrazione solo in caso d’uso."
+msgstr "<br/>\n"
+"                                        <b>Art. 13</b>\n"
+"                                        Il presente contratto è soggetto a registrazione solo in caso d’uso."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 1</b>\n"
+"                                        Le premesse sono parte integrante della presente scrittura."
+msgstr "<br/>\n"
+"                                        <b>Art. 1</b>\n"
+"                                        Le premesse sono parte integrante della presente scrittura."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 2</b>\n"
+"                                        L’incarico di Docente, che viene regolato dagli art. 2222 e seguenti e 2230 e seguenti del Codice Civile, avrà\n"
+"                                        le seguenti caratteristiche:"
+msgstr "<br/>\n"
+"                                        <b>Art. 2</b>\n"
+"                                        L’incarico di Docente, che viene regolato dagli art. 2222 e seguenti e 2230 e seguenti del Codice Civile, avrà\n"
+"                                        le seguenti caratteristiche:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 3</b>\n"
+"                                        Al termine dell’incarico il Commissionario consegnerà un report sull’attività svolta."
+msgstr "<br/>\n"
+"                                        <b>Art. 3</b>\n"
+"                                        Al termine dell’incarico il Commissionario consegnerà un report sull’attività svolta."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 4</b>\n"
+"                                        Il commissionario è obbligato a partecipare agli incontri di coordinamento amministrativo e, se richiesto dal\n"
+"                                        Committente."
+msgstr "<br/>\n"
+"                                        <b>Art. 4</b>\n"
+"                                        Il commissionario è obbligato a partecipare agli incontri di coordinamento amministrativo e, se richiesto dal\n"
+"                                        Committente."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 5</b>\n"
+"                                        Si dà atto che l’oggetto di questo contratto sarà disciplinato dalle norme del Codice Civile già citate e,\n"
+"                                        fiscalmente, dalle norme di cui all’art. 49 del D.P.R. 22/12/86 N. 917, per le imposte dirette, dall’art. 5\n"
+"                                        del D.P.R. 26/10/72 N. 633, per l’I.V.A., e dall’art. 2 legge n. 335/1995 per la parte contributiva, e\n"
+"                                        dall’art. 5 del D. Lgs. 23/02/2000 N. 38 per la parte assicurativa. Di conseguenza il compenso orario previsto\n"
+"                                        e determinato di comune accordo tra le parti all’art. 2 del presente incarico è da ritenersi:\n"
+"                                        <br/>\n"
+"                                        al lordo dell’eventuale IVA prevista per Legge, qualora il Commissionario è tenuto all’emissione della\n"
+"                                        fattura; e al lordo della cassa previdenziale e della ritenuta d’acconto prevista per legge;\n"
+"                                        <br/>\n"
+"                                        A tal fine il Commissionario, nel confermare la propria posizione fiscale e contributiva dichiarata nel\n"
+"                                        prospetto in premessa, si rende responsabile di ogni mancata formale comunicazione di variazione di tali dati,\n"
+"                                        determinando di conseguenza applicabili ed identificativi della propria posizione esclusivamente quelli qui\n"
+"                                        esposti.\n"
+"                                        <br/>\n"
+"                                        Le parti dichiarano inoltre di non essere iscritte alle organizzazioni stipulanti l’accordo collettivo\n"
+"                                        nazionale per Collaborazioni Coordinate e Continuative dell’8/04/1998 (Cnai, Ucict, Unapi, Anilf, Anti, Cisal,\n"
+"                                        Sape), e pertanto restano esclusi dall’applicazione di tale regolamentazione.\n"
+"                                        <br/>\n"
+"                                        <br/>"
+msgstr "<br/>\n"
+"                                        <b>Art. 5</b>\n"
+"                                        Si dà atto che l’oggetto di questo contratto sarà disciplinato dalle norme del Codice Civile già citate e,\n"
+"                                        fiscalmente, dalle norme di cui all’art. 49 del D.P.R. 22/12/86 N. 917, per le imposte dirette, dall’art. 5\n"
+"                                        del D.P.R. 26/10/72 N. 633, per l’I.V.A., e dall’art. 2 legge n. 335/1995 per la parte contributiva, e\n"
+"                                        dall’art. 5 del D. Lgs. 23/02/2000 N. 38 per la parte assicurativa. Di conseguenza il compenso orario previsto\n"
+"                                        e determinato di comune accordo tra le parti all’art. 2 del presente incarico è da ritenersi:\n"
+"                                        <br/>\n"
+"                                        al lordo dell’eventuale IVA prevista per Legge, qualora il Commissionario è tenuto all’emissione della\n"
+"                                        fattura; e al lordo della cassa previdenziale e della ritenuta d’acconto prevista per legge;\n"
+"                                        <br/>\n"
+"                                        A tal fine il Commissionario, nel confermare la propria posizione fiscale e contributiva dichiarata nel\n"
+"                                        prospetto in premessa, si rende responsabile di ogni mancata formale comunicazione di variazione di tali dati,\n"
+"                                        determinando di conseguenza applicabili ed identificativi della propria posizione esclusivamente quelli qui\n"
+"                                        esposti.\n"
+"                                        <br/>\n"
+"                                        Le parti dichiarano inoltre di non essere iscritte alle organizzazioni stipulanti l’accordo collettivo\n"
+"                                        nazionale per Collaborazioni Coordinate e Continuative dell’8/04/1998 (Cnai, Ucict, Unapi, Anilf, Anti, Cisal,\n"
+"                                        Sape), e pertanto restano esclusi dall’applicazione di tale regolamentazione.\n"
+"                                        <br/>\n"
+"                                        <br/>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 7</b>\n"
+"                                        Il pagamento della prestazione sarà effettuato su base mensile, previa emissione di regolare fattura,\n"
+"                                        intestata a International School of Languages s.r.l., - Via Domenico Cimarosa, 66 - Napoli partita I.V.A.\n"
+"                                        04450490638. La fattura dovrà fare riferimento al presente incarico."
+msgstr "<br/>\n"
+"                                        <b>Art. 7</b>\n"
+"                                        Il pagamento della prestazione sarà effettuato su base mensile, previa emissione di regolare fattura,\n"
+"                                        intestata a International School of Languages s.r.l., - Via Domenico Cimarosa, 66 - Napoli partita I.V.A.\n"
+"                                        04450490638. La fattura dovrà fare riferimento al presente incarico."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 8</b>\n"
+"                                        La validità del presente contratto di collaborazione e la erogazione dei pagamenti sono vincolati alla\n"
+"                                        presentazione da parte della Docente dei sottoelencati certificati richiesti espressamente dalla normativa\n"
+"                                        regionale e/o ministeriale:\n"
+"                                        <br/>\n"
+"\n"
+"                                        dichiarazione sostitutiva di certificazioni (resa ai sensi della L. n. 15/68 – L. n. 127/97 – L. n. 191/98 –\n"
+"                                        DPR n. 403/98) in cui si dichiari il proprio titolo di studio, di non avere carichi pendenti, né procedimenti\n"
+"                                        giudiziari in corso, presso le Preture e le Procure della Repubblica, di essere di sana costituzione fisica,\n"
+"                                        di essere o meno dipendente di una pubblica amministrazione (nel caso affermativo occorre dichiarare\n"
+"                                        l’Amministrazione dalla quale si dipende, l’indicazione dell’Ufficio che provvede alla liquidazione dello\n"
+"                                        stipendio, la qualifica di inquadramento, nonché farsi rilasciare dalla propria Amministrazione la prescritta\n"
+"                                        autorizzazione a svolgere l’attività oggetto del presente incarico)."
+msgstr "<br/>\n"
+"                                        <b>Art. 8</b>\n"
+"                                        La validità del presente contratto di collaborazione e la erogazione dei pagamenti sono vincolati alla\n"
+"                                        presentazione da parte della Docente dei sottoelencati certificati richiesti espressamente dalla normativa\n"
+"                                        regionale e/o ministeriale:\n"
+"                                        <br/>\n"
+"\n"
+"                                        dichiarazione sostitutiva di certificazioni (resa ai sensi della L. n. 15/68 – L. n. 127/97 – L. n. 191/98 –\n"
+"                                        DPR n. 403/98) in cui si dichiari il proprio titolo di studio, di non avere carichi pendenti, né procedimenti\n"
+"                                        giudiziari in corso, presso le Preture e le Procure della Repubblica, di essere di sana costituzione fisica,\n"
+"                                        di essere o meno dipendente di una pubblica amministrazione (nel caso affermativo occorre dichiarare\n"
+"                                        l’Amministrazione dalla quale si dipende, l’indicazione dell’Ufficio che provvede alla liquidazione dello\n"
+"                                        stipendio, la qualifica di inquadramento, nonché farsi rilasciare dalla propria Amministrazione la prescritta\n"
+"                                        autorizzazione a svolgere l’attività oggetto del presente incarico)."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        <b>Art. 9</b>\n"
+"                                        Si stabilisce che tale incarico potrà essere risolto ipso jure da ciascuna delle parti, previo formale\n"
+"                                        comunicazione entro 30 giorni."
+msgstr "<br/>\n"
+"                                        <b>Art. 9</b>\n"
+"                                        Si stabilisce che tale incarico potrà essere risolto ipso jure da ciascuna delle parti, previo formale\n"
+"                                        comunicazione entro 30 giorni."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<br/>\n"
+"                                        Napoli, lì"
+msgstr "<br/>\n"
+"                                        Napoli, lì"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer
+msgid "<br/>\n"
+"                        Email:"
+msgstr "<br/>\n"
+"                        Email:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer
+msgid "<br/>\n"
+"                        Fax:"
+msgstr "<br/>\n"
+"                        Fax:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer
+msgid "<br/>\n"
+"                        P.I.:"
+msgstr "<br/>\n"
+"                        P.I.:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer
+msgid "<br/>\n"
+"                        R.E.A.: 359671"
+msgstr "<br/>\n"
+"                        R.E.A.: 359671"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "<span style=\"font-weight:bold\">Quota c.so</span>"
+msgstr "<span style=\"font-weight:bold\">Quota c.so</span>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<span>\n"
+"                                            CONTRATTO DI COLLABORAZIONE PROFESSIONALE\n"
+"                                        </span>\n"
+"                                        <br/>\n"
+"                                        <br/>\n"
+"                                        TRA"
+msgstr "<span>\n"
+"                                            CONTRATTO DI COLLABORAZIONE PROFESSIONALE\n"
+"                                        </span>\n"
+"                                        <br/>\n"
+"                                        <br/>\n"
+"                                        TRA"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "<span>\n"
+"                                            INCARICO DI COLLABORAZIONE PROFESSIONALE\n"
+"                                        </span>\n"
+"                                        <br/>\n"
+"                                        <br/>\n"
+"                                        Premesso"
+msgstr "<span>\n"
+"                                            INCARICO DI COLLABORAZIONE PROFESSIONALE\n"
+"                                        </span>\n"
+"                                        <br/>\n"
+"                                        <br/>\n"
+"                                        Premesso"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "<span>Duration:</span>\n"
+"\n"
+"                                            <span>Non Available</span>"
+msgstr "<span>Durata:</span>\n"
+"\n"
+"                                        <span>Non Disponibile</span>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "<span>Pagina</span>\n"
+"                            <span class=\"page\"/>\n"
+"                            di\n"
+"                            <span class=\"topage\"/>"
+msgstr "<span>Pagina</span>\n"
+"                            <span class=\"page\"/>\n"
+"                            di\n"
+"                            <span class=\"topage\"/>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer
+msgid "<span>Pagina</span>\n"
+"                        <span class=\"page\"/>\n"
+"                        di\n"
+"                        <span class=\"topage\"/>"
+msgstr "<span>Pagina</span>\n"
+"                        <span class=\"page\"/>\n"
+"                        di\n"
+"                        <span class=\"topage\"/>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "<strong>\n"
+"                                                Signature\n"
+"                                            </strong>"
+msgstr "<strong>\n"
+"                                                Firma\n"
+"                                            </strong>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "<strong>Ctr/Ord</strong>"
+msgstr "<strong>Ctr/Ord</strong>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "<strong>Date</strong>"
+msgstr "<strong>Data</strong>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "<strong>Delivered Material</strong>"
+msgstr "<strong>Materiale Consegnato</strong>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "<strong>Name</strong>"
+msgstr "<strong>Nominativo</strong>"
+
+#. module: inlingua
+#. openerp-web
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:12
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:13
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:14
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:15
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:17
+#: code:addons/inlingua/inlingua/static/src/xml/timetable.xml:18
+#: code:addons/inlingua/static/src/xml/timetable.xml:12
+#: code:addons/inlingua/static/src/xml/timetable.xml:13
+#: code:addons/inlingua/static/src/xml/timetable.xml:14
+#: code:addons/inlingua/static/src/xml/timetable.xml:15
+#: code:addons/inlingua/static/src/xml/timetable.xml:17
+#: code:addons/inlingua/static/src/xml/timetable.xml:18
+#, python-format
+msgid ">&nbsp;"
+msgstr ">&nbsp;"
+
+#. module: inlingua
+#: model:res.groups,name:inlingua.group_account_rate
+msgid "Account Rate"
+msgstr "Account Rate"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_student_active
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_active
+msgid "Active"
+msgstr "Attivo"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.add_rate_view_wizard
+msgid "Add"
+msgstr "Aggiunti"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.add_rate_view_wizard
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Add Cash Out"
+msgstr "Incasso"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Address"
+msgstr "Indirizzo"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Allievo  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n"
+"                                        <br/>\n"
+"                                        Lingua  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n"
+"                                        <br/>\n"
+"                                        Recapito 2  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+msgstr "Allievo  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n"
+"                                        <br/>\n"
+"                                        Lingua  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n"
+"                                        <br/>\n"
+"                                        Recapito 2  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.project_search_view_inherit
+msgid "Aperti e Futuri"
+msgstr "Aperti e Futuri"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.view_inlingua_config_settings
+msgid "Apply"
+msgstr "Salva"
+
+#. module: inlingua
+#: model:ir.actions.report.xml,name:inlingua.report_corse
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Attendance Register"
+msgstr "Registro Presenze"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Attendance Register - collective course"
+msgstr "Registro Presenze - corso collettivo"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_balance_value
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_balance_value
+msgid "Balance Value "
+msgstr "Saldo"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_res_partner_birthplace
+#: model:ir.model.fields,field_description:inlingua.field_res_users_birthplace
+msgid "BirthPlace"
+msgstr "Nato a"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.view_inlingua_config_settings
+msgid "Cancel"
+msgstr "Annulla"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Cassa previdenza:"
+msgstr "Cassa previdenza:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "Centro Dir. isola G7 | 80143 - Napoli"
+msgstr "Centro Dir. isola G7 | 80143 - Napoli"
+
+#. module: inlingua
+#: model:ir.model.fields,help:inlingua.field_account_invoice_is_company
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr "Spunta se il contatto è un'azienda, altrimenti è una persona"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.add_rate_view_wizard
+#: model:ir.ui.view,arch_db:inlingua.delivered_material_view_wizard
+msgid "Chiudi"
+msgstr "Chiudi"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_city
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "City"
+msgstr "Città"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_class_language
+msgid "Class Language"
+msgstr "Class Language"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_class_programm
+msgid "Class Programm"
+msgstr "Class Programm"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_class_type
+msgid "Class Type"
+msgstr "Class Type"
+
+#. module: inlingua
+#: model:ir.actions.act_window,help:inlingua.project_task_hr_timesheet_timetable_window
+msgid "Click to create lesson"
+msgstr "Clicca per creare lezione"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_partner_id
+msgid "Client"
+msgstr "Cliente"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Code:"
+msgstr "Codice:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Codice Fiscale"
+msgstr "Codice Fiscale"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Codice fiscale:"
+msgstr "Codice fiscale:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Cognome e nome:"
+msgstr "Cognome e nome:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_search_view
+#: selection:private.contract,state:0
+msgid "Combined"
+msgstr "Abbinato"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_company_id
+#: model:ir.ui.view,arch_db:inlingua.account_invoice_search_view_inherit
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Company"
+msgstr "Azienda"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_contract_company
+#: model:ir.ui.menu,name:inlingua.contract_company
+msgid "Company Contract"
+msgstr "Contratti Aziendali"
+
+#. module: inlingua
+#: selection:private.contract,type_contract:0
+msgid "Company with order"
+msgstr "Aziendale con ordine"
+
+#. module: inlingua
+#: selection:private.contract,type_contract:0
+msgid "Company without order"
+msgstr "Aziendale senza ordine"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_company_private
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "Company/Private:"
+msgstr "Azienda/Privato:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.project_form_view_inherit
+msgid "Composition"
+msgstr "Composizione"
+
+#. module: inlingua
+#: model:ir.actions.report.xml,name:inlingua.custom_report_purchase_order
+msgid "Conferimento Incarico"
+msgstr "Conferimento Incarico"
+
+#. module: inlingua
+#: selection:purchase.order,type_order:0
+msgid "Conferimento di incarico"
+msgstr "Conferimento di incarico"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_inlingua_config_settings
+#: model:ir.ui.view,arch_db:inlingua.view_inlingua_config_settings
+msgid "Configure inlingua"
+msgstr "Configure inlingua"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Contact / Address"
+msgstr "Contatti / Indirizzi"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Contact Name"
+msgstr "Nome Contatto"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Contacts & Addresses"
+msgstr "Contatti & Indirizzi"
+
+#. module: inlingua
+#: model:ir.model.fields,help:inlingua.field_inlingua_config_settings_contract_account_income
+msgid "Conto contabile economico per fatture da contratti."
+msgstr "Conto contabile economico per fatture da contratti."
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_contract_account_income
+msgid "Conto vendite contratti"
+msgstr "Conto vendite contratti"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_contract
+#: model:ir.model.fields,field_description:inlingua.field_account_invoice_private_contract_id
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_contract_id
+#: model:ir.ui.menu,name:inlingua.contract
+#: model:ir.ui.menu,name:inlingua.contract_main
+#: model:ir.ui.menu,name:inlingua.contract_root
+#: model:ir.ui.view,arch_db:inlingua.payment_term_line_search_view
+msgid "Contract"
+msgstr "Contratti"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Contract Management"
+msgstr "Gestione Contratto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_date_contract
+msgid "Contract date"
+msgstr "Data Contratto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_contract_id
+msgid "Contract id"
+msgstr "Contratto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_contract_ids
+msgid "Contract ids"
+msgstr "Contratti"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_contractor_id
+#: model:ir.model.fields,field_description:inlingua.field_res_partner_contractor
+#: model:ir.model.fields,field_description:inlingua.field_res_users_contractor
+msgid "Contractor"
+msgstr "Terzista"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.act_res_partner_2_private_contract
+#: model:ir.model.fields,field_description:inlingua.field_sale_order_contract_ids
+#: model:ir.ui.view,arch_db:inlingua.project_form_view_inherit
+#: model:ir.ui.view,arch_db:inlingua.res_partner_form_view_inherit
+#: model:ir.ui.view,arch_db:inlingua.sale_order_form_view_inherit
+msgid "Contracts"
+msgstr "Contratti"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Contratto\n"
+"                                        <br/>\n"
+"                                        Tipo Corso  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n"
+"                                        <br/>\n"
+"                                        Recapito 1  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+msgstr "Contratto\n"
+"                                        <br/>\n"
+"                                        Tipo Corso  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;\n"
+"                                        <br/>\n"
+"                                        Recapito 1  &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;"
+
+#. module: inlingua
+#: selection:purchase.order,type_order:0
+msgid "Contratto di Collaborazione Professionale"
+msgstr "Contratto di Collaborazione Professionale"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Cooord. Bancarie:\n"
+"                                                <br/>"
+msgstr "Cooord. Bancarie:\n"
+"                                                <br/>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "Copia"
+msgstr "Copia"
+
+#. module: inlingua
+#: model:ir.model.fields,help:inlingua.field_private_contract_cost_entry
+msgid "Cost of entry "
+msgstr "Costo Iscrizione"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Costo orario"
+msgstr "Costo orario"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Country"
+msgstr "Nazione"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_course_id
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_project_course_id
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+#: model:ir.ui.view,arch_db:inlingua.project_form_view_inherit
+msgid "Course"
+msgstr "Corso"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_language_id
+#: model:ir.model.fields,field_description:inlingua.field_project_project_language_id
+#: model:ir.model.fields,field_description:inlingua.field_project_task_language_course_id
+msgid "Course Language"
+msgstr "Lingua Corso"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_course_type_id
+#: model:ir.model.fields,field_description:inlingua.field_project_project_course_type_id
+#: model:ir.model.fields,field_description:inlingua.field_project_task_course_type_id
+msgid "Course Type"
+msgstr "Tipo"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "Course:"
+msgstr "Corso:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Create Partially Invoice"
+msgstr "Crea Fattura Parziale"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Create Total Invoice"
+msgstr "Crea Fattura Totale"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Create company"
+msgstr "Crea Azienda"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_class_language_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_class_programm_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_class_type_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_language_professor_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_language_student_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_module_type_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_office_office_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_partner_professional_title_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_project_student_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_student_level_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_type_due_create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_create_date
+#: model:ir.model.fields,field_description:inlingua.field_class_language_create_date
+#: model:ir.model.fields,field_description:inlingua.field_class_programm_create_date
+#: model:ir.model.fields,field_description:inlingua.field_class_type_create_date
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_create_date
+#: model:ir.model.fields,field_description:inlingua.field_language_professor_create_date
+#: model:ir.model.fields,field_description:inlingua.field_language_student_create_date
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_create_date
+#: model:ir.model.fields,field_description:inlingua.field_module_type_create_date
+#: model:ir.model.fields,field_description:inlingua.field_office_office_create_date
+#: model:ir.model.fields,field_description:inlingua.field_partner_professional_title_create_date
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_create_date
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_create_date
+#: model:ir.model.fields,field_description:inlingua.field_project_student_create_date
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_create_date
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_create_date
+#: model:ir.model.fields,field_description:inlingua.field_student_level_create_date
+#: model:ir.model.fields,field_description:inlingua.field_type_due_create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_currency_id
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_currency_id
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_currency_id
+msgid "Currency"
+msgstr "Valuta"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_language_student_current_level
+msgid "Current Level"
+msgstr "Livello Attuale"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_partner_id
+#: model:ir.ui.view,arch_db:inlingua.payment_term_line_search_view
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_partner_birthplace
+msgid "Customer BirthPlace"
+msgstr "Luogo Nascita Cliente"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_partner_birthdate
+msgid "Customer Birthdate"
+msgstr "Data Nascita Cliente"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_partner_fiscalcode
+msgid "Customer FiscalCode"
+msgstr "Codice Fiscale Cliente"
+
+#. module: inlingua
+#: model:ir.ui.menu,name:inlingua.menu_customer
+msgid "Customers"
+msgstr "Clienti"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer
+msgid "DIREZIONE PEDAGOGICA:\n"
+"                        <br/>\n"
+"                        Société Internationale des Ecoles inlingua,\n"
+"                        <br/>\n"
+"                        BERNA (SVIZZERA)"
+msgstr "DIREZIONE PEDAGOGICA:\n"
+"                        <br/>\n"
+"                        Société Internationale des Ecoles inlingua,\n"
+"                        <br/>\n"
+"                        BERNA (SVIZZERA)"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Dal"
+msgstr "Dal"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Data of Contract"
+msgstr "Dati del Contratto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_date
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_date
+#: model:ir.ui.view,arch_db:inlingua.payment_term_line_search_view
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Date"
+msgstr "Data"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_purchase_order_line_date_end
+msgid "Date End"
+msgstr "Data Fine"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_purchase_order_notice_day
+msgid "Day Notice"
+msgstr "Preavviso per Recesso"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.sale_order_form_view_inherit
+msgid "Decrease General Agreement"
+msgstr "Diminuisci Saldo Accordo Generale"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.delivered_material_view_wizard
+msgid "Delivered Material"
+msgstr "Materiale Consegnato"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_deposit
+msgid "Deposit"
+msgstr "Acconto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_description
+msgid "Description"
+msgstr "Descrizione"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Description:"
+msgstr "Descrizione:"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_display_name
+#: model:ir.model.fields,field_description:inlingua.field_class_language_display_name
+#: model:ir.model.fields,field_description:inlingua.field_class_programm_display_name
+#: model:ir.model.fields,field_description:inlingua.field_class_type_display_name
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_display_name
+#: model:ir.model.fields,field_description:inlingua.field_language_professor_display_name
+#: model:ir.model.fields,field_description:inlingua.field_language_student_display_name
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_display_name
+#: model:ir.model.fields,field_description:inlingua.field_module_type_display_name
+#: model:ir.model.fields,field_description:inlingua.field_office_office_display_name
+#: model:ir.model.fields,field_description:inlingua.field_partner_professional_title_display_name
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_display_name
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_display_name
+#: model:ir.model.fields,field_description:inlingua.field_project_student_display_name
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_display_name
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_display_name
+#: model:ir.model.fields,field_description:inlingua.field_student_level_display_name
+#: model:ir.model.fields,field_description:inlingua.field_type_due_display_name
+msgid "Display Name"
+msgstr "Nome Visualizzato"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Documento:"
+msgstr "Documento:"
+
+#. module: inlingua
+#: selection:project.task_scheduling_rule,weekday:0
+msgid "Domenica"
+msgstr "Domenica"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_type_due
+msgid "Due"
+msgstr "Scadenza"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_duration_lessons
+msgid "Duration Lesson"
+msgstr "Durata Lezione"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_module_type_id
+#: model:ir.model.fields,field_description:inlingua.field_project_project_module_type_id
+msgid "Duration Module"
+msgstr "Durata Moduli"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Duration Modules:"
+msgstr "Durata Moduli:"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_module_type
+msgid "Duration of module"
+msgstr "Durata modulo"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_email
+msgid "Email"
+msgstr "Email"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_end_time
+msgid "End Time"
+msgstr "Ora Fine"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_entry
+msgid "Entry"
+msgstr "Iscrizione"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_cost_entry
+msgid "Entry Price "
+msgstr "Costo Iscrizione"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "Euro"
+msgstr "Euro"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Euro per ora di lavoro al lordo di oneri\n"
+"                                        previdenziali e fiscali . Il corrispettivo dovrà essere documentato con parcella."
+msgstr "Euro per ora di lavoro al lordo di oneri\n"
+"                                        previdenziali e fiscali . Il corrispettivo dovrà essere documentato con parcella."
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_date_end
+msgid "Expected Date End"
+msgstr "Data di Fine Prevista"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_cost_extra
+#: model:ir.model.fields,help:inlingua.field_private_contract_cost_extra
+msgid "Extra Cost"
+msgstr "Costi Aggiuntivi"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_fax
+msgid "Fax"
+msgstr "Fax"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "Fax +39 081 787 71 37"
+msgstr "Fax +39 081 787 71 37"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "Fax+39 081 556 16 31"
+msgstr "Fax+39 081 556 16 31"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Fax:"
+msgstr "Fax:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.project_tree_view_inherit
+msgid "Final Level"
+msgstr "Livello Finale"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "Firma"
+msgstr "Firma"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Firma ................................"
+msgstr "Firma ................................"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_flexible_course
+msgid "Flexible Course"
+msgstr "Corso Flessibile"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_sale_order_general_agreement_id
+msgid "Framework Agreement"
+msgstr "Accordo Quadro"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.project_form_view_inherit
+msgid "Frequenza"
+msgstr "Frequenza"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_friday
+msgid "Friday"
+msgstr "Venerdì"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_time_from
+#: model:ir.model.fields,field_description:inlingua.field_project_student_date_from
+msgid "From"
+msgstr "Da"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Get Rate"
+msgstr "Genera Rate"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_weekday
+msgid "Giorno"
+msgstr "Giorno"
+
+#. module: inlingua
+#: selection:project.task_scheduling_rule,weekday:0
+msgid "Giovedì"
+msgstr "Giovedì"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.payment_term_line_search_view
+#: model:ir.ui.view,arch_db:inlingua.private_contract_search_view
+msgid "Group By"
+msgstr "Raggruppa per"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_id
+#: model:ir.model.fields,field_description:inlingua.field_class_language_id
+#: model:ir.model.fields,field_description:inlingua.field_class_programm_id
+#: model:ir.model.fields,field_description:inlingua.field_class_type_id
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_id
+#: model:ir.model.fields,field_description:inlingua.field_language_professor_id
+#: model:ir.model.fields,field_description:inlingua.field_language_student_id
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_id
+#: model:ir.model.fields,field_description:inlingua.field_module_type_id
+#: model:ir.model.fields,field_description:inlingua.field_office_office_id
+#: model:ir.model.fields,field_description:inlingua.field_partner_professional_title_id
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_id
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_id
+#: model:ir.model.fields,field_description:inlingua.field_project_student_id
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_id
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_id
+#: model:ir.model.fields,field_description:inlingua.field_student_level_id
+#: model:ir.model.fields,field_description:inlingua.field_type_due_id
+msgid "ID"
+msgstr "ID"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer
+msgid "INTERNATIONAL SCHOOL OF LANGUAGES S.R.L.\n"
+"                        <br/>\n"
+"                        via D. Cimarosa, 66 - 80127 NAPOLI\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        AZIENDA CON SISTEMA QUALITÀ\n"
+"                        <br/>\n"
+"                        CERTIFICATO DA DNV\n"
+"                        <br/>\n"
+"                        = UNI EN ISO 9001/2000="
+msgstr "INTERNATIONAL SCHOOL OF LANGUAGES S.R.L.\n"
+"                        <br/>\n"
+"                        via D. Cimarosa, 66 - 80127 NAPOLI\n"
+"                        <br/>\n"
+"                        <br/>\n"
+"                        AZIENDA CON SISTEMA QUALITÀ\n"
+"                        <br/>\n"
+"                        CERTIFICATO DA DNV\n"
+"                        <br/>\n"
+"                        = UNI EN ISO 9001/2000="
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "IRAP: SI NO"
+msgstr "IRAP: SI NO"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Il Committente\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            _____________________________"
+msgstr "Il Committente\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            _____________________________"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Il collaboratore\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            _____________________________"
+msgstr "Il collaboratore\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            _____________________________"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Il commissionario\n"
+"                                            <br/>\n"
+"                                            Per accettazione dell'incarico\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            _____________________________"
+msgstr "Il commissionario\n"
+"                                            <br/>\n"
+"                                            Per accettazione dell'incarico\n"
+"                                            <br/>\n"
+"                                            <br/>\n"
+"                                            _____________________________"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Il dott."
+msgstr "Il dott."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Il sottoscritto dichiara che i dati sopra riportati corrispondono al vero."
+msgstr "Il sottoscritto dichiara che i dati sopra riportati corrispondono al vero."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Il/la Sig/ra"
+msgstr "Il/la Sig/ra"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Imposta da fatturare"
+msgstr "Imposta da fatturare"
+
+#. module: inlingua
+#: selection:project.project,type_office:0
+msgid "In"
+msgstr "In"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_search_view
+#: selection:private.contract,state:0
+msgid "In Progress"
+msgstr "In Corso"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Incarico"
+msgstr "Incarico"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_income
+#: model:ir.ui.menu,name:inlingua.income
+msgid "Income"
+msgstr "Incassi"
+
+#. module: inlingua
+#: model:ir.module.category,name:inlingua.module_inlingua
+msgid "Inlingua"
+msgstr "Inlingua"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Internal Notes"
+msgstr "Note Interne"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Internal note..."
+msgstr "Nota interna..."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "International School of Languages S.r.l."
+msgstr "International School of Languages S.r.l."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "International School of Languages s.r.l., con sede legale in Via Domenico Cimarosa, 66 - Napoli, P.IVA\n"
+"                                        04450490638, nella persona dell'Avv. Gianluca Frasca, ai sensi e per gli effetti della presente scrittura\n"
+"                                        appresso denominato “Committente”,"
+msgstr "International School of Languages s.r.l., con sede legale in Via Domenico Cimarosa, 66 - Napoli, P.IVA\n"
+"                                        04450490638, nella persona dell'Avv. Gianluca Frasca, ai sensi e per gli effetti della presente scrittura\n"
+"                                        appresso denominato “Committente”,"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_account_invoice
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_invoice_id
+msgid "Invoice"
+msgstr "Fattura"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_invoiced
+msgid "Invoiced"
+msgstr "Fatturato"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_invoice_ids
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Invoices"
+msgstr "Fatture"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_sale_order_framework_agreement
+msgid "Is Framework Agreement"
+msgstr "È Accordo Quadro"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_account_invoice_is_company
+msgid "Is a Company"
+msgstr "È un'azienda"
+
+#. module: inlingua
+#: model:ir.model.fields,help:inlingua.field_private_contract_partner_fiscalcode
+#: model:ir.model.fields,help:inlingua.field_private_contract_student_fiscalcode
+msgid "Italian Fiscal Code"
+msgstr "Codice fiscale Italiano"
+
+#. module: inlingua
+#: model:ir.model.fields,help:inlingua.field_inlingua_config_settings_contract_tax
+msgid "Iva che si applica nell'automatismi di generazione nuove fatture da contratto."
+msgstr "Iva che si applica nell'automatismi di generazione nuove fatture da contratto."
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_contract_tax
+msgid "Iva default per fatture da contratti"
+msgstr "Iva default per fatture da contratti"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "La\n"
+"                                        <span style=\"font-weight:bold\">International School of Languages srl.,</span>\n"
+"                                        con sede\n"
+"                                        <span style=\"font-weight:bold\">a Via Cimarosa n. 66 - Napoli 80127</span>,\n"
+"                                        in persona del legale\n"
+"                                        rapp.te\n"
+"                                        <span style=\"font-weight:bold\">Gianluca Frasca,</span>\n"
+"                                        P.I. <span style=\"font-weight:bold\">04450490638</span> (Committente)"
+msgstr "La\n"
+"                                        <span style=\"font-weight:bold\">International School of Languages srl.,</span>\n"
+"                                        con sede\n"
+"                                        <span style=\"font-weight:bold\">a Via Cimarosa n. 66 - Napoli 80127</span>,\n"
+"                                        in persona del legale\n"
+"                                        rapp.te\n"
+"                                        <span style=\"font-weight:bold\">Gianluca Frasca,</span>\n"
+"                                        P.I. <span style=\"font-weight:bold\">04450490638</span> (Committente)"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_language_student_language_id
+#: model:ir.model.fields,field_description:inlingua.field_res_partner_language_ids
+#: model:ir.model.fields,field_description:inlingua.field_res_users_language_ids
+#: model:ir.ui.view,arch_db:inlingua.partner_search_view_inherit
+#: model:ir.ui.view,arch_db:inlingua.project_search_view_inherit
+#: model:ir.ui.view,arch_db:inlingua.project_task_search_view_inherit
+#: model:ir.ui.view,arch_db:inlingua.res_partner_form_view_inherit
+msgid "Language"
+msgstr "Lingua"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_language_professor_language_id
+#: model:ir.ui.view,arch_db:inlingua.res_partner_form_view_inherit
+msgid "Language Taught"
+msgstr "Lingue Insegnate"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_res_partner_language_professor_ids
+#: model:ir.model.fields,field_description:inlingua.field_res_users_language_professor_ids
+msgid "Languages taught"
+msgstr "Lingue Insegnate"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard___last_update
+#: model:ir.model.fields,field_description:inlingua.field_class_language___last_update
+#: model:ir.model.fields,field_description:inlingua.field_class_programm___last_update
+#: model:ir.model.fields,field_description:inlingua.field_class_type___last_update
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings___last_update
+#: model:ir.model.fields,field_description:inlingua.field_language_professor___last_update
+#: model:ir.model.fields,field_description:inlingua.field_language_student___last_update
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard___last_update
+#: model:ir.model.fields,field_description:inlingua.field_module_type___last_update
+#: model:ir.model.fields,field_description:inlingua.field_office_office___last_update
+#: model:ir.model.fields,field_description:inlingua.field_partner_professional_title___last_update
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line___last_update
+#: model:ir.model.fields,field_description:inlingua.field_private_contract___last_update
+#: model:ir.model.fields,field_description:inlingua.field_project_student___last_update
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule___last_update
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student___last_update
+#: model:ir.model.fields,field_description:inlingua.field_student_level___last_update
+#: model:ir.model.fields,field_description:inlingua.field_type_due___last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_class_language_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_class_programm_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_class_type_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_language_professor_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_language_student_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_module_type_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_office_office_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_partner_professional_title_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_project_student_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_student_level_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_type_due_write_uid
+msgid "Last Updated by"
+msgstr "Ultima modifica di"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_write_date
+#: model:ir.model.fields,field_description:inlingua.field_class_language_write_date
+#: model:ir.model.fields,field_description:inlingua.field_class_programm_write_date
+#: model:ir.model.fields,field_description:inlingua.field_class_type_write_date
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_write_date
+#: model:ir.model.fields,field_description:inlingua.field_language_professor_write_date
+#: model:ir.model.fields,field_description:inlingua.field_language_student_write_date
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_write_date
+#: model:ir.model.fields,field_description:inlingua.field_module_type_write_date
+#: model:ir.model.fields,field_description:inlingua.field_office_office_write_date
+#: model:ir.model.fields,field_description:inlingua.field_partner_professional_title_write_date
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_write_date
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_write_date
+#: model:ir.model.fields,field_description:inlingua.field_project_student_write_date
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_write_date
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_write_date
+#: model:ir.model.fields,field_description:inlingua.field_student_level_write_date
+#: model:ir.model.fields,field_description:inlingua.field_type_due_write_date
+msgid "Last Updated on"
+msgstr "Ultima modifica il"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_project_task
+msgid "Lesson"
+msgstr "Lezione"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_student_total_lesson_out
+msgid "Lesson Absent"
+msgstr "Assenze a Lezioni"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_student_total_lesson_in
+msgid "Lesson Present"
+msgstr "Presenze a Lezioni"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Lesson's Note"
+msgstr "Note sulle Lezioni"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.project_form_view_inherit
+msgid "Lessons"
+msgstr "Lezioni"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Letto, confermato e sottoscritto."
+msgstr "Letto, confermato e sottoscritto."
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_student_level_name
+msgid "Level"
+msgstr "Livello"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_student_level_achieve
+msgid "Level Achieve"
+msgstr "Livello Raggiunto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_language_student_be_reached_level
+msgid "Level to be Reached"
+msgstr "Livello da Raggiungere"
+
+#. module: inlingua
+#: selection:project.task_scheduling_rule,weekday:0
+msgid "Lunedì"
+msgstr "Lunedì"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Luogo e data di nascita:"
+msgstr "Luogo e data di nascita:"
+
+#. module: inlingua
+#: model:res.groups,name:inlingua.group_manager
+msgid "Manager"
+msgstr "Manager"
+
+#. module: inlingua
+#: selection:project.task_scheduling_rule,weekday:0
+msgid "Martedì"
+msgstr "Martedì"
+
+#. module: inlingua
+#: model:ir.actions.report.xml,name:inlingua.report_material_delivered
+#: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_material_delivered
+msgid "Material Delivered"
+msgstr "Materiale Consegnato"
+
+#. module: inlingua
+#: selection:project.task_scheduling_rule,weekday:0
+msgid "Mercoledì"
+msgstr "Mercoledì"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Misc"
+msgstr "Varie"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_mobile
+msgid "Mobile"
+msgstr "Cellulare"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Mobile:"
+msgstr "Cellulare:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Mod. 509.1"
+msgstr "Mod. 509.1"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Mod. 509.2"
+msgstr "Mod. 509.2"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "Mod. 510"
+msgstr "Mod. 510"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "Model for educational material delivery"
+msgstr "Modello per consegna materiale didattico"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_module_price
+msgid "Module Cost"
+msgstr "Costo Modulo"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_modules
+msgid "Modules"
+msgstr "Moduli"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_cost_module
+msgid "Modules Cost"
+msgstr "Costo Moduli"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "Modules for language service providers"
+msgstr "Moduli per i fornitori di servizi linguistici"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Modules for suppliers of language's service"
+msgstr "Moduli per i fornitori di servizi linguistici"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Modules for suppliers of linguistic services"
+msgstr "Moduli per i fornitori di servizi linguistici"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Modulo di Iscrizione"
+msgstr "Modulo di Iscrizione"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_monday
+msgid "Monday"
+msgstr "Lunedì"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_move_id
+msgid "Move"
+msgstr "Trasferimento"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_class_language_name
+#: model:ir.model.fields,field_description:inlingua.field_class_programm_name
+#: model:ir.model.fields,field_description:inlingua.field_class_type_name
+#: model:ir.model.fields,field_description:inlingua.field_module_type_name
+#: model:ir.model.fields,field_description:inlingua.field_type_due_name
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Name"
+msgstr "Nome"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Napoli"
+msgstr "Napoli"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "Napoli,"
+msgstr "Napoli,"
+
+#. module: inlingua
+#: code:addons/inlingua/inlingua/models/private_contract.py:255
+#: code:addons/inlingua/inlingua/models/private_contract.py:294
+#: code:addons/inlingua/models/private_contract.py:255
+#: code:addons/inlingua/models/private_contract.py:294
+#, python-format
+msgid "Nessuna riga disponibile per la fatturazione."
+msgstr "Nessuna riga disponibile per la fatturazione."
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_now_level
+msgid "Now Level"
+msgstr "Livello Attuale"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_number_contract
+msgid "Number Contract"
+msgstr "Numero Contratto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_number_rate
+msgid "Number Rate"
+msgstr "Numero Rate"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_class_type_max_student
+msgid "Number max of Student"
+msgstr "Numero max di Studenti"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_class_type_min_student
+msgid "Number min. of Student"
+msgstr "Numero minimo di Studenti"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_number_of_lesson
+msgid "Number of Lessons"
+msgstr "Numero Incontri"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_number_of_module
+msgid "Number of modules"
+msgstr "Numero di moduli"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_name
+#: model:ir.model.fields,field_description:inlingua.field_project_project_office_id
+msgid "Office"
+msgstr "Sede"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "Office:"
+msgstr "Sede:"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_order_id
+msgid "Order"
+msgstr "Ordine"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_sale_order_original_total
+msgid "Original Total"
+msgstr "Totale Originario"
+
+#. module: inlingua
+#: selection:project.project,type_office:0
+msgid "Out"
+msgstr "Out"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "P.I. 04450490638"
+msgstr "P.I. 04450490638"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Partita I.V.A."
+msgstr "Partita I.V.A."
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_language_professor_partner_id
+#: model:ir.model.fields,field_description:inlingua.field_language_student_partner_id
+msgid "Partner id"
+msgstr "Partner id"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Partners"
+msgstr "Partner"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_journal_id
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_journal_id
+msgid "Payment"
+msgstr "Pagamento"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_payment_method_id
+msgid "Payment Method"
+msgstr "Termini di Pagamento"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Payment Terms"
+msgstr "Termini di pagamento"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_payment_line_ids
+msgid "Payment line ids"
+msgstr "Payment line ids"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Per L'Istituto ............................"
+msgstr "Per L'Istituto ............................"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Periodo di svolgimento dell'incarico"
+msgstr "Periodo di svolgimento dell'incarico"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.hidden_personal_information_page_view_inherit
+msgid "Personal Information"
+msgstr "Informazioni Personali"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_phone
+msgid "Phone"
+msgstr "Telefono"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Phone:"
+msgstr "Telefono:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Posizione INPS: SI\n"
+"                                                <br/>\n"
+"                                                NO<br/>N."
+msgstr "Posizione INPS: SI\n"
+"                                                <br/>\n"
+"                                                NO<br/>N."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Preference"
+msgstr "Preferenze"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_present
+msgid "Present"
+msgstr "Presente"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.delivered_material_view_wizard
+#: model:ir.ui.view,arch_db:inlingua.project_form_view_inherit
+msgid "Print Delivered Material"
+msgstr "Stampa Materiale Consegnato"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.add_rate_view_wizard
+msgid "Print Receipt and Add"
+msgstr "Aggiungi e Stampa Ricevuta"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.account_invoice_search_view_inherit
+#: selection:private.contract,type_contract:0
+msgid "Private"
+msgstr "Privato"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_contract_private
+#: model:ir.actions.report.xml,name:inlingua.action_report_private_contract
+#: model:ir.model,name:inlingua.model_private_contract
+#: model:ir.ui.menu,name:inlingua.contract_private
+msgid "Private Contract"
+msgstr "Contratti a Privato"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_search_view
+#: selection:private.contract,state:0
+msgid "Processed"
+msgstr "Evaso"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_partner_professional_title_name
+msgid "Professional Title"
+msgstr "Titolo Professionale"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_res_partner_professional_title_ids
+#: model:ir.model.fields,field_description:inlingua.field_res_users_professional_title_ids
+msgid "Professional Titles"
+msgstr "Titoli Professionali"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_professor_id
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_professor_id
+#: model:ir.model.fields,field_description:inlingua.field_res_partner_professor
+#: model:ir.model.fields,field_description:inlingua.field_res_users_professor
+#: model:res.groups,name:inlingua.group_professor
+msgid "Professor"
+msgstr "Docente"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Professor's Signature"
+msgstr "Firma Docente"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_professor
+#: model:ir.ui.menu,name:inlingua.menu_professor
+msgid "Professors"
+msgstr "Docenti"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_programm_id
+#: model:ir.model.fields,field_description:inlingua.field_project_project_programm_id
+msgid "Programm"
+msgstr "Programma"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_project_project
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_project_id
+msgid "Project"
+msgstr "Corso"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_student_project_id
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_project_id
+msgid "Project id"
+msgstr "Project id"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_state_id
+msgid "Province"
+msgstr "Provincia"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Purchase"
+msgstr "Acquisti"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_purchase_order
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_purchase_id
+msgid "Purchase Order"
+msgstr "Ordine di Acquisto"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Riga ordine di acquisto"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "QUIETANZA DI PAGAMENTO"
+msgstr "QUIETANZA DI PAGAMENTO"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_res_partner_qualification
+#: model:ir.model.fields,field_description:inlingua.field_res_users_qualification
+msgid "Qualification"
+msgstr "Qualifica"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_rate_amount
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_rate_amount
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_rate_amount
+msgid "Rate Amount"
+msgstr "Importo Rata"
+
+#. module: inlingua
+#: model:ir.actions.report.xml,name:inlingua.report_receipt
+msgid "Receipt"
+msgstr "Ricevuta"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_contract_invoice_journal
+msgid "Registro fatture contratti"
+msgstr "Registro fatture contratti"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_partner_resident
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_student_resident
+msgid "Resident"
+msgstr "Residente in"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Residenza (completa):"
+msgstr "Residenza (completa):"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_sale_order_residual_framework_agreement
+msgid "Residual Framework Agreement"
+msgstr "Residual Framework Agreement"
+
+#. module: inlingua
+#: sql_constraint:project.task:0
+msgid "Resource is already allocated in this time interval"
+msgstr "Resource is already allocated in this time interval"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+#: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
+msgid "Rev. 0"
+msgstr "Rev. 0"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "Ricevuta"
+msgstr "Ricevuta"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "Ricevuto da"
+msgstr "Ricevuto da"
+
+#. module: inlingua
+#: selection:project.task_scheduling_rule,weekday:0
+msgid "Sabato"
+msgstr "Sabato"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.sale_order_tree_view_inherit
+msgid "Saldo Ordine"
+msgstr "Saldo Ordine"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Sale"
+msgstr "Vendita"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Sales & Purchases"
+msgstr "Vendite e Acquisti"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_saturday
+msgid "Saturday"
+msgstr "Sabato"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_scheduling_rules_ids
+msgid "Schedulazioni"
+msgstr "Schedulazioni"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.project_form_view_inherit
+msgid "Schedule Lessons"
+msgstr "Lezioni Schedulate"
+
+#. module: inlingua
+#: model:res.groups,name:inlingua.group_segretarie
+msgid "Segretarie"
+msgstr "Segretarie"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.account_invoice_form_view_inherit
+msgid "Send by Email"
+msgstr "Invia per Email"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.view_inlingua_config_settings
+msgid "Seperate Journal"
+msgstr "Seperate Journal"
+
+#. module: inlingua
+#: model:ir.ui.menu,name:inlingua.menu_inlingua_general_settings
+msgid "Settings"
+msgstr "Configurazione"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Si accettano espressamente le clausole: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14.\n"
+"                                <br/>\n"
+"                                <br/>\n"
+"                                <b>Firma ................................</b>"
+msgstr "Si accettano espressamente le clausole: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14.\n"
+"                                <br/>\n"
+"                                <br/>\n"
+"                                <b>Firma ................................</b>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Si impegna altresì al rispetto del seguente regolamento:\n"
+"                                <br/>\n"
+"                                <br/>\n"
+"                                1. Nel presente contratto, per ragioni di praticità, INTERNATIONAL SCHOOL OF LANGUAGES S.R.L. viene indicato con il\n"
+"                                termine\n"
+"                                'Istituto', mentre il Sig./ra"
+msgstr "Si impegna altresì al rispetto del seguente regolamento:\n"
+"                                <br/>\n"
+"                                <br/>\n"
+"                                1. Nel presente contratto, per ragioni di praticità, INTERNATIONAL SCHOOL OF LANGUAGES S.R.L. viene indicato con il\n"
+"                                termine\n"
+"                                'Istituto', mentre il Sig./ra"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Sigla"
+msgstr "Sigla"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_start_level
+msgid "Start Level"
+msgstr "Livello Iniziale"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_start_time
+msgid "Start Time"
+msgstr "Ora Inizio"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_start_time
+msgid "Start time"
+msgstr "Ora Inizio"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_state
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+#: model:ir.ui.view,arch_db:inlingua.private_contract_search_view
+msgid "State"
+msgstr "Provincia"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_street
+msgid "Street"
+msgstr "Indirizzo"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Street 2..."
+msgstr "Indirizzo 2"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Street..."
+msgstr "Via..."
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_student_id
+#: model:ir.model.fields,field_description:inlingua.field_project_student_student_id
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_student_id
+#: model:ir.model.fields,field_description:inlingua.field_res_partner_student
+#: model:ir.model.fields,field_description:inlingua.field_res_users_student
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+msgid "Student"
+msgstr "Alunno"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_student_birthplace
+msgid "Student BirthPlace"
+msgstr "Luogo Nascita Alunno"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_student_birthdate
+msgid "Student Birthdate"
+msgstr "Data Nascita Alunno"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_student_fiscalcode
+msgid "Student FiscalCode"
+msgstr "Codice Fiscale Alunno"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_student_number
+msgid "Student Number"
+msgstr "Numero Allievi"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_student_ids
+msgid "Student ids"
+msgstr "Alunni"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_project_student
+msgid "Student on Class"
+msgstr "Student on Class"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_project_task_student
+msgid "Student on Lesson"
+msgstr "Student on Lesson"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Student's Signature"
+msgstr "Firma Allievo"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_student
+#: model:ir.model.fields,field_description:inlingua.field_project_project_project_student_ids
+#: model:ir.ui.menu,name:inlingua.menu_student
+#: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
+#: model:ir.ui.view,arch_db:inlingua.project_form_view_inherit
+#: model:ir.ui.view,arch_db:inlingua.project_task_form_view_inherit
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Students"
+msgstr "Allievi"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "Tags..."
+msgstr "tags..."
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_target_level
+msgid "Target Level"
+msgstr "Livello Obiettivo"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_student_task_id
+msgid "Task id"
+msgstr "Task id"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_task_task_student_ids
+msgid "Task student ids"
+msgstr "Task student ids"
+
+#. module: inlingua
+#: model:ir.model.fields,help:inlingua.field_private_contract_partner_vat
+msgid "Tax Identification Number. Fill it if the company is subjected to taxes. Used by the some of the legal statements."
+msgstr "Numero di partita IVA. Compila questa casella se l'azienda è soggetta all'imposta sul valore aggiunto."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "Tel+39 081 578 20 20"
+msgstr "Tel+39 081 578 20 20"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "Tel+39 081 787 71 32"
+msgstr "Tel+39 081 787 71 32"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer
+msgid "Tel:"
+msgstr "Tel:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "Telefono"
+msgstr "Telefono"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Telefono:"
+msgstr "Telefono:"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_thursday
+msgid "Thursday"
+msgstr "Giovedì"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_module_type_time
+msgid "Time"
+msgstr "Minuti"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Time End"
+msgstr "Ora Fine"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Time Start"
+msgstr "Ora Inizio"
+
+#. module: inlingua
+#. openerp-web
+#: code:addons/inlingua/inlingua/static/src/js/timetable_core.js:25
+#: code:addons/inlingua/static/src/js/timetable_core.js:25
+#: model:ir.ui.menu,name:inlingua.menu_timetable_root
+#: model:ir.ui.menu,name:inlingua.menu_timetable_timetable
+#, python-format
+msgid "Timetable"
+msgstr "Timetable"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_type_office
+msgid "Tipo Sede"
+msgstr "Tipo Sede"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Titolo di studio:"
+msgstr "Titolo di studio:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "Titolo/i professionale/i:"
+msgstr "Titolo/i professionale/i:"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_time_end
+#: model:ir.model.fields,field_description:inlingua.field_project_student_date_to
+msgid "To"
+msgstr "A"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_to_account
+#: model:ir.model.fields,field_description:inlingua.field_payment_term_line_to_account
+msgid "To Account"
+msgstr "Da Fatturare"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.private_contract_search_view
+#: selection:private.contract,state:0
+msgid "To Combine"
+msgstr "Da Abbinare"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.sale_order_tree_view_inherit
+msgid "Total"
+msgstr "Totale"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Total Modules:"
+msgstr "Totale Moduli:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.sale_order_tree_view_inherit
+msgid "Total Tax Included"
+msgstr "Totale Imposte Incluse"
+
+#. module: inlingua
+#: model:ir.model.fields,help:inlingua.field_private_contract_total_value
+#: model:ir.ui.view,arch_db:inlingua.sale_order_form_view_inherit
+msgid "Total Value"
+msgstr "Totale Netto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_total_value
+msgid "Total Value "
+msgstr "Totale Netto"
+
+#. module: inlingua
+#: model:ir.model.fields,help:inlingua.field_private_contract_cost_module
+msgid "Total module price"
+msgstr "Totale Costo Moduli"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_tuesday
+msgid "Tuesday"
+msgstr "Martedì"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_type_contract
+msgid "Type Contract"
+msgstr "Tipo Contratto"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_purchase_order_type_order
+msgid "Type order"
+msgstr "Tipo Ordine"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "Type:"
+msgstr "Tipo:"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_partner_vat
+msgid "Vat"
+msgstr "P. IVA"
+
+#. module: inlingua
+#: selection:project.task_scheduling_rule,weekday:0
+msgid "Venerdì"
+msgstr "Venerdì"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_website
+msgid "Website"
+msgstr "Sito Web"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_wednesday
+msgid "Wednesday"
+msgstr "Mercoledì"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_project_task_scheduling_rule
+msgid "Weekly scheduling rule"
+msgstr "Regole di Schedulazione Settimanale"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "ZIP"
+msgstr "CAP"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "___________________________________"
+msgstr "___________________________________"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "a mezzo raccomandata."
+msgstr "a mezzo raccomandata."
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_add_rate_wizard
+msgid "add.rate.wizard"
+msgstr "add.rate.wizard"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "ai sensi e per gli effetti della presente scrittura appresso denominato “Commissionario”,"
+msgstr "ai sensi e per gli effetti della presente scrittura appresso denominato “Commissionario”,"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "al"
+msgstr "al"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "del"
+msgstr "del"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "di"
+msgstr "di"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "dichiarando di avere i requisiti professionali ed intendendo svolgere\n"
+"                                        l’incarico appresso specificato con carattere di continuità, ma a tempo parziale e senza vincolo di\n"
+"                                        subordinazione, ha dato la propria disponibilità a collaborare nell’attuazione del progetto in qualità di\n"
+"                                        <b>Docente</b>;"
+msgstr "dichiarando di avere i requisiti professionali ed intendendo svolgere\n"
+"                                        l’incarico appresso specificato con carattere di continuità, ma a tempo parziale e senza vincolo di\n"
+"                                        subordinazione, ha dato la propria disponibilità a collaborare nell’attuazione del progetto in qualità di\n"
+"                                        <b>Docente</b>;"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "domiciliato in"
+msgstr "domiciliato in"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "e residente in"
+msgstr "e residente in"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "e.g. Mr."
+msgstr "ad esempio, Sig."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "e.g. Sales Director"
+msgstr "ad esempio, Direttore Vendite"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "e.g. www.odoo.com"
+msgstr "es. www.odoo.com"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "il Progetto '"
+msgstr "il Progetto '"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "in"
+msgstr "in"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "in acconto ad inizio corso e successive"
+msgstr "in acconto ad inizio corso e successive"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "in data"
+msgstr "in data"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "incarica"
+msgstr "incarica"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "inlingua CDN"
+msgstr "inlingua CDN"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "inlingua VOMERO"
+msgstr "inlingua VOMERO"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_inlingua_config_settings
+msgid "inlingua.config.settings"
+msgstr "inlingua.config.settings"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "inlinguanapoli.it"
+msgstr "inlinguanapoli.it"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
+msgid "internal note..."
+msgstr "nota interna..."
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_ir_actions_act_window_view
+msgid "ir.actions.act_window.view"
+msgstr "ir.actions.act_window.view"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_ir_ui_view
+msgid "ir.ui.view"
+msgstr "ir.ui.view"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "la quale accetta di prestare la propria attività\n"
+"                                        di collaborazione professionale avente per oggetto"
+msgstr "la quale accetta di prestare la propria attività\n"
+"                                        di collaborazione professionale avente per oggetto"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_language_professor
+msgid "language.professor"
+msgstr "language.professor"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_language_student
+msgid "language.student"
+msgstr "language.student"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_material_delivered_wizard
+msgid "material.delivered.wizard"
+msgstr "material.delivered.wizard"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "minuti.\n"
+"                                <br/>\n"
+"                                6. L'iscrizione impegna l'allievo al pagamento dell'intera somma convenuta.\n"
+"                                <br/>\n"
+"                                7. L'Istituto ha il diritto di espellere dal corso, senza rimborso alcuno, l'allievo e/o allievi che commettono o\n"
+"                                abbiano\n"
+"                                commesso atti indegni sia nella scuola che nella vita privata, senza che però gli stessi siano esonerati dagli\n"
+"                                obblichi\n"
+"                                assunti con l'istituto con la sottoscrizione del presente contratto.\n"
+"                                <br/>\n"
+"                                8. I danni di qualsivoglia natura arrecati a cose mobili e/o immobili di proprietà dell'Istituto dovranno essere\n"
+"                                risarciti\n"
+"                                immediatamente dagli autori responsabili.\n"
+"                                <br/>\n"
+"                                9. L'istituto non assume alcuna responsabilità per oggetti di cui l'allievo dovesse reclamare la scomparsa.\n"
+"                                <br/>\n"
+"                                10. Qualunque variazione del presente accordo deve essere fatta per iscritto, sottoscritto dall'acquirente su carta\n"
+"                                intestata dell'istituto e controfirmato dal legale rappresentante dello stesso.\n"
+"                                <br/>\n"
+"                                11. Per corsi individuali flessibili (F.F.P.) le lezioni possono essere rinviate purchè se ne dia avviso dall'istituto\n"
+"                                entro e non oltre le 17.00 del giorno precedente.\n"
+"                                <br/>\n"
+"                                12. Il ritardo di venti minuti comporta per l'allievo la perdita del resto della lezione.\n"
+"                                <br/>\n"
+"                                13. In caso di controversie il foro competente è quello della sede legale dell'Istituto.\n"
+"                                <br/>\n"
+"                                14. L'I.V.A. da applicare è quella dovuta per legge.\n"
+"                                <br/>\n"
+"                                <br/>\n"
+"                                <i>\n"
+"                                    Ai sensi dell’art. 7 del Regolamento Europeo 2016/679, si acconsente al trattamento dei propri dati personali per le seguenti\n"
+"                                    finalità: iscrizione al corso ed a tutte le attività connesse all’erogazione del corso. L’interessato dichiara di essere a conoscenza che\n"
+"                                    il consenso può essere revocato in qualsiasi momento ma che la revoca del consenso non pregiudica la liceità del trattamento\n"
+"                                    basata sul consenso prima della revoca. L’interessato dichiara inoltre di prestare il consenso dopo aver ricevuto e letto l’informativa\n"
+"                                    per il trattamento dei dati personali ai sensi dell’art. 13 del Regolamento Europeo 2016/679.\n"
+"                                </i>\n"
+"                                <br/>\n"
+"                                <br/>"
+msgstr "minuti.\n"
+"                                <br/>\n"
+"                                6. L'iscrizione impegna l'allievo al pagamento dell'intera somma convenuta.\n"
+"                                <br/>\n"
+"                                7. L'Istituto ha il diritto di espellere dal corso, senza rimborso alcuno, l'allievo e/o allievi che commettono o\n"
+"                                abbiano\n"
+"                                commesso atti indegni sia nella scuola che nella vita privata, senza che però gli stessi siano esonerati dagli\n"
+"                                obblichi\n"
+"                                assunti con l'istituto con la sottoscrizione del presente contratto.\n"
+"                                <br/>\n"
+"                                8. I danni di qualsivoglia natura arrecati a cose mobili e/o immobili di proprietà dell'Istituto dovranno essere\n"
+"                                risarciti\n"
+"                                immediatamente dagli autori responsabili.\n"
+"                                <br/>\n"
+"                                9. L'istituto non assume alcuna responsabilità per oggetti di cui l'allievo dovesse reclamare la scomparsa.\n"
+"                                <br/>\n"
+"                                10. Qualunque variazione del presente accordo deve essere fatta per iscritto, sottoscritto dall'acquirente su carta\n"
+"                                intestata dell'istituto e controfirmato dal legale rappresentante dello stesso.\n"
+"                                <br/>\n"
+"                                11. Per corsi individuali flessibili (F.F.P.) le lezioni possono essere rinviate purchè se ne dia avviso dall'istituto\n"
+"                                entro e non oltre le 17.00 del giorno precedente.\n"
+"                                <br/>\n"
+"                                12. Il ritardo di venti minuti comporta per l'allievo la perdita del resto della lezione.\n"
+"                                <br/>\n"
+"                                13. In caso di controversie il foro competente è quello della sede legale dell'Istituto.\n"
+"                                <br/>\n"
+"                                14. L'I.V.A. da applicare è quella dovuta per legge.\n"
+"                                <br/>\n"
+"                                <br/>\n"
+"                                <i>\n"
+"                                    Ai sensi dell’art. 7 del Regolamento Europeo 2016/679, si acconsente al trattamento dei propri dati personali per le seguenti\n"
+"                                    finalità: iscrizione al corso ed a tutte le attività connesse all’erogazione del corso. L’interessato dichiara di essere a conoscenza che\n"
+"                                    il consenso può essere revocato in qualsiasi momento ma che la revoca del consenso non pregiudica la liceità del trattamento\n"
+"                                    basata sul consenso prima della revoca. L’interessato dichiara inoltre di prestare il consenso dopo aver ricevuto e letto l’informativa\n"
+"                                    per il trattamento dei dati personali ai sensi dell’art. 13 del Regolamento Europeo 2016/679.\n"
+"                                </i>\n"
+"                                <br/>\n"
+"                                <br/>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "moduli didattici,\n"
+"                                ove l'acquirente ritenesse di abbandonare l'Istituto per qualsiv oglia ragione, si\n"
+"                                obbbliga a completare il pagamento residuo di tutto quanto dovuto in una unica soluzione, a fronte del quale\n"
+"                                l'Istituto\n"
+"                                rilascia regolare quietanza (unica prova dell'eventuale pagamento) su carta intestata dell'Istituto, e con\n"
+"                                precisazione\n"
+"                                della\n"
+"                                causale.\n"
+"                                <br/>\n"
+"                                3. Gli allievi sono tenuti al rispetto dell'orario fissato per le lezioni prestabilite dalla Direzione Didattica\n"
+"                                impegnandosi diligentemente nello studio si da non compromettere nè pregiudicare il proprio progresso nè quello\n"
+"                                degli altri allievi.\n"
+"                                <br/>\n"
+"                                4. L'Istituto si riserva ogni diritto sia in ordine all'avvicendamento di altri insegnanti per lo stesso corso che\n"
+"                                alla\n"
+"                                soppressione di una o di più classi o, ancora, alla distribuzione degli allievi in altri corsi il cui livello\n"
+"                                linguistico\n"
+"                                al momento sia il medesimo del corso soppresso.\n"
+"                                <br/>\n"
+"                                5. Ogni modulo didattico dura"
+msgstr "moduli didattici,\n"
+"                                ove l'acquirente ritenesse di abbandonare l'Istituto per qualsiv oglia ragione, si\n"
+"                                obbbliga a completare il pagamento residuo di tutto quanto dovuto in una unica soluzione, a fronte del quale\n"
+"                                l'Istituto\n"
+"                                rilascia regolare quietanza (unica prova dell'eventuale pagamento) su carta intestata dell'Istituto, e con\n"
+"                                precisazione\n"
+"                                della\n"
+"                                causale.\n"
+"                                <br/>\n"
+"                                3. Gli allievi sono tenuti al rispetto dell'orario fissato per le lezioni prestabilite dalla Direzione Didattica\n"
+"                                impegnandosi diligentemente nello studio si da non compromettere nè pregiudicare il proprio progresso nè quello\n"
+"                                degli altri allievi.\n"
+"                                <br/>\n"
+"                                4. L'Istituto si riserva ogni diritto sia in ordine all'avvicendamento di altri insegnanti per lo stesso corso che\n"
+"                                alla\n"
+"                                soppressione di una o di più classi o, ancora, alla distribuzione degli allievi in altri corsi il cui livello\n"
+"                                linguistico\n"
+"                                al momento sia il medesimo del corso soppresso.\n"
+"                                <br/>\n"
+"                                5. Ogni modulo didattico dura"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "napoli.cdn@inlingua.it"
+msgstr "napoli.cdn@inlingua.it"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "napoli.vomero@inlingua.it"
+msgstr "napoli.vomero@inlingua.it"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
+msgid "nato il"
+msgstr "nato il"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "nato/a a"
+msgstr "nato/a a"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_number_of_module
+msgid "number of module"
+msgstr "Numero Moduli"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_private_contract_module4lesson
+msgid "number of module for lesson"
+msgstr "number of module for lesson"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_project_project_module4lesson
+msgid "number of module for lesson "
+msgstr "Moduli per Lezione"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_office_office
+msgid "office.office"
+msgstr "office.office"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_partner_professional_title
+msgid "partner.professional.title"
+msgstr "partner.professional.title"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_payment_term_line
+msgid "payment.term.line"
+msgstr "payment.term.line"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_receipt_view
+msgid "per"
+msgstr "per"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "per l'importo complessivo di"
+msgstr "per l'importo complessivo di"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "per quota di iscrizione, e accetta di pagare nel modo seguente:"
+msgstr "per quota di iscrizione, e accetta di pagare nel modo seguente:"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "rate a cadenza"
+msgstr "rate a cadenza"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "si impegna ad acquistare, nell'interesse di"
+msgstr "si impegna ad acquistare, nell'interesse di"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_student_level
+msgid "student.level"
+msgstr "student.level"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "test"
+msgstr "test"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+msgid "text 12"
+msgstr "text 12"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.project_task_hr_timesheet_timetable_window
+msgid "timetable window"
+msgstr "timetable window"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_type_due
+msgid "type.due"
+msgstr "type.due"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.external_layout_footer_inherit
+msgid "via Cimarosa, 66 | 80127 - NAPOLI"
+msgstr "via Cimarosa, 66 | 80127 - NAPOLI"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.report_private_contract
+msgid "viene indicato con termine 'acquirente'.\n"
+"                                <br/>\n"
+"                                2. L'intero corso consta di n."
+msgstr "viene indicato con termine 'acquirente'.\n"
+"                                <br/>\n"
+"                                2. L'intero corso consta di n."
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_office_office_zip
+msgid "zip"
+msgstr "Cap"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_project_task_date_deadline
+#: model:ir.model.fields,field_description:project.field_report_project_task_user_date_deadline
+msgid "Deadline"
+msgstr "Data"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Create the Projects"
+msgstr "Crea i Corsi"
+
+#. module: project
+#: model:ir.actions.act_window,help:project.open_view_project_all_config
+msgid "Organize your activities (plan tasks, track issues, invoice timesheets) for internal, personal or customer projects."
+msgstr "Organizza le varie attività (pianificare lezioni, tracciare problematiche, fatturare i timesheet) relative a corsi interni, personali o di clienti"
+
+#. module: project
+#: model:ir.actions.act_window,name:project.open_view_project_all
+#: model:ir.actions.act_window,name:project.open_view_project_all_config
+#: model:ir.model.fields,field_description:project.field_account_analytic_account_project_ids
+#: model:ir.model.fields,field_description:project.field_project_project_project_ids
+#: model:ir.model.fields,field_description:project.field_project_task_type_project_ids
+#: model:ir.ui.menu,name:project.menu_projects_config
+#: model:ir.ui.view,arch_db:project.analytic_account_inherited_form
+#: model:ir.ui.view,arch_db:project.project_planner
+#: model:ir.ui.view,arch_db:project.view_project
+msgid "Projects"
+msgstr "Corsi"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Your Projects"
+msgstr "I tuoi Corsi"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Your Projects:"
+msgstr "I tuoi Corsi:"
+
+#. module: project
+#: model:ir.actions.act_window,name:project.action_config_settings
+msgid "Configure Project"
+msgstr "Configura Corso"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Create a Gantt chart with your projects tasks and deadlines"
+msgstr "Crea un grafico Gantt con le lezioni del tuo corso e deadline"
+
+#. module: project
+#: model:ir.actions.act_window,name:project.open_create_project
+msgid "Create a Project"
+msgstr "Crea un Corso"
+
+#. module: project
+#: model:ir.actions.act_window,help:project.open_view_project_all_config
+msgid "Create a new project."
+msgstr "Crea un nuovo corso."
+
+#. module: project
+#: sql_constraint:project.project:0
+msgid "Error! project start-date must be lower than project end-date."
+msgstr "Errore ! La data di inizio del corso deve essere antecedente alla data di chiusura."
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.edit_project
+msgid "Follow this project to automatically track the events associated to tasks and issues of this project."
+msgstr "Segui questo corso per tracciare automaticamente gli eventi associati alle lezioni e alle problematiche."
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_project_active
+msgid "If the active field is set to False, it will allow you to hide the project without removing it."
+msgstr "Se il campo 'attivo' è deselezionato, sarà possibile nascondere il corso senza rimuoverlo."
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_project_analytic_account_id
+msgid "Link this project to an analytic account if you need financial management on projects. It enables you to connect projects with budgets, planning, cost and revenue analysis, timesheets on projects, etc."
+msgstr "Collega questo corso ad un conto analitico se necessiti la gestione finanziaria sui corsi. Ti permette di collegare corsi con il Budget, Pianificazione, Analisi di costi e ricavi, Timesheet sui corsi, ecc."
+
+#. module: project
+#: model:ir.model,name:project.model_project_project
+#: model:ir.model.fields,field_description:project.field_project_task_project_id
+#: model:ir.model.fields,field_description:project.field_report_project_task_user_project_id
+#: model:ir.ui.menu,name:project.menu_main_pm
+#: model:ir.ui.view,arch_db:project.edit_project
+#: model:ir.ui.view,arch_db:project.project_project_view_form_simplified
+#: model:ir.ui.view,arch_db:project.view_task_project_user_search
+#: model:ir.ui.view,arch_db:project.view_task_search_form
+#: model:res.request.link,name:project.req_link_project
+msgid "Project"
+msgstr "Corso"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_project_config_settings_generate_project_alias
+msgid "Project Alias"
+msgstr "Alias Corso"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.view_config_settings
+msgid "Project Management"
+msgstr "Gestione Corso"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.edit_project
+#: model:ir.ui.view,arch_db:project.project_project_view_form_simplified
+#: model:ir.ui.view,arch_db:project.view_project
+#: model:ir.ui.view,arch_db:project.view_project_project_filter
+msgid "Project Name"
+msgstr "Codice Corso"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Project Settings"
+msgstr "Impostazioni Corso"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Project Settings."
+msgstr "Impostazioni corso."
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.view_project_task_graph
+#: model:ir.ui.view,arch_db:project.view_project_task_pivot
+msgid "Project Tasks"
+msgstr "Lezioni del Corso"
+
+#. module: project
+#: model:res.request.link,name:project.req_link_task
+msgid "Project task"
+msgstr "Lezioni del Corso"
+
+#. module: project
+#: model:ir.actions.act_window,name:project.dblc_proj
+msgid "Project's tasks"
+msgstr "Lezioni del Corso"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.view_project_project_filter
+msgid "Search Project"
+msgstr "Cerca corso"
+
+#. module: project
+#: model:ir.model,name:project.model_report_project_task_user
+msgid "Tasks by user and project"
+msgstr "Lezione per Utente e Corso"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_project_alias_model
+msgid "The kind of document created when an email is received on this project's email alias"
+msgstr "Il tipo di documento creato quando un'email viene ricevuta sull'alias email di questo corso."
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_project_alias_model_id
+msgid "The model (Odoo Document Kind) to which this alias corresponds. Any incoming email that does not reply to an existing record will cause the creation of a new record of this model (e.g. a Project Task)"
+msgstr "Il modello ( Odoo Tipi di documento ) a cui questo alias corrisponde . Qualsiasi email in arrivo che non risponde a un record esistente causerà la creazione di un nuovo record di questo modello ( ad esempio, una lezione di corso)"
+
+#. module: project
+#: code:addons/project/models/project.py:70
+#, python-format
+msgid "You cannot delete a project containing tasks. You can either delete all the project's tasks and then delete the project or simply deactivate the project."
+msgstr "Non è possibile cancellare un corso contenente lezioni. È possibile sia cancellare tutte le lezioni del corso e successivamente cancellare il corso o semplicemente disattivare il corso."
+
+#. module: project
+#: code:addons/project/models/project.py:469
+#, python-format
+msgid "tasks"
+msgstr "lezioni"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_res_partner_task_count
+#: model:ir.model.fields,field_description:project.field_res_users_task_count
+msgid "# Tasks"
+msgstr "# Lezioni"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_report_project_task_user_nbr
+msgid "# of Tasks"
+msgstr "# di Lezione"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.edit_project
+msgid "(Un)archiving a project automatically (un)archives its tasks and issues. Do you want to proceed?"
+msgstr "Ripristinare un corso dall'archivio ripristina anche tutte le lezioni e le problematiche correlate.\n"
+"Sei sicuro di voler procedere?"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "<span class=\"panel-title\">\n"
+"                                        <span class=\"fa fa-check-square-o\"/>\n"
+"                                        <strong> Tasks</strong>\n"
+"                                    </span>"
+msgstr "<span class=\"panel-title\">\n"
+"                                        <span class=\"fa fa-check-square-o\"/>\n"
+"                                        <strong> Lezioni</strong>\n"
+"                                    </span>"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_task_kanban_state
+msgid "A task's kanban state indicates special situations affecting it:\n"
+" * Normal is the default situation\n"
+" * Blocked indicates something is preventing the progress of this task\n"
+" * Ready for next stage indicates the task is ready to be pulled to the next stage"
+msgstr "Lo stato kanban di una lezione indica la situazione speciale in cui si trova:\n"
+"* Normale è la situazione standard\n"
+"* Bloccato indica che qualcosa previene la progressione di questa lezione\n"
+"* Pronto per il prossimo stadio indica che la lezione può passare allo stadio successivo"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Activities"
+msgstr "Lezioni"
+
+#. module: project
+#: model:ir.actions.act_window,name:project.act_res_users_2_project_task_opened
+msgid "Assigned Tasks"
+msgstr "Lezioni Assegnate"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_account_analytic_account_use_tasks
+#: model:ir.model.fields,help:project.field_project_project_use_tasks
+msgid "Check this box to manage internal activities through this project"
+msgstr "Seleziona questa checkbox per gestire lezioni interne tramite questo corso"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.project_planner
+msgid "Create at least 3 tasks"
+msgstr "Crea almeno 3 lezioni"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.view_task_kanban
+msgid "Edit Task"
+msgstr "Modifica Lezioni"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_task_planned_hours
+msgid "Estimated time to do the task, usually set by the project manager when the task is in draft state."
+msgstr "Tempo stimato per completare la lezione, solitamente configurato dal manager del corso quando la lezione è in stato bozza."
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_task_sequence
+msgid "Gives the sequence order when displaying a list of tasks."
+msgstr "Fornisce l'ordine di sequenza visualizzando la lista delle lezioni."
+
+#. module: project
+#: model:ir.actions.act_window,help:project.act_project_project_2_project_task_all
+msgid "Here, you can create new tasks"
+msgstr "Qui, puoi creare nuove lezioni"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.view_task_search_form
+msgid "My Tasks"
+msgstr "Le Mie Lezioni"
+
+#. module: project
+#: code:addons/project/models/project.py:574
+#, python-format
+msgid "New Task"
+msgstr "Nuova lezione"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_report_project_task_user_opening_days
+msgid "Number of Days to Open the task"
+msgstr "Numero di giorni per aprire la lezione"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_report_project_task_user_closing_days
+msgid "Number of Days to close the task"
+msgstr "Numero di giorni per chiudere la lezione"
+
+#. module: project
+#: model:ir.actions.act_window,name:project.action_view_task_overpassed_draft
+msgid "Overpassed Tasks"
+msgstr "Lezioni superate"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_project_task_type_legend_priority
+msgid "Priority Management Explanation"
+msgstr "Spiegazione della gestione delle lezioni"
+
+#. module: project
+#: model:ir.model,name:project.model_project_task
+#: model:ir.ui.view,arch_db:project.view_task_form2
+#: model:ir.ui.view,arch_db:project.view_task_project_user_search
+#: model:ir.ui.view,arch_db:project.view_task_search_form
+msgid "Task"
+msgstr "Lezione"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_project_project_tasks
+msgid "Task Activities"
+msgstr "Esecuzioni Lezioni"
+
+#. module: project
+#: model:mail.message.subtype,name:project.mt_project_task_blocked
+#: model:mail.message.subtype,name:project.mt_task_blocked
+msgid "Task Blocked"
+msgstr "Lezione bloccata"
+
+#. module: project
+#: model:ir.filters,name:project.filter_task_report_task_pipe
+msgid "Task Pipe"
+msgstr "Percorso Lezione"
+
+#. module: project
+#: model:ir.model,name:project.model_project_task_type
+#: model:ir.ui.view,arch_db:project.task_type_edit
+#: model:ir.ui.view,arch_db:project.task_type_tree
+msgid "Task Stage"
+msgstr "Stadio Lezione"
+
+#. module: project
+#: model:mail.message.subtype,name:project.mt_project_task_stage
+msgid "Task Stage Changed"
+msgstr "Modificato Stadio Lezione"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_project_task_name
+#: model:ir.model.fields,field_description:project.field_report_project_task_user_name
+msgid "Task Title"
+msgstr "Titolo Lezione"
+
+#. module: project
+#: model:ir.ui.view,arch_db:project.view_task_form2
+msgid "Task Title..."
+msgstr "Titolo Lezione..."
+
+#. module: project
+#: model:mail.message.subtype,description:project.mt_task_blocked
+msgid "Task blocked"
+msgstr "Lezione bloccata"
+
+#. module: project
+#: model:ir.actions.act_window,name:project.act_project_project_2_project_task_all
+#: model:ir.actions.act_window,name:project.action_view_task
+#: model:ir.model.fields,field_description:project.field_project_project_task_count
+#: model:ir.model.fields,field_description:project.field_project_project_task_ids
+#: model:ir.model.fields,field_description:project.field_project_project_task_needaction_count
+#: model:ir.model.fields,field_description:project.field_res_partner_task_ids
+#: model:ir.model.fields,field_description:project.field_res_users_task_ids
+#: model:ir.ui.menu,name:project.menu_action_view_task
+#: model:ir.ui.view,arch_db:project.edit_project
+#: model:ir.ui.view,arch_db:project.project_planner
+#: model:ir.ui.view,arch_db:project.view_project_kanban
+#: model:ir.ui.view,arch_db:project.view_task_calendar
+#: model:ir.ui.view,arch_db:project.view_task_partner_info_form
+#: model:ir.ui.view,arch_db:project.view_task_search_form
+#: model:ir.ui.view,arch_db:project.view_task_tree2
+msgid "Tasks"
+msgstr "Lezioni"
+
+#. module: project
+#: model:ir.actions.act_window,name:project.action_project_task_user_tree
+#: model:ir.actions.act_window,name:project.action_project_task_user_tree_filtered
+#: model:ir.ui.menu,name:project.menu_project_report_task_analysis
+#: model:ir.ui.view,arch_db:project.view_task_project_user_graph
+#: model:ir.ui.view,arch_db:project.view_task_project_user_pivot
+#: model:ir.ui.view,arch_db:project.view_task_project_user_search
+msgid "Tasks Analysis"
+msgstr "Analisi Lezioni"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_project_project_type_ids
+#: model:ir.ui.view,arch_db:project.task_type_search
+msgid "Tasks Stages"
+msgstr "Stadi Lezioni"
+
+#. module: project
+#: model:ir.actions.act_window,help:project.action_project_task_user_tree
+#: model:ir.actions.act_window,help:project.action_project_task_user_tree_filtered
+msgid "This report allows you to analyse the performance of your projects and users. You can analyse the quantities of tasks, the hours spent compared to the planned hours, the average number of days to open or close a task, etc."
+msgstr "Questo report permette di analizzare la performance dei corsi e degli utenti. È possibile analizzare le quantità di lezioni, le ore impiegate paragonate alle ore pianificate, il numero medio di giorni per aprire o chiudere una lezione, ecc."
+
+#. module: project
+#: model:res.groups,name:project.group_time_work_estimation_tasks
+msgid "Time Estimation on Tasks"
+msgstr "Stima Tempistiche su Lezioni"
+
+#. module: project
+#: model:ir.model.fields,help:project.field_project_task_remaining_hours
+msgid "Total remaining time, can be re-estimated periodically by the assignee of the task."
+msgstr "Tempo rimanente totale, può essere ricalcolato periodicamente dall'assegnatario delle lezioni"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_account_analytic_account_use_tasks
+#: model:ir.model.fields,field_description:project.field_project_project_use_tasks
+msgid "Use Tasks"
+msgstr "Usa lezioni"
+
+#. module: project
+#: model:ir.model.fields,field_description:project.field_project_project_user_id
+#: model:ir.model.fields,field_description:project.field_project_task_manager_id
+#: model:ir.ui.view,arch_db:project.edit_project
+#: model:ir.ui.view,arch_db:project.view_project
+#: model:ir.ui.view,arch_db:project.view_project_project_filter
+msgid "Project Manager"
+msgstr "Manager Corso"
+
+#. module: inlingua
+#: model:ir.actions.report.xml,name:inlingua.report_contract_receipt
+#: model:ir.ui.menu,name:inlingua.menu_contract_receipt_wizard
+msgid "Contract Receipt"
+msgstr "Stampa incassi contratti prv"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_print_contract_wizard_date_from
+msgid "Date From"
+msgstr "Da Data"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_print_contract_wizard_date_to
+msgid "Date To"
+msgstr "A Data"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_print_contract_wizard_print_all
+msgid "Print All?"
+msgstr "Stampa Tutti"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.print_contract_view_wizard
+msgid "Print"
+msgstr "Stampa"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_wizard_contract_receipt
+msgid "Print Contract Receipt"
+msgstr "Print Incassi Contratti"

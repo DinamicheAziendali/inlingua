@@ -1,0 +1,70 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+## [Unreleased]
+
+## [1.0.0] 
+
+### 2020-02-27
+- CORSO: Eliminato 'numero allievi' dalla vista, compresso su una linea i livelli.
+
+### 2019-11-25
+- CONTRATTO PRIVATO: Lista, aggiunta colonna importo totale.
+- CONTRATTO PRIVATO: sequenza corretta in anno/00000.
+
+### 2019-11-12
+- Corretto problema orario timetable. Da verificare.
+- in Corso, riquadro lezioni in alto a destra, clicco lista non raggruppata ok.
+- Impostazione dello split payment su inlingua Vomero.
+
+### 2019-11-04
+- TODO: LISTA FATTURE evidenziare quelle con fattura elettronica non emessa
+- CORSO: Corretto calcolo automatico moduli per lezione ed altri.
+
+### 2019-10-29
+- STAMPA SCHEDA CORSO (mod. 508)
+
+### 2019-10-08
+- TT: Correzione temporanea ora legale
+- CONTRATTO PRIVATO: cambio calcolo importo del contratto e singolo modulo.
+- CONTRATTO PRIVATO: ottimizzazione layout.
+
+### 2019-09-24
+- TT: fullscreen
+- TT: posizionamento corso corretto in dettaglio lezione
+- TT: correzione stampa del contratto privato
+
+### 2019-09-18 > 2019-09-20
+- CONTRATTO PRIVATO: modificato disposizione campi, rimosso 'genera rate'
+- INCASSI PRIVATO: rimosso segno negazione su registrazione incasso.
+
+### 2019-09-13
+- PARTNER: spostamento campi 'fornitore' e 'cliente'
+- PARTNER: rimozione Qualification
+
+### 2019-08-23
+- PO: Nel report a terzista, aggiunto campo termini di pagamento (ottenuto da payment_term_id.note).
+- CONTRATTO PRIVATO: correzione/allineamento campi visibili in caso di 'Aziendale senza ordine' ed 'Aziendale con ordine'.
+
+### 2019-08-19
+- SO: Aggiunto 'servizio richiesto', selezionabile tra 'personalizzato', 'come concordato', 'data inizio'.
+- PO: Aggiunto 'servizio richiesto' nel report a terzista.
+- PO: tree view, sostituito 'Documento di origine (origin)' con SO.name
+- PO: nascosto 'riferimento fornitore (partner_ref)'.
+
+### 2019-07-30
+- PO: modificato footer stampa pdf.
+
+### 2019-07-28
+- PO: aggiunto 'tipo ordine' "Ordine a terzista"
+- PO: Lista dei fornitori filtrata per terzista se "Ordine a terzista" 
+- SO: Dettaglio dei PO, aggiunto 'rif. Ordine'
+- FATTURE VENDITA: dalla lista dettaglio righe fattura, nascosto 'Conto Analitico (account_analytics_id)' e 'Tag analitici (analytics_tag_ids)'.
+
+### 2019-07-29
+- PO: aggiunti campi "Totale ordine", "Importo ordine vendita già assegnato", "Importo ordine vendita da assegnare".
+
+### 2019-07-24
+- Righe del PO da SO
+- Per Cliente tipo PA, nascosto birthplace, student, professor, contractor, qualification, professional_title_ids
+- Lista Ordini di Acquisto: Visualizzazione date senza orario.

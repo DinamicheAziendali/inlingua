@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="contract_root" name="Contract"
+                  sequence="13"/>
+
+        <menuitem id="contract_main" name="Contract" parent="contract_root"
+                  sequence="1"/>
+
+        <!--Tutti contratti-->
+        <act_window id="action_contract" name="Contract"
+                    res_model="private.contract" view_mode="tree,form"
+                    view_id="private_contract_tree_view"/>
+
+        <menuitem id="contract" name="Contract" parent="contract_main"
+                  action="action_contract"
+                  sequence="1"/>
+
+        <!--Contratti Privato-->
+        <act_window id="action_contract_private" name="Private Contract"
+                    res_model="private.contract" view_mode="tree,form" domain="[('type_contract','=','private')]"
+                    view_id="private_contract_tree_view"/>
+
+        <menuitem id="contract_private" name="Private Contract" parent="contract_main"
+                  action="action_contract_private"
+                  sequence="2"/>
+
+        <!--Contratti Azienda-->
+        <act_window id="action_contract_company" name="Company Contract"
+                    res_model="private.contract" view_mode="tree,form" domain="[('type_contract','!=', 'private')]"
+                    view_id="company_contract_tree_view"/>
+
+        <menuitem id="contract_company" name="Company Contract" parent="contract_main"
+                  action="action_contract_company"
+                  sequence="3"/>
+
+        <!--Incassi (dei contratti privati)-->
+        <act_window id="action_income" name="Income"
+                    res_model="payment.term.line" 
+                    view_mode="tree,form" 
+                    />
+                <!-- context="{'search_default_customer':1}" -->
+                
+        <menuitem id="income" name="Income" parent="contract_main"
+                  action="action_income"
+                  sequence="4"/>
+
+        <!-- Filtro fisso sul lista Fornitori (supplier) -->
+        <record id="base.action_partner_supplier_form" model="ir.actions.act_window">
+            <field name="name">Vendors</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('supplier', '=', True)]</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'default_customer': 0,'default_supplier': 1}</field>
+            <field name="filter" eval="True"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a contact in your address book.
+                </p>
+                <p>
+                    Odoo helps you easily track all activities related to
+                    a supplier: discussions, history of purchases,
+                    documents, etc.
+                </p>
+            </field>
+        </record>
+
+        <!--Clienti, studenti e docenti-->
+        <!--<act_window id="base.action_partner_form" name="Company Contract"-->
+        <!--res_model="private.contract" view_mode="tree,form" domain="[('company','=',True)]"/>-->
+
+        <menuitem id="menu_customer" name="Customers" parent="contract_main"
+                  action="base.action_partner_form"
+                  sequence="4"/>
+
+        <record model="ir.actions.act_window" id="action_student">
+            <field name="name">Students</field>
+            <field name="res_model">res.partner</field>
+            <field name="domain">[('student','=',True)]</field>
+            <field name="context">{'default_customer': 0,'default_student': 1}</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="child_action_student_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="res_partner_tree_student"/>
+            <field name="act_window_id" ref="action_student"/>
+        </record>
+
+        <record id="child_action_student_form" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="partner_student_form_view"/>
+            <field name="act_window_id" ref="action_student"/>
+        </record>
+
+        <!--<act_window id="action_student" name="Students"-->
+        <!--res_model="res.partner" view_mode="tree,form" domain="[('student','=',True)]"-->
+        <!--view_id="res_partner_tree_student"/>-->
+
+        <menuitem id="menu_student" name="Students" parent="contract_main"
+                  action="action_student"
+                  sequence="5"/>
+
+        <act_window id="action_professor" name="Professors"
+                    res_model="res.partner" view_mode="tree,form" domain="[('professor','=',True)]"/>
+
+        <menuitem id="menu_professor" name="Professors" parent="contract_main"
+                  action="action_professor"
+                  sequence="6"/>
+
+        <!-- timetable -->
+        <!-- TODO spostare in menu project-->
+        <menuitem name="Timetable" id="menu_timetable_root"/>
+        <menuitem name="Timetable" id="menu_timetable_timetable" parent="menu_timetable_root"
+                  action="project_task_hr_timesheet_timetable_window"/>
+
+        <!-- WIZARD INCASSI CONTRATTI -->
+        <!-- MASCHERA PER LA RICHIESTA DEI DATI DI FILTRO PER IL RIEPILOGO CONTRATTI INCASSI PRIVATI -->
+        <!-- REPORT: report_contract_receipt_view in inlingua/views/contract_receipt_template.xml -->
+        <record id="action_wizard_contract_receipt" model="ir.actions.act_window">
+            <field name="name">Print Contract Receipt</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">print.contract.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="print_contract_view_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_contract_receipt_wizard" name="Contract Receipt" parent="contract_main"
+                  action="action_wizard_contract_receipt"
+                  sequence="7"/>
+
+    </data>
+</odoo>

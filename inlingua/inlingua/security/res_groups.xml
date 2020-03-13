@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Con noupdate=1 non aggiorna i dati da interfaccia, mentre con data update = 0
+    anche se cambio i dati da interfaccio e aggiorno il mio modulo, ricarica le cose scritte nel codice-->
+    <data noupdate="0">
+        <record id="group_account_rate" model="res.groups">
+            <field name="name">Account Rate</field>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_professor" model="res.groups">
+            <field name="name">Professor</field>
+        </record>
+
+        <record id="group_segretarie" model="res.groups">
+            <field name="name">Segretarie</field>
+            <!--<field name="implied_ids" eval="[(4, ref('hr_appraisal.group_hr_appraisal_user')), (4, ref('survey.group_survey_manager'))]"/>-->
+        </record>
+
+        <!--CREAZIONE RULE-->
+        <!--<record model="ir.rule" id="read_partner_validate_rule">-->
+            <!--<field name="name">Lettura Partner</field>-->
+            <!--<field name="model_id" ref="model_res_partner"/>-->
+            <!--<field name="domain_force">[('apf_validation','=',False)]</field>-->
+            <!--<field name="groups" eval="[(4, ref('group_no_administrative'))]"/>-->
+            <!--<field name="perm_read" eval="False"/>-->
+            <!--<field name="perm_write" eval="True"/>-->
+            <!--<field name="perm_unlink" eval="True"/>-->
+            <!--<field name="perm_create" eval="False"/>-->
+        <!--</record>-->
+
+        <!--Chi è nel group base.group_erp_manager vede il menù dei tag lead-->
+        <!--<record id="base.group_erp_manager" model="res.groups">-->
+            <!--<field name="menu_access" eval="[(4, ref('crm.menu_crm_lead_categ'))]"/>-->
+        <!--</record>-->
+
+    </data>
+</odoo>

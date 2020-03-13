@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- RICEVUTA INCASSO CONTRATTO PRIVATO DA WIZARD -->
+        <report
+                id="report_receipt"
+                string="Receipt"
+                model="add.rate.wizard"
+                report_type="qweb-pdf"
+                name="inlingua.report_receipt_view"
+                attachment_use="False"
+                file="inlingua.print-of-receipt"/>
+
+        <!-- RICEVUTA INCASSO CONTRATTO PRIVATO -->
+        <report
+                id="report_receipt_private_contract"
+                string="Receipt"
+                model="payment.term.line"
+                report_type="qweb-pdf"
+                name="inlingua.view_receipt_private_contract"
+                attachment_use="False"
+                file="inlingua.print-of-receipt" />
+    </data>
+</odoo>

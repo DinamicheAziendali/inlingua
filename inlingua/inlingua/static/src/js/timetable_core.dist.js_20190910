@@ -1,0 +1,265 @@
+'use strict';
+
+console.log('init timetable');
+odoo.define('timetable.main', function (require) {
+  'use strict';
+
+  console.log('defining timetable');
+  var firstStart = true;
+
+  var core = require('web.core');
+
+  var View = require('web.View');
+
+  var Model = require('web.DataModel'); //var data = require('web.data');
+  //var data_manager = require('web.data_manager');
+  //var DataExport = require('web.DataExport');
+  //var formats = require('web.formats');
+  //var common = require('web.list_common');
+  //var Model = require('web.DataModel');
+  //var Pager = require('web.Pager');
+  //var Sidebar = require('web.Sidebar');
+  //var utils = require('web.utils');
+
+
+  var _lt = core._lt;
+  var TimetableView = View.extend({
+    template:     'Timetable',
+    display_name: _lt('Timetable'),
+    icon:         'fa-list-ul',
+    //require_fields: true,
+    defaults:     _.extend({}, View.prototype.defaults, {}),
+    scheduler:    null,
+    professors:   [],
+    courses:      [],
+
+    /**
+     * Startup callback
+     */
+    start:           function start() {
+      var _this = this;
+
+      //load courses
+      this.load_courses() //Loading courses
+          .then(function (c) {
+            return console.log('courses loaded', c);
+          }) //loading professors
+          .then(function () {
+            return _this.load_professors();
+          }) //Loading courses
+          .then(function (c) {
+            return console.log('professors loaded', c);
+          }) //creating TimeTable
+          .then(function (result) {
+            return _this.init_timetable(result);
+          }).then(function (result) {
+        return _this.refresh();
+      });
+
+      this._super();
+    },
+    init_timetable:  function init_timetable() {
+      var _this2 = this;
+
+      //require scheduler
+      var Scheduler = bryntum.scheduler.Scheduler;
+      var Store = bryntum.Store;
+      var dToday = luxon.DateTime.local().set({
+        hour:   0,
+        minute: 0,
+        second: 0
+      });
+      var aLessons = [];
+
+      bryntum.scheduler.WidgetHelper.append({type: 'button'}, 
+      { insertFirst : document.getElementById('timetable-container') || document.body });
+
+      this.scheduler = new Scheduler({
+        appendTo:   document.getElementById('timetable-container'),
+        eventStyle: 'border',
+        autoHeight: true,
+        rowHeight:  50,
+        columns:    [{
+          text:  'Name',
+          field: 'name',
+          width: 150
+        }],
+        startDate:  dToday.toISO(),
+        // '2017-01-01T06:00',
+        endDate:    dToday.plus({
+          days: 7
+        }).toISO(),
+        viewPreset: 'hourAndDay',
+        resources:  this.professors.map(function (p) {
+          return Object.assign({}, p, {
+            eventColor: 'blue'
+          });
+        }),
+        //events:   aLessons,
+        features:   {
+          columnLines:    true,
+          eventResize:    true,
+          nonWorkingTime: {
+            highlightWeekends: true
+          },
+          timeRanges:     {
+            showCurrentTimeLine: true,
+            showHeaderElements:  true,
+            enableResizing:      true
+          },
+          eventEdit:      {
+            // Add extra widgets to the event editor
+            extraWidgets: [{
+              type:         'combo',
+              name:         'courseId',
+              label:        'Course',
+              editable:     false,
+              index:        1,
+              valueField:   'key',
+              displayField: 'label',
+              items:        this.courses //['Appointment', 'Internal', 'Meeting']
+
+            }]
+          }
+        }
+      });
+      setTimeout(function () {
+        return document.querySelector('.b-watermark').remove();
+      }, 100);
+      this.scheduler.eventStore.on({
+        add:    function add(event) {
+          var d = event.records[0].data;
+          var lesson = {
+            'name':         d.name,
+            'professor_id': d.resourceId,
+            'project_id':   d.courseId,
+            'start_time':   d.startDate.toUTCString(),
+            'end_time':     d.endDate.toUTCString()
+          };
+
+          _this2.create_lesson(lesson); // console.log('add', event);
+
+        },
+        update: function update(event) {
+          var d = event.record.data;
+          var lesson = {
+            'name':         d.name,
+            'professor_id': d.resourceId,
+            'project_id':   d.courseId,
+            'start_time':   d.startDate.toUTCString(),
+            'end_time':     d.endDate.toUTCString()
+          };
+
+          _this2.update_lesson(d.id, lesson);
+
+          console.log('update', event);
+        },
+        remove: function remove(event) {
+          var d = event.records[0].data;
+
+          _this2.delete_lesson(d.id);
+        }
+      });
+    },
+    refresh:         function refresh() {
+      var _this3 = this;
+
+      this.load_lessons().then(function (results) {
+        console.log('found lessons: ', results);
+
+        _this3.set_data(results);
+      });
+    },
+    load_lessons:    function load_lessons() {
+      return new Model('project.task').query(['id', 'name', 'professor_id', 'project_id', 'start_time', 'end_time']).all();
+    },
+    load_professors: function load_professors() {
+      var _this4 = this;
+
+      return new Model('res.partner', null, [['professor', '=', 'true']]).query(['name', 'id']).all() //mapping results
+      //.then(result => result.map((p) => ({key: p.id, label: p.name})))
+      //update instance yUnits
+                                                                         .then(function (result) {
+                                                                           _this4.professors = result;
+                                                                           return result;
+                                                                         });
+    },
+    set_data:        function set_data(data) {
+      //const localizeDate = (date) => new Date(luxon.DateTime.fromJSDate(date).local().toString());
+      var mappedData = data.filter(function (item) {
+        return item.start_time && item.end_time && item.professor_id[0] && item.professor_id;
+      }) // { id : 1, resourceId : 1, name : 'Fight crime', startDate : new Date(2018,4,1,9,00), endDate : new Date(2018,4,1,17,00) },
+                           .map(function (lesson) {
+                             return {
+                               id:         lesson.id,
+                               startDate:  new Date(''.concat(lesson.start_time, ' UTC')),
+                               endDate:    new Date(''.concat(lesson.end_time, ' UTC')),
+                               name:       lesson.name,
+                               resourceId: lesson.professor_id[0]
+                             };
+                           });
+      this.scheduler.eventStore.data = mappedData;
+    },
+    create_lesson:   function create_lesson(data) {
+      var _this5 = this;
+
+      console.log('creating lesson: ', data);
+      return new Model('project.task').call('create', [data]).fail(function () {
+        return setTimeout(function () {
+          return _this5.refresh();
+        }, 100);
+      }).then(function () {
+        return setTimeout(function () {
+          return _this5.refresh();
+        }, 100);
+      });
+    },
+    update_lesson:   function update_lesson(lessonId, data) {
+      var _this6 = this;
+
+      console.log('updating lesson: ', data);
+      return new Model('project.task').call('write', [[lessonId], data]).fail(function () {
+        return setTimeout(function () {
+          return _this6.refresh();
+        }, 100);
+      }).then(function () {
+        return setTimeout(function () {
+          return _this6.refresh();
+        }, 100);
+      });
+    },
+    delete_lesson:   function delete_lesson(lessonId) {
+      var _this7 = this;
+
+      console.log('deleting lesson: ', lessonId);
+      return new Model('project.task').call('unlink', [[lessonId]]).fail(function () {
+        return setTimeout(function () {
+          return _this7.refresh();
+        }, 100);
+      }).then(function () {
+        return setTimeout(function () {
+          return _this7.refresh();
+        }, 100);
+      });
+    },
+    load_courses:    function load_courses() {
+      var _this8 = this;
+
+      console.log('loading courses');
+      return new Model('project.project').query(['id', 'name']).all() //mapping results
+                                         .then(function (result) {
+                                           return result.map(function (c) {
+                                             return {
+                                               key:   c.id,
+                                               label: c.name
+                                             };
+                                           });
+                                         }).then(function (result) {
+            _this8.courses = result;
+            return result;
+          });
+    }
+  });
+  core.view_registry.add('timetable', TimetableView);
+  return TimetableView;
+});

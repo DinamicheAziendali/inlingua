@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="account_invoice_form_view_inherit">
+            <field name="name">Account Invoice Form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='account_analytic_id']" position="replace">
+                    <field name="account_analytic_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='analytic_tag_ids']" position="replace">
+                    <field name="analytic_tag_ids" invisible="1"/>
+                </xpath>
+                
+
+                <xpath expr="//form/sheet/group/group/field[@name='payment_term_id']" position="before">
+                    <field name="private_contract_id" domain="[('partner_id','=', partner_id)]"/>
+                </xpath>
+                <xpath expr="//form/header/button[@name='action_invoice_sent']" position="replace">
+                </xpath>
+                <xpath expr="//form/header/button[@name='action_invoice_sent']" position="replace">
+                    <button name="action_invoice_sent" type="object" string="Send by Email" attrs="{'invisible':[('sent','=',True)]}"
+                            class="oe_highlight" groups="base.group_user"/>
+                    <button name="action_invoice_sent" type="object" string="Send by Email" attrs="{'invisible':[('sent','=',False)]}"
+                            groups="base.group_user"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="account_invoice_search_view_inherit">
+            <field name="name">Account Invoice Search Inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <filter name="late" position="after">
+                    <separator/>
+                    <filter name="Private" string="Private" domain="[('is_company', '=', False)]"/>
+                    <filter name="Company" string="Company" domain="[('is_company', '=', True)]"/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</odoo>

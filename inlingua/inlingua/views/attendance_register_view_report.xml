@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="report_attendance_register_view">
+        <t t-call="report.html_container">
+            <!-- inlingua_course_layout in /report/header-footer.xml -->
+            <t t-call="inlingua.inlingua_course_layout">
+                <div class="page">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="row">
+
+                            <!--<div t-if="o.task_ids.task_student_ids">-->
+                            <t t-if="(len(o.project_student_ids)) &lt;= 4">
+                                <div id="title" style="border:1px solid black">
+                                    <div>
+                                        <div style="float:left;">
+                                            Mod. 509.2
+                                        </div>
+                                        <div style="text-align:center;">
+                                            Modules for suppliers of linguistic services
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div></div>
+                                        <div style="font-weight:bold;text-align:center;">
+                                            Attendance Register
+                                        </div>
+                                        <!--<div style="font-weight:bold;float:left;margin-left:400px">-->
+                                        <!--Registro Presenze-->
+                                        <!--</div>-->
+                                        <!--<div style="float:center;margin-left:750px">-->
+                                        <!--<span>Pag </span><span class="page" />/<span class="topage" />-->
+                                        <!--</div>-->
+                                    </div>
+                                </div>
+                                <br/>
+
+                                <div style="text-align:center;border:1px solid black;font-weight:bold">
+                                    <span t-field="o.partner_id"/>
+                                </div>
+                                <br/>
+                                <table class="table">
+                                    <tr style="border:1px solid white">
+                                        <td colspan="1">Description:
+                                            <span t-field="o.description"/>
+                                        </td>
+                                        <td colspan="1">Code:
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td colspan="1">Type:
+                                            <span t-field="o.course_type_id.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Office:
+                                            <span t-field="o.office_id.name"/>
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span>Duration:</span>
+
+                                            <span>Non Available</span>
+                                        </td>
+                                        <td>Duration Modules:
+                                            <span t-field="o.module_type_id.name"/>
+                                        </td>
+                                        <td>Total Modules:
+                                            <span t-field="o.number_of_module"/>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>N.</th>
+                                            <th>Date</th>
+                                            <th>Time Start</th>
+                                            <th>Time End</th>
+                                            <th>Lesson's Note</th>
+                                            <th>Professor's Signature</th>
+                                            <th>Student's Signature</th>
+                                            <!--<th class="text-right">Quantity</th>-->
+                                        </tr>
+                                    </thead>
+                                    <t t-set="n_line" t-value="0"/>
+                                    <t t-foreach="o.task_ids" t-as="task">
+                                        <t t-foreach="task.task_student_ids" t-as="student">
+                                            <t t-set="n_line" t-value="n_line + 1"/>
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="n_line"/>
+                                                </td>
+                                                <td>
+                                                    <!--<span t-field="task.date_deadline"/>-->
+                                                </td>
+                                                <td>
+                                                    <!--<span t-esc="o.get_time_lessons(task.time_start)"/>-->
+                                                    <!--<span t-field="task.time_start"/>-->
+                                                </td>
+                                                <td>
+                                                    <!--<span t-esc="o.get_time_lessons(task.time_end)"/>-->
+                                                    <!--<span t-field="task.time_end"/>-->
+                                                </td>
+                                                <td>
+                                                    <!--<span t-field="task.description"/>-->
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                                <td>
+                                                    <div style="padding-bottom:10px">
+                                                        <span style="font-size:6px;" t-field="student.student_id"/>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                </table>
+                            </t>
+                            <t t-if="len(o.project_student_ids) &gt; 4">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td width="10%">Mod. 509.1</td>
+                                        <td style="text-align:center" width="70%">Modules for suppliers of language's service</td>
+                                        <td width="20%" style="border-bottom:1px solid white;text-align:center">Rev. 0</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;font-size:16px" colspan="2">Attendance Register - collective course</td>
+                                        <td style="border-top:1px solid white"></td>
+                                    </tr>
+                                </table>
+
+                                <div class="block1">
+
+                                </div>
+                                <table class="table table-bordered">
+
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Date
+                                            </th>
+                                            <th colspan="10">
+                                                Students
+                                            </th>
+                                            <th>Lesson's Note</th>
+                                            <th>Sigla</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+
+                                            <td class="rotate">
+                                                test
+                                            </td>
+                                            <td class="rotate">text 12</td>
+                                            <td class="rotate"></td>
+                                            <td class="rotate"></td>
+                                            <td class="rotate"></td>
+                                            <td class="rotate"></td>
+                                            <td class="rotate"></td>
+                                            <td class="rotate"></td>
+                                            <td class="rotate"></td>
+                                            <td class="rotate"></td>
+
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+
+                        </div>
+                        <br/>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

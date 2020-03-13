@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_private_contract_manager,private_contract manager,model_private_contract,group_manager,1,1,1,1
+access_class_type_manager,class_type manager,model_class_type,group_manager,1,1,1,1
+access_module_type_manager,module_type manager,model_module_type,group_manager,1,1,1,1
+access_class_language_manager,class_language manager,model_class_language,group_manager,1,1,1,1
+access_class_programm_manager,class_programm manager,model_class_programm,group_manager,1,1,1,1
+access_type_due_manager,type_due manager,model_type_due,group_manager,1,1,1,1
+access_payment_term_line_manager,payment_term_line manager,model_payment_term_line,group_manager,1,1,1,1
+access_project_student_manager,project_student manager,model_project_student,group_manager,1,1,1,1
+access_student_level_manager,student_level manager,model_student_level,group_manager,1,1,1,1
+access_office_office_manager,office_office manager,model_office_office,group_manager,1,1,1,1
+access_project_task_student_manager,project_task_student manager,model_project_task_student,group_manager,1,1,1,1
+access_language_student_manager,language_student manager,model_language_student,group_manager,1,1,1,1
+access_language_professor_manager,language_professor manager,model_language_professor,group_manager,1,1,1,1
+access_partner_professional_title_manager,partner_professional_title manager,model_partner_professional_title,group_manager,1,1,1,1

@@ -1,0 +1,6 @@
+version: '3'
+services:
+  odoo:
+    # configurazione ambiente di produzione
+  db:
+    # configurazione db di prod

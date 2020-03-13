@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <report id="action_report_private_contract" model="private.contract"
+            string="Private Contract" report_type="qweb-pdf"
+            name="inlingua.report_private_contract"
+            file="inlingua.report_private_contract"
+            menu="True" auto="False"/>
+
+</odoo>

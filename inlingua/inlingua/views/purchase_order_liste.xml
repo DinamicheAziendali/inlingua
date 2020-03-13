@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- LISTA DEGLI ORDINI DI ACQUISTO -->
+        <record model="ir.ui.view" id="purchase_order_tree_view_inherit">
+            <field name="name">Purchase Order Inherit Tree View</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="date_order" position="replace" >
+                    <field name="date_order" widget="date" />
+                </field>
+                <field name="date_planned" position="replace" >
+                    <field name="date_planned" widget="date" />
+                </field>
+                <field name="origin" position="replace">
+                    <field name="sale_order_id" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

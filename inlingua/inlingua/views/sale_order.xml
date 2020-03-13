@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="sale_order_form_view_inherit">
+            <field name="name">Sale Order Inherit form View</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header/field[@name='state']" position="before">
+                    <button name="decreases_general_agreement" type="object" string="Decrease General Agreement"/>
+                </xpath>
+                <field name="confirmation_date" position="replace" >
+                    <field name="confirmation_date" readonly="0" widget="date" />
+                </field>
+                <field name="date_order" position="replace" >
+                    <field name="date_order" widget="date" readonly="0" />
+                </field>
+                <field name="payment_term_id" position="after">
+                    <field name="framework_agreement"/>
+                    <field name="general_agreement_id" domain="[('framework_agreement','=', 1)]"
+                           attrs="{'invisible':[('framework_agreement', '=', True)]}"/>
+                    <field name="residual_framework_agreement"
+                                attrs="{'invisible':[('framework_agreement', '=', True)]}"/>
+                    <field name="original_total" attrs="{'invisible':[('framework_agreement', '=', False)]}"/>
+                </field>
+                <xpath expr="//form/sheet/group/group/field[@name='partner_id']" position="replace">
+                    <field name="partner_id" domain="[('is_company','=', 1),('customer','=', True)]"
+                           context="{'search_default_customer':1, 'show_address': 1}"
+                           options="{&quot;always_reload&quot;: True}"/>
+                    <field name="customer_order_number" />
+                    <field name="customer_order_date" widget="date" />
+                    <field name="pa_cig" />
+
+                    <!-- Definizione del tipo di servizio erogato -->
+                    <field name="service_type" />
+                    <field name="service_custom" attrs="{'invisible':[('service_type', '!=', 'custom')]}" />
+                    <field name="service_date"   attrs="{'invisible':[('service_type', '!=', 'startAt')]}" />
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[2]" position="after">
+                    <page string="Contracts" name="contracts">
+                        <field name="contract_ids" readonly="True">
+                            <tree>
+                                <field name="partner_id"/>
+                                <field name="date_contract"/>
+                                <field name="language_id"/>
+                                <field name="programm_id"/>
+                                <field name="total_value" sum="Total Value"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Purchase orders" name="purchase_orders">
+                        <field name="purchase_order_ids" readonly="True">
+                            <tree>
+                                <field name="partner_id"/>
+                                <field name="name" />
+                                <field name="date_order" widget="date" />
+                                <field name="amount_untaxed"  sum="Total Value"/>
+                                <field name="state" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                
+                <xpath expr="//form/sheet/group/group/field[@name='validity_date']" position="replace">
+                    <field name="validity_date" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='qty_delivered']" position="replace">
+                    <field name="qty_delivered" invisible="1" attrs="{'readonly': [('qty_delivered_updateable', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='analytic_tag_ids']" position="replace">
+                    <field name="analytic_tag_ids" invisible="1" groups="analytic.group_analytic_accounting" widget="many2many_tags"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/tree/field[@name='qty_invoiced']" position="replace">
+                    <field name="qty_invoiced" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/form/group/group/label[@for='qty_delivered']" position="replace">
+                    <label for="qty_delivered" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/form/group/group/div/field[@name='qty_delivered']" position="replace">
+                    <field name="qty_delivered" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/form/group/group/label[@for='analytic_tag_ids']" position="replace">
+                    <label for="analytic_tag_ids" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/form/group/group/div/field[@name='analytic_tag_ids']" position="replace">
+                    <field name="analytic_tag_ids" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/form/group/group/label[@for='qty_invoiced']" position="replace">
+                    <label for="qty_invoiced" invisible="1"/>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page/field/form/group/group/div/field[@name='qty_invoiced']" position="replace">
+                    <field name="qty_invoiced" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- LISTA DEGLI ORDINI DI VENDITA -->
+        <record model="ir.ui.view" id="sale_order_tree_view_inherit">
+            <field name="name">Sale Order Inherit Tree View</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="date_order" position="replace" >
+                    <field name="date_order" widget="date" />
+                </field>
+                <field name="amount_total" position="replace">
+                    <field name="original_total" sum="Total" widget="monetary"/>
+                    <field name="amount_total" sum="Total Tax Included" widget="monetary" string="Saldo Ordine"/>
+                    <field name="assigned_purchase_amount" sum="Total" string="Totale Assegnato"/>
+                </field>
+                <field name="name" position="after">
+                    <field name="framework_agreement"/>
+                    <field name="general_agreement_id"/>
+                </field>
+                <field name="user_id" position="replace">
+                    <field name="user_id" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

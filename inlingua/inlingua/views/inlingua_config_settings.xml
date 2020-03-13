@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Onestein (<http://www.onestein.eu>)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+    <record id="view_inlingua_config_settings" model="ir.ui.view">
+        <field name="name">inlingua settings</field>
+        <field name="model">inlingua.config.settings</field>
+        <field name="arch" type="xml">
+            <form string="Configure inlingua" class="oe_form_configuration">
+                <header>
+                    <button string="Apply" type="object" name="execute"
+                            class="oe_highlight"/>
+                    <button string="Cancel" type="object" name="cancel"
+                            class="oe_link"/>
+                </header>
+                <div id="main">
+                    <group string="Seperate Journal">
+                        <field name="contract_account_income"
+                               class="oe_inline"/>
+                        <field name="contract_invoice_journal"
+                               class="oe_inline"/>
+                        <field name="contract_tax"
+                               class="oe_inline"/>
+                    </group>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_inlingua_config_settings" model="ir.actions.act_window">
+        <field name="name">Configure inlingua</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">inlingua.config.settings</field>
+        <field name="view_id" ref="view_inlingua_config_settings"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+    </record>
+
+    <menuitem id="menu_inlingua_general_settings"
+              name="Settings"
+              string="Setting" parent="contract_root"
+              sequence="100"
+              action="action_inlingua_config_settings"/>
+
+    <!--groups="maintenance.group_equipment_manager"-->
+</odoo>

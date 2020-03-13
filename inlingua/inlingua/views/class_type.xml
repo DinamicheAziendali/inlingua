@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--VIEW-->
+        <record model="ir.ui.view" id="class_type_view_form">
+            <field name="name">view.form.class.type</field>
+            <field name="model">class.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="max_student"/>
+                        <field name="min_student"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

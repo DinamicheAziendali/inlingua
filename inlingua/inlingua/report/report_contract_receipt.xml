@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- REPORT INCASSI SU CONTRATTI -->
+        <report
+                id              = "report_contract_receipt"
+                string          = "Contract Receipt"
+                model           = "print.contract.wizard"
+                report_type     = "qweb-html"
+                attachment_use  = "False"
+                name            = "inlingua.report_contract_receipt_view"
+                file            = "inlingua.contract_receipt" />
+    </data>
+</odoo>

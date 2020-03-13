@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="project.open_view_task_list_kanban" model="ir.actions.act_window.view">
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">kanban</field>
+            <field name="act_window_id" ref="project.action_view_task"/>
+        </record>
+
+        <record id="project.open_view_task_list_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="project.action_view_task"/>
+        </record>
+
+        <record id="project.act_project_project_2_project_task_all" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,kanban,calendar,timeline,pivot,graph,timetable</field>
+        </record>
+
+        <!-- Elenco delle lezioni tabellare -->
+        <record model="ir.ui.view" id="project_task_tree_view_inherit">
+            <field name="name">Project Task Inherit Form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+                <field name="date_deadline" position="replace">
+                    <field name="date_deadline" invisible="True" />
+                    <field name="professor_id"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <!--
+                    <field name="time_start" widget="float_time"/>
+                    <field name="time_end" widget="float_time"/>
+                     -->
+                    <field name="language_course_id"/>
+                    <field name="course_type_id"/>
+                </field>
+                <field name="user_id" position="replace">
+                    <field name="user_id" invisible="True"/>
+                </field>
+                <field name="name" position="replace">
+                    <field name="name" invisible="True"/>
+                </field>
+                <field name="stage_id" position="replace">
+                    <field name="stage_id" invisible="True"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ht_timesheet_task_tree_view_inherit">
+            <field name="name">Hr Timesheet Task Inherit Tree</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="hr_timesheet.view_task_tree2_inherited"/>
+            <field name="arch" type="xml">
+                <field name="user_id">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="planned_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="remaining_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="progress" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_task_form_view_inherit">
+            <field name="name">Project Task Inherit Form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[@name='extra_info']" position="before">
+                    <page string="Students" name="Students">
+                        <field name="task_student_ids">
+                            <form>
+                                <group>
+                                    <field name="task_id" invisible="True"/>
+                                    <field name="student_id"/>
+                                    <field name="present"/>
+                                    <field name="active"/>
+                                </group>
+                            </form>
+                            <tree>
+                                <field name="task_id" invisible="True"/>
+                                <field name="student_id"/>
+                                <field name="present"/>
+                                <field name="active"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[@name='extra_info']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/group/group/field[@name='user_id']" position="replace">
+                    <field name="user_id"
+                           class="o_task_user_field"
+                           options="{&quot;no_open&quot;: True}"
+                           domain="[('professor','=', True)]"
+                           invisible="True"
+                    />
+                    <field name="professor_id" domain="[('professor','=', True)]"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_task_hr_timesheet_form_view_inherit">
+            <field name="name">Project Task hr timesheet inherit Form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+            <field name="arch" type="xml">
+                <field name="planned_hours" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+                <field name="planned_hours" position="after">
+                    <!--
+
+                    <field name="time_start" widget="float_time"/>
+                    <field name="time_end" widget="float_time"/>
+-->
+                </field>
+                <!--<field name="progress" position="after">-->
+                <!--<field name="time_end" widget="float_time"/>-->
+                <!--</field>-->
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_task_search_view_inherit">
+            <field name="name">Project Task Inherit Search</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_search_form"/>
+            <field name="arch" type="xml">
+                <field name="stage_id" position="replace">
+                    <field name="stage_id" invisible="1"/>
+                </field>
+                <field name="name" position="after">
+                    <field name="language_course_id"/>
+                </field>
+                <filter name="User" position="after">
+                    <filter string="Language" name="language" context="{'group_by':'language_course_id'}"/>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</odoo>

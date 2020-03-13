@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="act_res_partner_2_private_contract">
+            <field name="name">Contracts</field>
+            <field name="res_model">private.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="domain">[('partner_id','=', active_id)]</field>
+            <field name="context">{'default_partner_id': active_id}</field>
+            <field name="groups_id"
+                   eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+
+
+        <!-- <record model="ir.ui.view" id="partner_information_form_view_inherit">
+            <field name="name">Res partner Information Inherit Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="partner_contact_birthdate.view_personal_information_birthdate_date"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="birthplace"/>
+                    <field name="student"/>
+                    <field name="professor"/>
+                    <field name="qualification"/>
+                    <field name="professional_title_ids" widget="many2many_tags"/>
+                </field>
+            </field>
+        </record> -->
+
+        <!-- NASCONDI TAB INFORMAZIONI PERSONALI: start -->
+        <!-- partner_contact_personal_information_page.personal_information -->
+        <record model="ir.ui.view" id="hidden_personal_information_page_view_inherit">
+            <field name="name">Res partner Information Inherit Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="partner_contact_personal_information_page.personal_information"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='personal_information_page']" position="replace">
+                    <page name="personal_information_page" string="Personal Information" invisible="True">
+                        <group name="personal_information_group"/>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+        <!-- NASCONDI TAB INFORMAZIONI PERSONALI: end -->
+
+
+        <record model="ir.ui.view" id="partner_search_view_inherit">
+            <field name="name">Res partner Inherit Search View</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="language_ids" string="Language"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="res_partner_form_view_inherit" >
+            <field name="name">Res partner Inherit Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[@name='internal_notes']" position="after">
+                    <!-- LINGUE STUDIATE ALLIEVO, LIVELLI RAGGIUNTI: start -->
+                    <page string="Language" name="language" attrs="{'invisible':[('student','!=', True)]}">
+                        <field name="language_ids">
+                            <tree editable="bottom">
+                                <field name="language_id"/>
+                                <field name="current_level"/>
+                                <field name="be_reached_level"/>
+                                <field name="partner_id" invisible="True"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="language_id"/>
+                                    <field name="current_level"/>
+                                    <field name="be_reached_level"/>
+                                    <field name="partner_id" invisible="True"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                    <!-- LINGUE STUDIATE ALLIEVO, LIVELLI RAGGIUNTI: end -->
+
+                    <!-- LINGUE INSEGNATE DOCENTE, LIVELLI RAGGIUNTI: start -->
+                    <page string="Language Taught" name="language_taught" attrs="{'invisible':[('professor','!=', True)]}">
+                        <field name="language_professor_ids">
+                            <tree editable="bottom">
+                                <field name="language_id"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="language_id"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                    <!-- LINGUE INSEGNATE DOCENTE, LIVELLI RAGGIUNTI: end -->
+                </xpath>
+
+                <!-- AGGIUNTA PULSANTE CONTRATTI ASSOCIATI: start -->
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="action"
+                            name="%(inlingua.act_res_partner_2_private_contract)d"
+                            attrs="{'invisible': [('customer', '=', False)]}"
+                            icon="fa-usd">
+                        <label string="Contracts"/>
+                    </button>
+                </div>
+                <!-- AGGIUNTA PULSANTE CONTRATTI ASSOCIATI: end -->
+
+                <!-- DOPO IL CAMPO 'TAG' -->
+                <field name="category_id" position="after">
+                        <field name="birthdate_date" attrs="{'invisible': [('company_type', '=', 'company')]}"/>
+                        <field name="birthplace" attrs="{'invisible': [('is_pa', '=', True)]}"/>
+                        <field name="customer" />
+                        <field name="student" attrs="{'invisible': [('is_pa', '=', True)]}"/>
+                        <field name="professor" attrs="{'invisible': [('is_pa', '=', True)]}"/>
+                </field>
+
+                <!-- DOPO IL CAMPO 'LANG' -->
+                <field name="lang" position="after">
+                        <field name="supplier" attrs="{'invisible': ['|',('company_type','=','person'),('is_pa', '=', True)]}"/>
+                        <field name="contractor" attrs="{'invisible': ['|',('company_type','=','person'),('is_pa', '=', True)]}"/>
+                </field>
+
+                <!-- DOPO IL CAMPO 'QUALIFICA' -->
+                <field name="title" position="after">
+                    <field name="professional_title_ids" widget="many2many_tags" attrs="{'invisible': [('is_pa', '=', True)]}"/>
+                </field>
+
+                <!-- NASCONDO CUSTOMER: start -->
+                <xpath expr="//form/sheet/notebook/page[@name='sales_purchases']/group/group/field[@name='customer']" position="replace">
+                    <!-- <field name="customer" invisible="1"/> -->
+                </xpath>
+                <!-- NASCONDO CUSTOMER: end -->
+
+                <!-- NASCONDO MESSAGGI MAIL: start -->
+                <!-- <xpath expr="//form/sheet/notebook/page[@name='sales_purchases']/group/group/field[@name='notify_email']" position="replace">
+                    <field name="notify_email" invisible="1"/>
+                </xpath> -->
+                <!-- NASCONDO MESSAGGI MAIL: end -->
+
+                <!-- NASCONDO MAILING OPT_OUT: start -->
+                <!-- <xpath expr="//form/sheet/notebook/page[@name='sales_purchases']/group/group/field[@name='opt_out']" position="replace">
+                    <field name="opt_out" invisible="1"/>
+                </xpath> -->
+                <!-- NASCONDO MAILING OPT_OUT: end -->
+
+                <!-- NASCONDO MESSAGE_BOUNCE: start -->
+                <!-- <xpath expr="//form/sheet/notebook/page[@name='sales_purchases']/group/group/field[@name='message_bounce']" position="replace">
+                    <field name="message_bounce" invisible="1"/>
+                </xpath> -->
+                <!-- NASCONDO MESSAGE_BOUNCE: end -->
+
+                <!-- NASCONDO SUPPLIER: start -->
+                <xpath expr="//form/sheet/notebook/page[@name='sales_purchases']/group/group/field[@name='supplier']" position="replace">
+                    <!-- <field name="supplier" invisible="1"/> -->
+                </xpath>
+                <!-- NASCONDO SUPPLIER: end -->
+
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="res_partner_base_location_form_view_inherit" >
+            <field name="name">Res partner Base Location Inherit Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base_location.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="zip_id" position="replace">
+                    <field name="zip_id" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="res_partner_tree_student">
+            <field name="name">Res Partner Tree Student</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="parent_id"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

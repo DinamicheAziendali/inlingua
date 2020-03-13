@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- DEFINIZIONE DEL REPORT: start -->
+    <report 
+            id="report_course_sheet" 
+            string="Scheda dati corso mod. 508" 
+            model="project.project" 
+            report_type="qweb-html" 
+            name="inlingua.report_course_sheet_template" 
+            attachment_use="False"
+            file="inlingua.report_course_sheet_template"/>
+    <!-- DEFINIZIONE DEL REPORT: end -->
+
+    <!-- FOGLIO DI STILE PERSONALIZZATO: start -->
+    <template id="assets_common" name="inlingua_common_report_assets" inherit_id="report.assets_common">
+        <xpath expr="." position="inside">
+            <link href="/inlingua/static/src/css/report001.css" rel="stylesheet"/>
+        </xpath>
+    </template> 
+    <!-- FOGLIO DI STILE PERSONALIZZATO: end -->
+
+    <!-- REPORT: start -->
+    <template id="report_course_sheet_template" >
+        <td t-call="report.html_container">
+            
+            <!-- inlingua_course_layout in /report/header-footer.xml -->
+            <t t-call="inlingua.inlingua_course_layout">
+
+                <!-- Report header content -->
+                <table t-foreach="docs" t-as="o">
+                    <!-- Report row content -->
+                    <div class="page">
+                        <!-- Report header content -->
+                        <div class="row bordo_01">
+                            <div class="col-xs-3">Mod. 508</div>
+                            <div class="col-xs-6 bordo_left_01 bordo_right_01 text-center">
+                            <h4>Modulo per i fornitori di servizi linguistici</h4></div>
+                            <div class="col-xs-3">Rev.1</div>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-xs-12 bordo_01 text-center">
+                                <h3>Scheda dati corso</h3>
+                            </div>
+                        </div>
+                        <br/>
+
+                        <!-- DATI CORSO: start -->
+                        <div class="row ">
+                            <div class="col-xs-12 bordo_01 text-center">
+                                <h4>
+                                <t t-if="o.description">
+                                    <span t-field="o.description" />
+                                </t>
+                                <t t-elif="not o.description">
+                                    <span t-field="o.name" />
+                                </t>
+                                </h4>
+                            </div>
+                        </div>
+
+                        <!-- <div class="row">
+                            <div class="col-xs-12">
+                                
+                            </div>
+                        </div> -->
+
+                        <table class="table table-bordered">
+                                    <tr>
+                                        <td style="width:10%;">Descrizione:</td>
+                                        <td><span t-field="o.description" /></td>
+                                        <td style="width:10%;">Codice:</td>
+                                        <td><span t-field="o.name" /></td>
+                                        <td style="width:10%;">Tipo:</td>
+                                        <td><span t-field="o.course_type_id" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:10%;">Sede:</td>
+                                        <td><span t-field="o.office_id" /></td>
+                                        <td style="width:10%;"></td>
+                                        <td></td>
+                                        <td style="width:10%;"></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:10%;">Durata:</td>
+                                        <td></td>
+                                        <td style="width:10%;">Durata modulo:</td>
+                                        <td><span t-field="o.module_type_id" /></td>
+                                        <td style="width:10%;">Totale moduli:</td>
+                                        <td><span t-field="o.number_of_module" /></td>
+                                    </tr>
+                                </table>
+                        <!-- DATI CORSO: end -->
+                        
+                        <!-- INFORMAZIONI DIDATTICHE: start -->
+                        <div class="row">
+                            <div class="col-xs-12 bordo_01 text-center">
+                                <h4>Informazioni didattiche</h4>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-8">
+
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td style="width:25%;">Lingua:</td>
+                                        <td><span t-field="o.language_id" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td >Livello iniziale:</td>
+                                        <td><span t-field="o.start_level" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td >Livello obiettivo:</td>
+                                        <td><span t-field="o.target_level" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td >Programma:</td>
+                                        <td><span t-field="o.programm_id" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="col-xs-4">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td colspan="3">Frequenza</td>
+                                    </tr>
+                                    
+                                    <!-- CORSO FLESSIBILE -->
+                                    <t t-if="o.flexible_course">
+                                        <tr>
+                                            <td colspan="3">
+                                                <span>(Orario Flessibile)</span>
+                                            </td>
+                                        </tr>
+                                    </t>
+
+                                    <!-- CORSO NON FLESSIBILE -->
+                                    <t t-if="not o.flexible_course">
+                                        <tr>
+                                            <td style="width:10%;">Giorno</td>
+                                            <td style="width:10%;">Moduli</td>
+                                            <td style="width:10%;">Inizio</td>
+                                        </tr>
+
+                                        <t t-foreach="o.scheduling_rules_ids" t-as="i">
+                                            <tr>
+                                                <td><span t-field="i.weekday" /></td>
+                                                <td><span t-field="i.modules" /></td>
+                                                <td>
+                                                <!-- <span t-field="i.start_time" t-field-options='{"widget": "float_time"}' /> -->
+                                                <t t-esc="'%02d:%02d' % (int(i.start_time), i.start_time % 1 * 60)" />
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+
+                                </table>
+                            </div>
+                        </div>
+                        <!-- INFORMAZIONI DIDATTICHE: end -->
+
+
+                        <!-- PARTECIPANTI: start -->
+                        <div class="row ">
+                            <div class="col-xs-12 bordo_01 text-center">
+                                <h4>Partecipanti</h4>
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <td style="width:70%;">Nome</td>
+                                <td style="width:15%;">Livello</td>
+                                <td style="width:15%;">Data inserimento</td>
+                                <td style="width:15%;">Data rimozione</td>
+                            </tr>
+
+                            <t t-foreach="o.project_student_ids" t-as="i">
+                                <tr>
+                                    <td><span t-field="i.student_id" /></td>
+                                    <td><span t-field="i.level_achieve" /></td>
+                                    <td><span t-field="i.date_from" /></td>
+                                    <td><span t-field="i.date_to" /></td>
+                                </tr>
+                            </t>
+                        </table>
+                        <!-- PARTECIPANTI: end -->
+
+                    </div>
+                </table>
+                <!-- Report footer content -->
+
+            </t>
+        </td>
+    </template>
+    <!-- REPORT: end -->
+
+</odoo>

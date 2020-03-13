@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- STAMPA INCASSI CONTRATTI PRIVATI -->
+        <template id="report_contract_receipt_view">
+            <t t-call="report.html_container">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <h2 style="text-align:center;">Riepilogo contratti privati</h2>
+                    <h3>dal: <t t-esc="date_from.strftime('%d/%m/%Y')"/> al: <t t-esc="date_to.strftime('%d/%m/%Y')"/> - <t t-esc="print_to_cash"/> </h3>
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Nominativo</th>
+                                    <th>Numero Contratto</th>
+                                    <th>Importo Contratto</th>
+                                    <th>Incassato sul contratto</th>
+                                    <th>Da incassare su contratto</th>
+                                    <th>Fatture emesse sul contratto</th>
+                                    <th>Da fatturare</th>
+                                </tr>
+                            </thead>
+                            <t t-set="tot_total_value"      t-value="0" />
+                            <t t-set="tot_balance_value"    t-value="0" />
+                            <t t-set="tot_fatt_emesse"      t-value="0" />
+                            <t t-set="tot_da_fatturare"     t-value="0" />
+                            <t t-set="tot_to_cash"          t-value="0" />
+                            
+                            <t t-foreach="contracts" t-as="o">
+                                <tr>
+                                    <td><t t-esc="o.student_id.name"/></td>
+                                    <td><t t-esc="o.number_contract"/></td>
+                                    <td style="text-align:right;">
+                                        <t t-esc="o.total_value" />
+                                        <t t-set="tot_total_value" t-value="tot_total_value + o.total_value" /></td>
+                                    <td style="text-align:right;">
+                                        <t t-esc="o.balance_value" />
+                                        <t t-set="tot_balance_value" t-value="tot_balance_value + o.balance_value"/></td>
+                                    <td style="text-align:right;">
+                                        <t t-esc="o.to_cash"/>
+                                        <t t-set="tot_to_cash" t-value="tot_to_cash + o.to_cash"/></td>
+                                    <td style="text-align:right;">
+                                        <t t-esc="o.get_tot_invoice(o)"/>
+                                        <t t-set="tot_fatt_emesse" t-value="tot_fatt_emesse + o.get_tot_invoice(o)"/></td>
+                                    <td style="text-align:right;">
+                                        <t t-esc="o.get_tot_to_invoice(o)"/>
+                                        <t t-set="tot_da_fatturare" t-value="tot_da_fatturare + o.get_tot_to_invoice(o)"/></td>
+                                </tr>
+                            </t>
+                            
+                            <!-- TOTALI -->
+                            <tr>
+                                <td colspan="2" style="text-align:right;font-weight:bold">Totali</td>
+                                <td style="text-align:right;"><t t-esc="tot_total_value" /></td>
+                                <td style="text-align:right;"><t t-esc="tot_balance_value" /></td>
+                                <td style="text-align:right;"><t t-esc="tot_to_cash" /></td>
+                                <td style="text-align:right;"><t t-esc="tot_fatt_emesse" /></td>
+                                <td style="text-align:right;"><t t-esc="tot_da_fatturare" /></td>
+                            </tr>
+                            
+                        </table>
+                    </div>
+                </div>
+            </t>
+            </t>
+        </template>
+    </data>
+</odoo>

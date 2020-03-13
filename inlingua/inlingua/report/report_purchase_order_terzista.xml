@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- STAMPA ORDINE A TERZISTA -->
+    <report 
+            id="action_purchase_order_terzista_report" 
+            string="Ordine acquisto a terzista" 
+            model="purchase.order" 
+            report_type="qweb-html" 
+            name="inlingua.report_purchase_order_terzista_template" 
+            attachment_use="False"
+            file="inlingua.report_purchase_order_terzista_template"/>
+
+    <template id="assets_common" name="inlingua_common_report_assets" inherit_id="report.assets_common">
+        <xpath expr="." position="inside">
+            <link href="/inlingua/static/src/css/report001.css" rel="stylesheet"/>
+        </xpath>
+    </template> 
+
+    <template id="report_purchase_order_terzista_template" >
+        
+        <td t-call="report.html_container">
+            
+            <div t-call="inlingua.inlingua_consorzio_layout">
+
+                <!-- Report header content -->
+                <table t-foreach="docs" t-as="o">
+
+                    <!-- Report row content -->
+                    <div class="page">
+                        <!-- Report header content -->
+                        <div class="row bordo_01">
+                            <div class="col-xs-3">Mod. 302</div>
+                            <div class="col-xs-6 bordo_left_01 bordo_right_01 text-center"><h4>Modulo Area Approvvigionamento</h4></div>
+                            <div class="col-xs-3">Rev.1</div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-xs-12 bordo_01 text-center">
+                                <h3>Ordine di acquisto di servizi linguistici</h3>
+                            </div>
+                        </div>
+                        <br/>
+
+                        <!-- DA-A: start -->
+                        <div class="row">
+                            <table class="table table-bordered">
+                                <td style="width:8%;">DA:</td>
+                                <td><span t-field="res_company.partner_id" t-options='{
+                                        "widget": "contact",
+                                        "fields": ["address", "name", "phone", "fax"],
+                                        "no_marker": true}' />
+                                </td>
+                                <td style="width:8%;">A:</td>
+                                <td>Spett.le<br/>
+                                <span t-field="o.partner_id" t-options='{
+                                        "widget": "contact",
+                                        "fields": ["address", "name", "phone", "fax"],
+                                        "no_marker": true}' />
+                                </td>
+                            </table>
+                        </div>
+                        <!-- DA-A: end -->
+                        <br/>
+                        <!-- NUMERO; DATA; PAGINA: start -->
+                        <div class="row" >
+                            <div class="col-xs-6 text-right"></div>
+                            <div class="col-xs-3">Numero</div>
+                            <div class="col-xs-3">del</div>
+                        </div>
+                        <div class="row" >
+                            <div class="col-xs-6 text-right">DA CITARE IN FATTURA -&gt;</div>
+                            <div class="col-xs-3 bordo_nero"><span t-field="o.name" /></div>
+                            <div class="col-xs-3 bordo_nero"><span t-field="o.date_order" t-field-options="{'widget': 'date'}" /></div>
+                        </div>
+                        <!-- NUMERO; DATA; PAGINA: end -->
+
+                        <br/>
+                        <!-- ENTE; RIFERIMENTO, SERVIZIO RICHIESTO: start -->
+                        <div class="row">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td style="width:20%;">Ente fruitore</td>
+                                    <td><span t-field="o.sale_order_id.general_agreement_id.partner_id" /></td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;">Referenti (Nome, Cognome, Recapito)</td>
+                                    <td><span t-field="o.reference_contact" /></td>
+                                </tr>
+                                <tr>
+                                    <td style="width:20%;">Servizio richiesto</td>
+                                    <td>
+                                        <t t-if="o.sale_order_id.service_type == 'startAt'">
+                                            Data inizio <span t-field="o.sale_order_id.service_date" />
+                                        </t>
+                                        <t t-if="o.sale_order_id.service_type == 'custom'">
+                                            <span t-field="o.sale_order_id.service_custom" />
+                                        </t>
+                                        <t t-if="o.sale_order_id.service_type == 'agreed'">
+                                            Come concordato 
+                                        </t>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- ENTE; RIFERIMENTO, SERVIZIO RICHIESTO: end -->
+
+                        <br/>
+                        <div class="row">
+                            <div class="col-xs-12">
+                            Con riferimento alle ns. condizioni generali di acquisto Vi ordiniamo
+                            </div>
+                        </div>
+                        <br/>
+
+                        <!-- DETTAGLIO ORDINE TABLE: start -->
+                        <div class="row">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th style="width:20%">Prodotto</th>
+                                    <th>Descrizione</th>
+                                    <th style="width:10%">Q.tà</th>
+                                    <th style="width:15%">Prezzo unit.</th>
+                                    <th style="width:15%">Importo tot.</th>
+                                </tr>
+
+                                <t t-foreach="o.order_line" t-as="detail">
+                                    <tr class="">
+                                        <td class=""><span t-field="detail.product_id" /></td>
+                                        <td class=""><span t-field="detail.name" /></td>
+                                        <td class="text-right"><span t-field="detail.product_qty" /></td>
+                                        <td class="text-right"><span t-field="detail.price_unit" /></td>
+                                        <td class="text-right"><span t-field="detail.price_total" /></td>                       
+                                    </tr>          
+                                </t>
+
+                                <tr>
+                                    <td class="col-xs-10 text-right" colspan="4"><strong>Totale</strong></td>
+                                    <td class="col-xs-2 text-right bordo_01"><span t-field="o.amount_untaxed" /></td>                       
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- DETTAGLIO ORDINE TABLE: end -->
+
+
+                        <div class="row">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <td style="width:50%">
+                                        <strong>Termini di fatturazione:</strong> 
+                                        <span t-field="o.invoicing_terms" /></td>
+                                    <td>
+                                        Riferimento: <span t-field="o.sale_order_id.general_agreement_id.customer_order_number" />
+                                        del <span t-field="o.sale_order_id.general_agreement_id.customer_order_date" t-field-options="{'widget': 'date'}"/>
+                                        CIG <span t-field="o.sale_order_id.general_agreement_id.pa_cig" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%" >
+                                        <strong>Termini pagamento:</strong>  
+                                        <span t-field="o.payment_term_id.note" />
+                                    </td>
+                                    <td>
+                                        Riferimento: <span t-field="o.sale_order_id.customer_order_number" />
+                                        del <span t-field="o.sale_order_id.customer_order_date" t-field-options="{'widget': 'date'}"/>
+                                        CIG <span t-field="o.sale_order_id.pa_cig" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:50%"><strong>Note e/o allegati:</strong></td>
+                                    <td><span t-field="o.note_attachment" /></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br/>
+
+                        <div class="row bordo_01" style="page-break-inside: avoid">
+                            <div class="col-xs-6 bordo_right_01">Firma resp. acquisti</div>
+                            <div class="col-xs-6"></div>                       
+                        </div>
+                    </div>
+                </table>
+                <!-- Report footer content -->
+
+            </div>
+        </td>
+    </template>
+
+</odoo>

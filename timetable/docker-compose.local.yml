@@ -1,0 +1,10 @@
+version: '3'
+services:
+  odoo:
+    volumes:
+      - ./_volumes/odoo-data:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+      - ./conf:/etc/odoo
+  db:
+    volumes:
+      - ./_volumes/db:/var/lib/postgresql/data

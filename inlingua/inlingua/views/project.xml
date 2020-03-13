@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- VISTA DEL DETTAGLIO DEL CORSO: start -->
+        <record model="ir.ui.view" id="project_form_view_inherit">
+            <field name="name">Project Inherit Form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project" />
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[@name='settings']" position="before">
+                    <page string="Composition" name="composition">
+                        <button name="open_wizard_material_delivered" class="oe_inline oe_button btn-primary"
+                            string="Print Delivered Material" type="object" />
+
+                        <!-- CORSO -->
+                        <group string="Course">
+                            <group>
+                                <field name="language_id" />
+                                <field name="course_type_id" />
+                            </group>
+                            <group>
+                                <field name="description" />
+                                <field name="programm_id" />
+                            </group>
+                        </group>
+
+                        <!-- LIVELLI -->
+                        <group col="3">
+                            <group>
+                                <field name="start_level" />
+                            </group>
+                            <group>
+                                <field name="now_level" />
+                            </group>
+                            <group>
+                                <field name="target_level" />
+                            </group>
+                        </group>
+
+                        <!-- ALLIEVI -->
+                        <group string="Students">
+                            
+                            <field name="project_student_ids">
+                                <tree editable="bottom">
+                                    <field name="project_id" invisible="True" />
+                                    <field name="student_id" />
+                                    <field name="date_from" />
+                                    <field name="date_to" />
+                                    <field name="total_lesson_in" string="Presenze"/>
+                                    <field name="total_lesson_out" string="Assenze"/>
+                                    <field name="level_achieve" />
+                                    <field name="active" />
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="project_id" invisible="True" />
+                                        <field name="student_id" />
+                                        <field name="date_from" />
+                                        <field name="date_to" />
+                                        <field name="total_lesson_in" string="Presenze" />
+                                        <field name="total_lesson_out" string="Assenze" />
+                                        <field name="level_achieve" />
+                                        <field name="active" />
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+
+                        <group string="Lessons">
+                            <group>
+                                <field name="date_start" />
+                                <!--<field name="office_in"/>-->
+                                <field name="number_of_module" />
+                                <field name="module4lesson" />
+                                <field name="module_type_id" />
+                                <field name="duration_lessons" />
+                                <field name="modules_scheduled" />
+                                <field name="modules_remaining" />
+                            </group>
+                            <group>
+                                <field name="date_end" />
+                                <!--<field name="office_out"/>-->
+                                <field name="flexible_course" />
+                                <field name="office_id" />
+                                <field name="type_office" widget="radio" options="{'horizontal': true}" />
+                                <field name="date_last_lesson" string="Ultima lezione sul timetable" />
+                            </group>
+                        </group>
+
+                        <group string="Frequenza">
+                            <field name="scheduling_rules_ids">
+                                <tree editable="top">
+                                    <field name="professor_id" />
+                                    <field name="modules" />
+                                    <field name="weekday" />
+                                    <field name="start_time" widget="float_time" />
+                                </tree>
+                            </field>
+                        </group>
+                        <div>
+                            <button class="oe_inline oe_button btn-primary" string="Schedula lezioni" type="object"
+                                name="schedule_lessons" />&#x2063;
+
+                            <button class="oe_inline oe_button btn-warning" string="Riempi periodi vuoti" type="object"
+                                name="fill_scheduling_rule" />&#x2063;
+
+                            <button class="oe_inline oe_button btn-warning" string="Schedula dopo l'ultima" type="object"
+                                name="append_scheduling_rule" />
+                        </div>
+                    </page>
+
+                    <!-- <page string="Students" name="Students" -->
+                    <!-- /page> -->
+                    <page string="Contracts">
+                        <field name="contract_ids" readonly="True">
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[@name='settings']/group/field[@name='privacy_visibility']"
+                    position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/div/div[@name='options_active']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>
+        <!-- VISTA DEL DETTAGLIO DEL CORSO: fine -->
+
+        <record model="ir.ui.view" id="project_task_stage_form_view_inherit">
+            <field name="name">Project Task Stage Inherit Form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project_task_default_stage.edit_project" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='project_stages']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_tree_view_inherit">
+            <field name="name">Project Tree Inherit Search</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project" />
+            <field name="arch" type="xml">
+                <field name="user_id" position="replace">
+                    <field name="user_id" invisible="True" />
+                </field>
+
+                <field name="name" position="after">
+                    <field name="partner_id" />
+                    <field name="language_id" />
+                    <field name="start_level" />
+                    <field name="target_level" />
+                    <field name="number_of_module" />
+                    <field name="module_type_id" />
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_search_view_inherit">
+            <field name="name">Project Inherit Search</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_project_filter" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="project_student_ids" />
+                    <field name="language_id" />
+                </field>
+                <filter name="my_projects" position="after">
+                    <filter string="Aperti e Futuri" domain="[('date_end','&gt;=',time.strftime('%Y-%m-%d'))]" />
+                </filter>
+                <filter name="my_projects" position="after">
+                    <filter string="Language" name="language" context="{'group_by':'language_id'}" />
+                </filter>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="project_invoice_form_view_inherit">
+            <field name="name">Project Invoice Inherit Form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="hr_timesheet.project_invoice_form" />
+            <field name="arch" type="xml">
+                <field name="allow_timesheets" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </field>
+                <label for="allow_timesheets" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </label>
+            </field>
+        </record>
+
+        <record id="project.open_view_project_all" model="ir.actions.act_window">
+            <field name="name">Projects</field>
+            <field name="res_model">project.project</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="project.view_project_project_filter" />
+            <field name="target">main</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new project.
+                    <br />
+                    <i>Or <a type="action" name="%(project.activate_sample_project)d">activate a sample project</a> to
+                        play with.
+                    </i>
+                </p>
+            </field>
+        </record>
+
+        <!-- OVERRIDE DELL'AZIONE DI ODOO BASE: in OCB/addons/project.xml : start -->
+        <record id="project.act_project_project_2_project_task_all" model="ir.actions.act_window">
+            <field name="name">Tasks</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+            <field name="context">{
+                'search_default_project_id': [active_id],
+                'default_project_id': active_id,
+            }</field>
+            <field name="search_view_id" ref="project.view_task_search_form"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Here, you can create new tasks
+                </p>
+                <p>
+                    You can now manage your tasks in order to get things done efficiently. Track progress, discuss, attach documents, etc.
+                </p>
+            </field>
+        </record>
+        <!-- OVERRIDE DELL'AZIONE DI ODOO BASE: in OCB/addons/project.xml : end -->
+
+    </data>
+</odoo>

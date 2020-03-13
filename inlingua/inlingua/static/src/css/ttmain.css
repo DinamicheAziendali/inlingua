@@ -1,0 +1,45 @@
+.timetable {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.noschedule {
+    background-color: red;
+}
+
+.rounded-div {
+  margin: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+.timetable-tools {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 25px;
+    background: #a2d2fa;
+}
+
+.ml-10 {
+  margin-left: 10px !important;
+}
+
+.rounded-div {
+  margin: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Bryntum */
+
+.b-column-line {}
+
+.b-column-line-major {
+    border-left-color: #000000;
+    border-left-style: solid;
+    border-left-width: 4px;
+}
+

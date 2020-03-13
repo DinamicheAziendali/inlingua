@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="private_contract_form_view">
+            <field name="name">Private Contract Form</field>
+            <field name="model">private.contract</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <!--<button name="create_total_invoice" string="Create Total Invoice"-->
+                        <!--type="object" attrs="{'invisible':[('type_contract', '!=', 'private')]}"/>-->
+                        <!--<button name="create_partially_invoice" string="Create Partially Invoice"-->
+                        <!--type="object" attrs="{'invisible':[('type_contract', '!=', 'private')]}"/>-->
+                        <field name="state" widget="statusbar" />
+                    </header>
+
+                    <!-- <group string="Contract Management"> -->
+                    <!-- <group>
+                            <field name="type_contract"/>
+                        </group> -->
+                    <!--<group>-->
+                    <!--<field name="order_id"-->
+                    <!--attrs="{'invisible':[('type_contract', '!=', 'company_with_order')]}"-->
+                    <!--domain="[('partner_id', '=', partner_id)]"/>-->
+                    <!--</group>-->
+                    <!-- </group> -->
+
+                    <!-- SEZIONE CLIENTE -->
+                    <group string="Contract Management">
+                        <group>
+                            <field name="number_contract" readonly="True" />
+                            <field name="date_contract" />
+                            <field name="type_contract" />
+                            <field name="partner_id" domain="[('customer', '=', True)]"
+                                context="{'default_customer': True}" />
+
+                            <field name="order_id" attrs="{'invisible':[('type_contract', '!=', 'company_with_order')]}"
+                                domain="[('partner_id', '=', partner_id)]" />
+
+                            <field name="contractor_id"
+                                attrs="{'invisible':[('type_contract', '!=', 'company_with_order')]}"
+                                domain="[('contractor', '=', True)]" />
+
+                            <field name="purchase_id"
+                                attrs="{'invisible':['|', ('contractor_id', '=', False),('type_contract', '!=', 'company_with_order')]}"
+                                domain="[('partner_id', '=', contractor_id)]" />
+
+                            <field name="partner_birthplace" readonly="True"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}"
+                                string="Luogo di nascita" />
+
+                            <field name="partner_resident" readonly="True"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}" />
+                        </group>
+                        <group>
+                            <field name="partner_fiscalcode" readonly="True"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}"
+                                string="Codice fiscale" />
+
+                            <field name="partner_birthdate" readonly="True"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}"
+                                string="Data di nascita" />
+
+                            <field name="partner_vat" readonly="True" string="Partita IVA" />
+                        </group>
+                    </group>
+
+                    <!-- SEZIONE ALUNNO -->
+                    <group string="Student" attrs="{'invisible':[('type_contract', '!=', 'private')]}">
+                        <group>
+                            <field name="student_id" domain="[('student', '=', True)]"
+                                context="{'default_student': True}"
+                                attrs="{'required':[('type_contract', '=', 'private')]}" />
+                            <field name="student_birthplace" readonly="True" string="Luogo di nascita" />
+                            <field name="student_resident" readonly="True" />
+                        </group>
+                        <group>
+                            <field name="student_fiscalcode" readonly="True" string="Codice fiscale" />
+                            <field name="student_birthdate" readonly="True" string="Data di nascita" />
+                        </group>
+                    </group>
+
+                    <!-- SEZIONE DATI DEL CONTRATTO -->
+                    <group col="3" string="Data of Contract">
+                        <group>
+                            <field name="language_id" required="True" />
+                            <field name="course_type_id"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}" />
+                        </group>
+
+                        <group>
+                            <field name="programm_id"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}" />
+                            <field name="module_type_id"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}" />
+                        </group>
+
+                        <group attrs="{'invisible':[('type_contract', '!=', 'private')]}">
+                            <field name="module4lesson" eval="1"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}" />
+                            <field name="number_of_lesson"
+                                attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}" />
+                        </group>
+                    </group>
+
+                    <!-- SEZIONE DATI DEL ECONOMICI -->
+                    <group col="3" string="Dati economici">
+                        <group>
+                            <field name="cost_entry" />
+                            <field name="cost_module" />
+                            <field name="number_of_module" />
+                            <field name="module_price" readonly="True" />
+                            <field name="cost_extra" />
+                            <field name="payment_method_id" attrs="{'invisible':[('type_contract', '=', 'private')]}" />
+                        </group>
+
+                        <group attrs="{'invisible':[('type_contract', '!=', 'private')]}">
+                            <field name="deposit" />
+                            <field name="number_rate" />
+                            <field name="type_due" />
+                            <field name="rate_amount" />
+                        </group>
+
+                        <group>
+                            <field name="total_value" string="Totale contratto" />
+                            <field name="balance_value" string="Incassato" />
+                            <field name="to_cash" string="Da incassare" />
+                        </group>
+                    </group>
+
+                    <!-- SEZIONE CORSO -->
+                    <group string="Course">
+                        <field name="project_course_id"
+                            domain="[('language_id', '=', language_id),('course_type_id', '=', course_type_id),('programm_id', '=', programm_id)]"
+                            context="{'default_language_id': language_id,
+                                        'default_course_type_id': course_type_id,
+                                        'default_programm_id': programm_id,
+                                        'default_module4lesson': module4lesson,
+                                        'default_number_of_module': number_of_module,
+                                        'default_module_type_id': module_type_id}" />
+                    </group>
+
+                    <!-- SEZIONE PREFERENZE -->
+                    <group col="3" string="Preference"
+                        attrs="{'invisible':['|', ('type_contract', '=', 'company_with_order'), ('type_contract', '=', 'company_without_order')]}">
+                        <group>
+                            <field name="time_from" widget="float_time" />
+                            <field name="time_end" widget="float_time" />
+                        </group>
+                        <group>
+                            <field name="monday" />
+                            <field name="tuesday" />
+                            <field name="wednesday" />
+                        </group>
+                        <group>
+                            <field name="thursday" />
+                            <field name="friday" />
+                            <field name="saturday" />
+                        </group>
+                    </group>
+
+                    <!--<group string="Cost">-->
+                    <!--<group>-->
+                    <!--<field name="cost_entry"/>-->
+                    <!--<field name="cost_module"/>-->
+                    <!--<field name="cost_extra"/>-->
+                    <!--</group>-->
+                    <!--<group>-->
+                    <!--<field name="total_value"/>-->
+                    <!--<field name="balance_value"/>-->
+                    <!--<field name="payment_method_id"-->
+                    <!--attrs="{'invisible':[('type_contract', '=', 'private')]}"/>-->
+                    <!--</group>-->
+                    <!--</group>-->
+
+                    <group string="Students" attrs="{'invisible':[('type_contract', '=', 'private')]}">
+                    </group>
+                    <field name="student_ids" attrs="{'invisible':[('type_contract', '=', 'private')]}"
+                        domain="[('parent_id', '=', partner_id)]"
+                        context="{'default_parent_id':partner_id, 'default_student':1}">
+                        <tree>
+                            <field name="name" />
+                            <field name="phone" />
+                            <field name="email" />
+                            <field name="birthdate_date" />
+                        </tree>
+                    </field>
+
+                    <!-- SEZIONE FATTURE -->
+                    <form attrs="{'invisible':[('type_contract', '!=', 'private')]}">
+                        <separator string="Dettaglio degli incassi" />
+
+                        <!-- BOTTONE GENERA RATE: disattivato il 19/09/2019 -->
+                        <!-- button name="get_rate" string="Get Rate" type="object" class="oe_link"/ -->
+
+                        <!-- BOTTONE AGGIUNGI INCASSO -->
+                        <!-- open_wizard_add_rate si trova nel modello private_contract.py -->
+                        <button name="open_wizard_add_rate" string="Effettua un incasso" type="object" class="oe_highlight" />&#x2063;
+
+                        <!-- BOTTONE CREA FATTURA TOTALE -->
+                        <button name="create_total_invoice" string="Create Total Invoice" type="object"
+                            attrs="{'invisible':[('type_contract', '!=', 'private')]}" class="oe_highlight" />&#x2063;
+
+                        <!-- BOTTONE CREA FATTURA PARZIALE -->
+                        <button name="create_partially_invoice" string="Create Partially Invoice" type="object"
+                            attrs="{'invisible':[('type_contract', '!=', 'private')]}" class="oe_highlight" />
+
+                        <field name="payment_line_ids">
+                            <form>
+                                <group>
+                                    <field name="contract_id" invisible="True" />
+                                    <field name="date" />
+                                    <field name="rate_amount" />
+                                    <field name="journal_id" widget="selection" />
+                                    <field name="to_account" groups="inlingua.group_account_rate" />
+                                    <field name="move_id" readonly="True" />
+                                    <field name="invoiced" readonly="True" />
+                                    <field name="invoice_id" readonly="True" />
+                                    <button name="f_print_receipt" type="object" string="Stampa ricevuta" />
+                                </group>
+                            </form>
+                            <tree create="false">
+                                <field name="contract_id" invisible="True" />
+                                <field name="rate_amount" />
+                                <field name="date" />
+                                <field name="journal_id" />
+                                <button name="set_to_account" type="object" string="Imposta da fatturare"
+                                    class="oe_stat_button" icon="fa-plus" widget="boolean_button" />
+                                <field name="to_account" groups="inlingua.group_account_rate" />
+                                <field name="move_id" readonly="True" />
+                                <field name="invoice_id" />
+                                <field name="invoiced" readonly="True" />
+                            </tree>
+                        </field>
+                    </form>
+                    <form>
+
+                        <separator string="Dettaglio delle fatture emesse sul contratto" />
+                        <field name="invoice_ids" readonly="True" />
+                    </form>
+
+                    <!-- LOG DETTAGLIO -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" />
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- LISTA DEI CONTRATTI PRIVATI: start -->
+        <record model="ir.ui.view" id="private_contract_tree_view">
+            <field name="name">Private Contract Tree</field>
+            <field name="model">private.contract</field>
+            <field name="arch" type="xml">
+                <tree default_order="number_contract desc">
+                    <field name="number_contract" />
+                    <field name="date_contract" />
+                    <field name="partner_id" />
+                    <field name="student_id" />
+                    <field name="language_id" />
+                    <field name="total_value" string="Totale"/>
+                    <field name="balance_value" string="Incassato"/>
+                    <field name="to_cash" string="Da incassare"/>
+                </tree>
+            </field>
+        </record>
+        <!-- LISTA DEI CONTRATTI PRIVATI: end -->
+
+        <!-- LISTA DEI CONTRATTI AZIENDALI: start -->
+        <record model="ir.ui.view" id="company_contract_tree_view">
+            <field name="name">Company Contract Tree</field>
+            <field name="model">private.contract</field>
+            <field name="arch" type="xml">
+                <tree default_order="number_contract desc">
+                    <field name="number_contract" />
+                    <field name="date_contract" />
+                    <field name="partner_id" />
+                    <field name="language_id" />
+                    <field name="total_value" string="Totale"/>
+                    <field name="balance_value" string="Incassato"/>
+                    <field name="to_cash" string="Da incassare"/>
+                </tree>
+            </field>
+        </record>
+        <!-- LISTA DEI CONTRATTI AZIENDALI: end -->
+
+        <record model="ir.ui.view" id="private_contract_search_view">
+            <field name="name">Private Contract Search</field>
+            <field name="model">private.contract</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="partner_id" />
+                    <!--<field name="partner_birthplace"/>-->
+                    <!--<field name="partner_resident"/>-->
+                    <!--<field name="partner_fiscalcode"/>-->
+                    <!--<field name="partner_birthdate"/>-->
+                    <field name="student_id" />
+                    <!--<field name="student_birthplace"/>-->
+                    <!--<field name="student_resident"/>-->
+                    <!--<field name="student_fiscalcode"/>-->
+                    <!--<field name="student_birthdate"/>-->
+                    <field name="date_contract" />
+                    <field name="course_type_id" />
+                    <field name="number_of_module" />
+                    <field name="language_id" />
+                    <field name="programm_id" />
+                    <field name="module4lesson" />
+                    <field name="number_of_lesson" />
+                    <field name="cost_entry" />
+                    <field name="cost_module" />
+                    <field name="cost_extra" />
+                    <field name="total_value" />
+                    <field name="to_cash" string="Da incassare" />
+                    <filter name="to_combine" string="To Combine" domain="[('state','=', 'to_combine')]" />
+                    <filter name="combined" string="Combined" domain="[('state','=', 'combined')]" />
+                    <filter name="in_progress" string="In Progress" domain="[('state','=', 'in_progress')]" />
+                    <filter name="processed" string="Processed" domain="[('state','=', 'processed')]" />
+                    <group expand="0" string="Group By">
+                        <filter string="Cliente" context="{'group_by':'partner_id'}" />
+                        <filter string="Lingua" context="{'group_by':'language_id'}" />
+                        <filter string="State" context="{'group_by':'state'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

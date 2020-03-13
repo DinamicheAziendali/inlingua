@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="Timetable" id="timetable.root"/>
+
+        <menuitem name="Scheduler" id="timetable.scheduling_root" parent="timetable.root"/>
+
+
+        <!-- actions -->
+        <menuitem name="Lezioni"                  id="timetable.lesson"     parent="timetable.scheduling_root"  action="timetable.lesson_window"/>
+        <menuitem name="Schedulazioni ricorrenti" id="timetable.scheduling" parent="timetable.scheduling_root"  action="timetable.scheduling_window"/>
+    </data>
+</odoo>

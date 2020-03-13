@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="add_rate_view_wizard" model="ir.ui.view">
+            <field name="name">add.rate.view.wizard.form</field>
+            <field name="model">add.rate.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Add Cash Out">
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="rate_amount"/>
+                            <field name="journal_id"/>
+                            <field name="to_account"/>
+                            <field name="contract_id" invisible="True"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button class="oe_highlight" type="object" string="Add" name="add_rate"/>
+                        <button class="oe_highlight" type="object" string="Print Receipt and Add" name="print_and_add_rate"/>
+                        <button class="oe_highlight" special="cancel" string="Chiudi"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

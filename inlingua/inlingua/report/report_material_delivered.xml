@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="report_material_delivered"
+                string="Material Delivered"
+                model="material.delivered.wizard"
+                report_type="qweb-pdf"
+                name="inlingua.report_view_material_delivered"
+                attachment_use="False"
+                file="inlingua.print-of-material-delivered"/>
+    </data>
+</odoo>

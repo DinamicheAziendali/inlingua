@@ -1,0 +1,27 @@
+.sfondo_grigio_01 {
+    background-color: #dddddd;
+}
+
+.bordo_01 {
+    border-style: solid;
+    border-color: #555555;
+    border-width: thin;
+}
+
+.bordo_left_01 {
+    border-left-style: solid;
+    border-color: #555555;
+    border-width: thin;
+}
+
+.bordo_right_01 {
+    border-right-style: solid;
+    border-color: #555555;
+    border-width: thin;
+}
+
+.bordo_nero {
+    border-style: solid;
+    border-color: #000000;
+    border-width: thin;
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- LISTA DEGLI INCASSI DEI CONTRATTI PRIVATI -->
+        <record model="ir.ui.view" id="payment_term_line_tree_view">
+            <field name="name">Payment Term Line Tree</field>
+            <field name="model">payment.term.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!--<field name="number_contract"/>-->
+                    <field name="partner_id"/>
+                    <field name="contract_id"/>
+                    <field name="date" string="Data incasso"/>
+                    <field name="rate_amount" string="Importo incassato"/>
+                    <field name="journal_id" string="Modalità di pagamento" widget="selection" invisible="False"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="payment_term_line_search_view">
+            <field name="name">Payment Term Line Search</field>
+            <field name="model">payment.term.line</field>
+            <field name="arch" type="xml">
+                <search>
+                    <!--<field name="number_contract"/>-->
+                    <field name="partner_id"/>
+                    <field name="contract_id"/>
+                    <field name="date"/>
+                    <field name="rate_amount"/>
+                    <field name="journal_id"/>
+                    <group expand="0" string="Group By">
+                        <!--<filter string="Number Contract" name="number_contract" context="{'group_by':'number_contract'}"/>-->
+                        <filter string="Contract" name="contract" context="{'group_by':'contract_id'}"/>
+                        <filter string="Customer" name="customer" context="{'group_by':'partner_id'}"/>
+                        <filter string="Month" name="month" context="{'group_by':'date:month'}"/>
+                    </group>
+
+                    <filter icon="terp-go-year" string="Anno corrente"
+                        domain="[('date','&lt;=', time.strftime('%%Y-%%m-%%d')),('date','&gt;=',time.strftime('%%Y-01-01'))]"
+                        help="Current Year"/>
+
+                    <filter icon="terp-go-month" string="Mese corrente" name="month"
+                        domain="[('date','&lt;=',(context_today()+relativedelta(day=31)).strftime('%%Y-%%m-%%d')),('date','&gt;=',(context_today()-relativedelta(day=1)).strftime('%%Y-%%m-%%d'))]"
+                        help="Current Month"/>
+                    <filter icon="terp-go-week" string="Settimana corrente" separator="1" name="week"
+                        domain="[('date','&gt;=',(context_today()+relativedelta(days=-6,weekday=0)).strftime('%%Y-%%m-%%d')),('date','&lt;=',(context_today()+relativedelta(weekday=6)).strftime('%%Y-%%m-%%d'))]"
+                        help="Current Week"/>
+                </search>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

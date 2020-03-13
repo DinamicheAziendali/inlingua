@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_report_purchase_order_type">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <div class="row">
+
+                                <!---MODEL1*****************************************-->
+                                <div t-if="o.type_order == 'model1'" style="font-size: 12.5px;">
+                                    <div style="font-weight:bold;text-align:center">
+                                        <span>
+                                            INCARICO DI COLLABORAZIONE PROFESSIONALE
+                                        </span>
+                                        <br/>
+                                        <br/>
+                                        Premesso
+                                    </div>
+                                    <div>
+                                        - che International School of Languages s.r.l. per
+
+                                        <span t-if="o.order_line">
+                                            <span t-if="o.order_line[0].account_analytic_id">
+                                                il Progetto '
+                                                <span t-esc="o.order_line[0].account_analytic_id.name"/>
+                                                '
+                                            </span>
+                                        </span>
+
+                                        <br/>
+                                        - che la il/la Dott/Dott.ssa
+                                        <span t-field="o.partner_id"/>
+                                        dichiarando di avere i requisiti professionali ed intendendo svolgere
+                                        l’incarico appresso specificato con carattere di continuità, ma a tempo parziale e senza vincolo di
+                                        subordinazione, ha dato la propria disponibilità a collaborare nell’attuazione del progetto in qualità di
+                                        <b>Docente</b>;
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        International School of Languages s.r.l., con sede legale in Via Domenico Cimarosa, 66 - Napoli, P.IVA
+                                        04450490638, nella persona dell'Avv. Gianluca Frasca, ai sensi e per gli effetti della presente scrittura
+                                        appresso denominato “Committente”,
+                                    </div>
+                                    <br/>
+                                    <div style="text-align:center;font-weight:bold;">
+                                        incarica
+                                    </div>
+                                    <table class="table table-bordered">
+
+                                        <tr>
+                                            <td colspan="2" width="35%">Cognome e nome:</td>
+                                            <td colspan="2">
+                                                <span t-field="o.partner_id.lastname"/>
+                                                <span t-field="o.partner_id.firstname"/>
+                                                <!--<span t-field="o.partner_id"/>-->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Luogo e data di nascita:</td>
+                                            <td colspan="2">
+                                                <span t-if="o.partner_id.birthplace">
+                                                    <span t-field="o.partner_id.birthplace"/>
+                                                </span>
+                                                <span t-if="o.partner_id.birthdate_date">
+                                                    <span t-field="o.partner_id.birthdate_date"/>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Residenza (completa):</td>
+                                            <td colspan="2">
+                                                <span t-if="o.partner_id.street">
+                                                    <span t-field="o.partner_id.street"/>
+                                                    -
+                                                </span>
+                                                <span t-field="o.partner_id.city"/>
+                                                <span t-if="o.partner_id.state_id">
+                                                    (<span t-field="o.partner_id.state_id.code"/>)
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Codice fiscale:</td>
+                                            <td colspan="2">
+                                                <span t-field="o.partner_id.fiscalcode"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Partita I.V.A.</td>
+                                            <td colspan="2">
+                                                <span t-field="o.partner_id.vat"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Titolo di studio:</td>
+                                            <td colspan="2">
+                                                <span t-field="o.partner_id.qualification"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Titolo/i professionale/i:</td>
+                                            <td colspan="2">
+                                                <t t-set="number_of_title" t-value="1"/>
+                                                <t t-foreach="o.partner_id.professional_title_ids" t-as="professional_title">
+                                                    <t t-esc="professional_title.name"/>
+                                                    <t t-if="number_of_title &lt; len(o.partner_id.professional_title_ids)">
+                                                        -
+                                                    </t>
+                                                    <t t-set="number_of_title" t-value="number_of_title + 1"/>
+                                                </t>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">Telefono:
+                                                <span t-field="o.partner_id.phone"/>
+                                            </td>
+                                            <td>Documento:</td>
+                                            <td>Cassa previdenza:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Posizione INPS: SI
+                                                <br/>
+                                                NO<br/>N.
+                                            </td>
+                                            <td>IRAP: SI NO</td>
+                                            <td colspan="2">Cooord. Bancarie:
+                                                <br/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">Il sottoscritto dichiara che i dati sopra riportati corrispondono al vero.</td>
+                                        </tr>
+                                    </table>
+
+                                    <div>ai sensi e per gli effetti della presente scrittura appresso denominato “Commissionario”,
+                                    </div>
+                                    <div>
+                                        <br/>
+                                        <b>Art. 1</b>
+                                        Le premesse sono parte integrante della presente scrittura.
+                                    </div>
+                                    <div>
+                                        <br/>
+                                        <b>Art. 2</b>
+                                        L’incarico di Docente, che viene regolato dagli art. 2222 e seguenti e 2230 e seguenti del Codice Civile, avrà
+                                        le seguenti caratteristiche:
+                                    </div>
+                                    <t t-foreach="o.order_line" t-as="line">
+                                        <div>
+                                            <br/>
+                                            <table class="table table-bordered">
+                                                <tr style="font-weight:bold">
+                                                    <td width="40%">
+                                                        Incarico
+                                                    </td>
+                                                    <td width="40%">
+                                                        Periodo di svolgimento dell'incarico
+                                                    </td>
+                                                    <td width="20%">
+                                                        Costo orario
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="40%">
+                                                        <span t-field="line.name"/>
+                                                    </td>
+                                                    <td width="40%">
+                                                        Dal
+                                                        <span t-field="line.date_planned" t-field-options="{&quot;format&quot;: &quot; d/M/y&quot;}"/>
+                                                        <span t-if="line.date_end"/>
+                                                        al
+                                                        <span t-field="line.date_end"/>
+                                                    </td>
+                                                    <td width="20%">
+                                                        <span t-esc="float('%.2f'%(line.price_unit))"
+                                                              t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </t>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 3</b>
+                                        Al termine dell’incarico il Commissionario consegnerà un report sull’attività svolta.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 4</b>
+                                        Il commissionario è obbligato a partecipare agli incontri di coordinamento amministrativo e, se richiesto dal
+                                        Committente.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 5</b>
+                                        Si dà atto che l’oggetto di questo contratto sarà disciplinato dalle norme del Codice Civile già citate e,
+                                        fiscalmente, dalle norme di cui all’art. 49 del D.P.R. 22/12/86 N. 917, per le imposte dirette, dall’art. 5
+                                        del D.P.R. 26/10/72 N. 633, per l’I.V.A., e dall’art. 2 legge n. 335/1995 per la parte contributiva, e
+                                        dall’art. 5 del D. Lgs. 23/02/2000 N. 38 per la parte assicurativa. Di conseguenza il compenso orario previsto
+                                        e determinato di comune accordo tra le parti all’art. 2 del presente incarico è da ritenersi:
+                                        <br/>
+                                        al lordo dell’eventuale IVA prevista per Legge, qualora il Commissionario è tenuto all’emissione della
+                                        fattura; e al lordo della cassa previdenziale e della ritenuta d’acconto prevista per legge;
+                                        <br/>
+                                        A tal fine il Commissionario, nel confermare la propria posizione fiscale e contributiva dichiarata nel
+                                        prospetto in premessa, si rende responsabile di ogni mancata formale comunicazione di variazione di tali dati,
+                                        determinando di conseguenza applicabili ed identificativi della propria posizione esclusivamente quelli qui
+                                        esposti.
+                                        <br/>
+                                        Le parti dichiarano inoltre di non essere iscritte alle organizzazioni stipulanti l’accordo collettivo
+                                        nazionale per Collaborazioni Coordinate e Continuative dell’8/04/1998 (Cnai, Ucict, Unapi, Anilf, Anti, Cisal,
+                                        Sape), e pertanto restano esclusi dall’applicazione di tale regolamentazione.
+                                        <br/>
+                                        <br/>
+                                    </div>
+
+                                    <div>
+                                        <b>Art. 6</b>
+                                        Viene ribadito che il presente rapporto deve concretarsi in una prestazione d’opera continuativa e coordinata
+                                        a tempo determinato, prevalentemente personale, senza alcun assoggettamento al potere gerarchico disciplinare
+                                        del Committente, con il quale il Commissionario dovrà semplicemente coordinare l’attività professionale
+                                        nell’ambito della propria specializzazione, senza alcun vincolo di subordinazione e di dipendenza. Il
+                                        Commissionario dichiara, inoltre, di non avanzare alcuna richiesta, anche futura, circa la corresponsione
+                                        della indennità per cessazione di rapporti di collaborazione coordinata e continuativa, essendo tale incarico
+                                        a termine e risolvibile dalle parti ipso jure.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 7</b>
+                                        Il pagamento della prestazione sarà effettuato su base mensile, previa emissione di regolare fattura,
+                                        intestata a International School of Languages s.r.l., - Via Domenico Cimarosa, 66 - Napoli partita I.V.A.
+                                        04450490638. La fattura dovrà fare riferimento al presente incarico.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 8</b>
+                                        La validità del presente contratto di collaborazione e la erogazione dei pagamenti sono vincolati alla
+                                        presentazione da parte della Docente dei sottoelencati certificati richiesti espressamente dalla normativa
+                                        regionale e/o ministeriale:
+                                        <br/>
+
+                                        dichiarazione sostitutiva di certificazioni (resa ai sensi della L. n. 15/68 – L. n. 127/97 – L. n. 191/98 –
+                                        DPR n. 403/98) in cui si dichiari il proprio titolo di studio, di non avere carichi pendenti, né procedimenti
+                                        giudiziari in corso, presso le Preture e le Procure della Repubblica, di essere di sana costituzione fisica,
+                                        di essere o meno dipendente di una pubblica amministrazione (nel caso affermativo occorre dichiarare
+                                        l’Amministrazione dalla quale si dipende, l’indicazione dell’Ufficio che provvede alla liquidazione dello
+                                        stipendio, la qualifica di inquadramento, nonché farsi rilasciare dalla propria Amministrazione la prescritta
+                                        autorizzazione a svolgere l’attività oggetto del presente incarico).
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 9</b>
+                                        Si stabilisce che tale incarico potrà essere risolto ipso jure da ciascuna delle parti, previo formale
+                                        comunicazione entro 30 giorni.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 10</b>
+                                        In riferimento a quanto disposto con D. Lgs. 30/06/03 N. 196, si precisa che per quanto riguarda il
+                                        trattamento dei dati personali esposti nel presente contratto, il Committente è espressamente esonerato
+                                        dall’obbligo di notificazione al Garante in quanto il trattamento stesso di tali dati è finalizzato unicamente
+                                        all’adempimento di specifici obblighi contabili, previdenziali, assistenziali e fiscali, nonché necessario per
+                                        le funzioni istituzionali dell’Ente. Ad ogni modo, in ottemperanza a quanto disposto dalla citata legge, il
+                                        Commissionario dichiara di avere preso visione dell’informativa di cui all’art. 10 e ne ha dato consenso
+                                        scritto al trattamento dei propri dati personali ai sensi dell’art. 11 del D.Lgs 30/06/03 N. 196 con documento
+                                        a parte.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 11</b>
+                                        Le parti dichiarano che in caso di controversia sarà competente il foro di Napoli.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 12</b>
+                                        Copia del presente incarico dovrà essere controfirmata per accettazione e ritornata al Committente.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <b>Art. 13</b>
+                                        Il presente contratto è soggetto a registrazione solo in caso d’uso.
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        Napoli, lì
+                                        <span t-field="o.date_order" t-field-options="{&quot;format&quot;: &quot;d/M/y&quot;}"/>
+                                    </div>
+
+                                    <div>
+                                        <br/>
+                                        <div style="float:left;text-align:center">
+                                            Il commissionario
+                                            <br/>
+                                            Per accettazione dell'incarico
+                                            <br/>
+                                            <br/>
+                                            _____________________________
+                                        </div>
+                                        <div style="float:right;text-align:center">
+                                            Il Committente
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            _____________________________
+                                        </div>
+                                        <div>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            Il Commissionario dichiara, ai sensi e per gli effetti degli artt.1341 e 1342 del c.c., di accettare e di
+                                            approvare specificatamente ed espressamente, previa lettura, tutti gli articoli dal n.1 al n. 15.
+                                        </div>
+                                        <div style="float:left;text-align:center">
+                                            <br/>
+                                            Il commissionario
+                                            <br/>
+                                            Per accettazione dell'incarico
+                                            <br/>
+                                            <br/>
+                                            _____________________________
+                                        </div>
+                                        <br/>
+                                    </div>
+                                </div>
+
+
+                                <div t-if="o.type_order == 'model2'" style="font-size: 12.5px;">
+                                    <div style="font-weight:bold;text-align:center">
+                                        <span>
+                                            CONTRATTO DI COLLABORAZIONE PROFESSIONALE
+                                        </span>
+                                        <br/>
+                                        <br/>
+                                        TRA
+                                    </div>
+                                    <div>
+                                        La
+                                        <span style="font-weight:bold">International School of Languages srl.,</span>
+                                        con sede
+                                        <span style="font-weight:bold">a Via Cimarosa n. 66 - Napoli 80127</span>,
+                                        in persona del legale
+                                        rapp.te
+                                        <span style="font-weight:bold">Gianluca Frasca,</span>
+                                        P.I. <span style="font-weight:bold">04450490638</span> (Committente)
+                                    </div>
+                                    <br/>
+                                    <div style="text-align:center">
+                                        E
+                                    </div>
+
+                                    <br/>
+                                    <div>
+                                        Il dott.
+                                        <span t-field="o.partner_id.name"/>
+                                        <span t-if="o.partner_id.birthdate_date">
+                                            nato il
+                                            <span t-field="o.partner_id.birthdate_date"/>
+                                        </span>
+                                        <!--<span t-if="o.partner_id.street">-->
+                                        <span t-if="o.partner_id.city">
+                                            e residente in
+                                            <span t-field="o.partner_id.city"/>
+                                            <span t-if="o.partner_id.street">
+                                                in
+                                                <span t-field="o.partner_id.street"/>
+                                            </span>
+                                        </span>
+
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        1. Il committente, ai sensi del comma 2 dell’art. 61 del dlgs n. 276/2003 in applicazione della legge 30/2003,
+                                        conferisce incarico , il collaboratore dott.
+                                        <span t-field="o.partner_id.name"/>
+                                        la quale accetta di prestare la propria attività
+                                        di collaborazione professionale avente per oggetto
+                                        <span style="font-weight:bold">
+                                            <span t-if="o.order_line">
+                                                <span t-esc="o.order_line[0].name"/>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        2. Il Collaboratore si impegna a prestare la propria attività in forma di collaborazione occasionale, senza
+                                        alcun vincolo di subordinazione, secondo le modalità e le richieste che saranno lui avanzate dagli organi
+                                        direttivi della società, nei limiti e con le modalità del presente contratto.
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        3. In caso di eventi quali la malattia, l’infortunio o la maternità, che impediscano lo svolgimento della
+                                        prestazione concordata, si provvederà alla sostituzione del Collaboratore.
+                                    </div>
+                                    <br/>
+                                    <div>4. Il corrispettivo della prestazione viene stabilito in
+                                        <t t-if="o.order_line">
+                                            <span t-esc="'%.2f'% o.order_line[0].price_unit"/>
+                                        </t>
+                                        Euro per ora di lavoro al lordo di oneri
+                                        previdenziali e fiscali . Il corrispettivo dovrà essere documentato con parcella.
+                                    </div>
+                                    <br/>
+                                    <div>5. Il recesso dal presente contratto da parte di una delle parti deve essere comunicato con preavviso di
+                                        almeno
+                                        <t t-esc="o.notice_day"/>
+                                        a mezzo raccomandata.
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        6. Eventuali controversie tra le parti sono da discutere dinanzi al Foro di Napoli.
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        7. Per tutto quanto non previsto nel presente contratto si intendono qui riportate le norme vigenti in materia
+                                        purché non in contrasto con quanto qui previsto.
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        8. Tutte le clausole del presente atto sono da intendersi essenziali e inderogabili, talché l’inosservanza di
+                                        anche una sola di esse produrrà ipso iure la risoluzione del contratto, con obbligo del risarcimento dei danni
+                                        a carico della parte che si sarà resa inadempiente.
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        9. Validità della collaborazione: dal
+                                        <t t-if="o.order_line">
+                                            <span t-field="o.order_line[0].date_planned"
+                                                  t-field-options="{&quot;format&quot;: &quot; d MMMM y&quot;}"/>
+                                        </t>
+                                        <t t-if="o.order_line">
+                                            <span t-if="o.order_line[0].date_end">
+                                                al
+                                                <span t-field="o.order_line[0].date_end"
+                                                      t-field-options="{&quot;format&quot;: &quot; d MMMM y&quot;}"/>
+                                            </span>
+                                        </t>
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        Letto, confermato e sottoscritto.
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        Napoli
+                                        <span t-field="o.date_order" t-field-options="{&quot;format&quot;: &quot;d.M.y&quot;}"/>
+                                    </div>
+
+                                    <!--<table class="table table-bordered">-->
+
+                                    <!--<tr>-->
+                                    <!--<td colspan="2">Luogo e data di nascita:</td>-->
+                                    <!--<td colspan="2">-->
+                                    <!--<span t-if="o.partner_id.birthplace">-->
+                                    <!--<span t-field="o.partner_id.birthplace"/>-->
+                                    <!--</span>-->
+                                    <!--<span t-if="o.partner_id.birthdate_date">-->
+                                    <!--<span t-field="o.partner_id.birthdate_date"/>-->
+                                    <!--</span>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td colspan="2">Residenza (completa):</td>-->
+                                    <!--<td colspan="2">-->
+                                    <!--<span t-if="o.partner_id.street">-->
+                                    <!--<span t-field="o.partner_id.street"/>-->
+                                    <!-- - -->
+                                    <!--</span>-->
+                                    <!--<span t-field="o.partner_id.city"/>-->
+                                    <!--<span t-if="o.partner_id.state_id">-->
+                                    <!--(<span t-field="o.partner_id.state_id.code"/>)-->
+                                    <!--</span>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td colspan="2">Codice fiscale:</td>-->
+                                    <!--<td colspan="2">-->
+                                    <!--<span t-field="o.partner_id.fiscalcode"/>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td colspan="2">Partita I.V.A.</td>-->
+                                    <!--<td colspan="2">-->
+                                    <!--<span t-field="o.partner_id.vat"/>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td colspan="2">Titolo di studio:</td>-->
+                                    <!--<td colspan="2">-->
+                                    <!--<span t-field="o.partner_id.qualification"/>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td colspan="2">Titolo/i professionale/i:</td>-->
+                                    <!--<td colspan="2">-->
+                                    <!--<t t-set="number_of_title" t-value="1"/>-->
+                                    <!--<t t-foreach="o.partner_id.professional_title_ids" t-as="professional_title">-->
+                                    <!--<t t-esc="professional_title.name"/>-->
+                                    <!--<t t-if="number_of_title &lt; len(o.partner_id.professional_title_ids)">-->
+                                    <!-- - -->
+                                    <!--</t>-->
+                                    <!--<t t-set="number_of_title" t-value="number_of_title + 1"/>-->
+                                    <!--</t>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td colspan="2">Telefono:-->
+                                    <!--<span t-field="o.partner_id.phone"/>-->
+                                    <!--</td>-->
+                                    <!--<td>Documento:</td>-->
+                                    <!--<td>Cassa previdenza:</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td>Posizione INPS: SI-->
+                                    <!--<br/>-->
+                                    <!--NO<br/>N.-->
+                                    <!--</td>-->
+                                    <!--<td>IRAP: SI NO</td>-->
+                                    <!--<td colspan="2">Cooord. Bancarie:-->
+                                    <!--<br/>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td colspan="4">Il sottoscritto dichiara che i dati sopra riportati corrispondono al vero.</td>-->
+                                    <!--</tr>-->
+                                    <!--</table>-->
+
+
+                                    <!--<t t-foreach="o.order_line" t-as="line">-->
+                                    <!--<div>-->
+                                    <!--<br/>-->
+                                    <!--<table class="table table-bordered">-->
+                                    <!--<tr style="font-weight:bold">-->
+                                    <!--<td width="40%">-->
+                                    <!--Incarico-->
+                                    <!--</td>-->
+                                    <!--<td width="40%">-->
+                                    <!--Periodo di svolgimento dell'incarico-->
+                                    <!--</td>-->
+                                    <!--<td width="20%">-->
+                                    <!--Costo orario-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                    <!--<td width="40%">-->
+                                    <!--<span t-field="line.name"/>-->
+                                    <!--</td>-->
+                                    <!--<td width="40%">-->
+                                    <!--Dal-->
+                                    <!--<span t-field="line.date_planned" t-field-options="{&quot;format&quot;: &quot; d/M/y&quot;}"/>-->
+                                    <!--<span t-if="line.date_end"/>-->
+                                    <!--al-->
+                                    <!--<span t-field="line.date_end"/>-->
+                                    <!--</td>-->
+                                    <!--<td width="20%">-->
+                                    <!--<span t-field="line.price_unit"/>-->
+                                    <!--</td>-->
+                                    <!--</tr>-->
+                                    <!--</table>-->
+                                    <!--</div>-->
+                                    <!--</t>-->
+
+
+                                    <div>
+                                        <br/>
+                                        <div style="float:left;text-align:center">
+                                            Il collaboratore
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            _____________________________
+                                        </div>
+                                        <div style="float:right;text-align:center">
+                                            Il Committente
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            _____________________________
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
