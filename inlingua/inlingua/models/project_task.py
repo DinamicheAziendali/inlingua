@@ -15,21 +15,30 @@ class ProjectTaskInherit(models.Model):
     _inherit = 'project.task'
     _description = 'Lesson'
     
-    professor_id        = fields.Many2one('res.partner', string='Professor',
+    professor_id = fields.Many2one('res.partner', string='Professor',
                                    required=True,
                                    domain=[('professor', '=', True)])
-    start_time          = fields.Datetime(string='Start Time', required=True)
-    end_time            = fields.Datetime(string='End Time', required=True)
+    professor_user = fields.Many2one(compute='get_professor_user', store=True)
+    start_time = fields.Datetime(string='Start Time', required=True)
+    end_time = fields.Datetime(string='End Time', required=True)
 
-    task_student_ids    = fields.One2many('project.task.student', 'task_id')
-    language_course_id  = fields.Many2one('class.language',
+    task_student_ids = fields.One2many('project.task.student', 'task_id')
+    language_course_id = fields.Many2one('class.language',
                                          related='project_id.language_id',
                                          string='Course Language', store=True)
-    course_type_id      = fields.Many2one('class.type',
+    course_type_id = fields.Many2one('class.type',
                                      related='project_id.course_type_id',
                                      string='Course Type')
 
-    notes               = fields.Char( string='Note')
+    notes = fields.Char(string='Note')
+
+    @api.depends('professor_id')
+    def get_professor_user(self):
+        for task in self:
+            if task.professor_id:
+                user = self.env['res.users'].search([('partner_id', '=', task.professor_id.id)], limit=1)
+                if user:
+                    task.professor_user = user.id
 
     # Calcola il tempo totale delle lezioni schedulate escludendone una.
     def get_scheduled_total_time(self, project_id, lesson_to_ignore):
