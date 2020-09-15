@@ -140,6 +140,7 @@
                     <field name="stage_id" invisible="1"/>
                 </field>
                 <field name="name" position="after">
+                    <field name="professor_id"/>
                     <field name="language_course_id"/>
                 </field>
                 <filter name="User" position="after">

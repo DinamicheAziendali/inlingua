@@ -191,12 +191,13 @@ class ProjectInherit(models.Model):
             #('start_time', '<', date.strftime("%Y-%m-%d"))
         ])
         for lesson in scheduled_lessons:
-            diff = datetime.strptime(lesson.end_time, '%Y-%m-%d %H:%M:%S') - \
-                   datetime.strptime(lesson.start_time, '%Y-%m-%d %H:%M:%S')
-            t = (diff.seconds + diff.microseconds / 1000000.0) / 60.0
-            logger.info('Counting past scheduled lesson %s min [ %s ]', t, lesson.start_time)
-            # They are now in seconds, subtract and then divide by 60 to get minutes.
-            result += t
+            if lesson.end_time and lesson.start_time:
+                diff = datetime.strptime(lesson.end_time, '%Y-%m-%d %H:%M:%S') - \
+                       datetime.strptime(lesson.start_time, '%Y-%m-%d %H:%M:%S')
+                t = (diff.seconds + diff.microseconds / 1000000.0) / 60.0
+                logger.info('Counting past scheduled lesson %s min [ %s ]', t, lesson.start_time)
+                # They are now in seconds, subtract and then divide by 60 to get minutes.
+                result += t
 
         logger.info('Total past scheduled time %s minutes', result)
         self.minutes_scheduled = result 
