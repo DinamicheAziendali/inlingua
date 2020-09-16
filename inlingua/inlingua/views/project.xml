@@ -81,6 +81,8 @@
                                 <field name="date_end" />
                                 <!--<field name="office_out"/>-->
                                 <field name="flexible_course" />
+                                <field name="managed_by_teacher"
+                                       attrs="{'invisible': [('flexible_course', '=', False)]}"/>
                                 <field name="office_id" />
                                 <field name="type_office" widget="radio" options="{'horizontal': true}" />
                                 <field name="date_last_lesson" string="Ultima lezione sul timetable" />
@@ -88,7 +90,8 @@
                         </group>
 
                         <group string="Frequenza">
-                            <field name="scheduling_rules_ids">
+                            <field name="scheduling_rules_ids"
+                                   attrs="{'readonly': [('managed_by_teacher', '=', True)]}">
                                 <tree editable="top">
                                     <field name="professor_id" />
                                     <field name="modules" />

@@ -33,6 +33,7 @@ class ProjectInherit(models.Model):
     target_level    = fields.Many2one('student.level', string='Target Level')
 
     flexible_course     = fields.Boolean(string='Flexible Course')
+    managed_by_teacher  = fields.Boolean(string='Managed By Teacher')
     date_start          = fields.Date(string='Expected Date Start', required=True)
     date_end            = fields.Date(string='Expected Date End')
     date_last_lesson    = fields.Date(compute='get_last_timetable_lesson',

@@ -73,15 +73,21 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
-                <xpath expr="//form/sheet/notebook/page[@name='extra_info']" position="before">
-                    <page string="Students" name="Students">
-                        <field name="task_student_ids">
+                <xpath expr="//form/sheet/group" position="after">
+                    <group string="Students" name="Students">
+                        <field name="task_student_ids" nolabel="1">
                             <form>
                                 <group>
-                                    <field name="task_id" invisible="True"/>
-                                    <field name="student_id"/>
-                                    <field name="present"/>
-                                    <field name="active"/>
+                                    <group>
+                                        <field name="task_id" invisible="True"/>
+                                        <field name="student_id"/>
+                                        <field name="present"/>
+                                        <field name="active"/>
+                                    </group>
+                                    <group>
+                                        <field name="note"/>
+                                        <field name="grade"/>
+                                    </group>
                                 </group>
                             </form>
                             <tree>
@@ -89,9 +95,11 @@
                                 <field name="student_id"/>
                                 <field name="present"/>
                                 <field name="active"/>
+                                <field name="note"/>
+                                <field name="grade"/>
                             </tree>
                         </field>
-                    </page>
+                    </group>
                 </xpath>
                 <xpath expr="//form/sheet/notebook/page[@name='extra_info']" position="attributes">
                     <attribute name="invisible">True</attribute>
@@ -106,6 +114,9 @@
                     <field name="professor_id" domain="[('professor','=', True)]"/>
                     <field name="start_time"/>
                     <field name="end_time"/>
+                </xpath>
+                <xpath expr="//form/sheet/group/group/field[@name='tag_ids']" position="after">
+                    <field name="test"/>
                 </xpath>
             </field>
         </record>
@@ -128,6 +139,12 @@
                 <!--<field name="progress" position="after">-->
                 <!--<field name="time_end" widget="float_time"/>-->
                 <!--</field>-->
+                <xpath expr="//page[2]" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='progress']" position="attributes">
+                    <attribute name="invisible">True</attribute>
+                </xpath>
             </field>
         </record>
 

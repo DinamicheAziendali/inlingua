@@ -30,7 +30,14 @@ class ProjectTaskInherit(models.Model):
                                      related='project_id.course_type_id',
                                      string='Course Type')
 
+    test = fields.Boolean(string='Test')
     notes = fields.Char(string='Note')
+
+    @api.onchange('start_time')
+    def get_date_deadline(self):
+        for task in self:
+            if task.start_time:
+                task.date_deadline = task.start_time
 
     @api.depends('professor_id')
     def get_professor_user(self):

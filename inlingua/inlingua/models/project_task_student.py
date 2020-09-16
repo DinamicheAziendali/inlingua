@@ -19,4 +19,6 @@ class ProjectTaskStudent(models.Model):
                                  string='Student', required=True)
     present = fields.Boolean('Present', default=True)
     project_id = fields.Many2one(related='task_id.project_id')
+    note = fields.Text(string='Note')
+    grade = fields.Char(string='Grade')
     active = fields.Boolean('Active', default=True)
