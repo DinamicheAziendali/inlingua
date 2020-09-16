@@ -45,7 +45,7 @@
             <field name="model_id" ref="project.model_project_task"/>
             <field name="global" eval="True"/>
             <field name="domain_force">
-                [('professor_id', '=', [user.partner_id.id])]
+                [('professor_id', '=', user.partner_id.id)]
             </field>
         </record>
 
