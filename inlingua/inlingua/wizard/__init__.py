@@ -5,5 +5,6 @@
 # License GPL-3.0 or later (http://www.gnu.org/licenses/gpl.html).
 
 from . import wizard_add_rate
+from . import wizard_journal_entries
 from . import wizard_material_delivered
 from . import wizard_print_contract_receipt

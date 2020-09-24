@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="journal_entries_view_wizard" model="ir.ui.view">
+            <field name="name">journal.entries.view.wizard</field>
+            <field name="model">journal.entries.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Journal Entries">
+                    <group>
+                        <field name="journal_ids" widget="many2many_tags"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <footer>
+                        <button class="oe_highlight" type="object" string="Print Journal Entries" name="print_journal_entries"/>
+                        or
+                        <button class="oe_highlight" special="cancel" string="Chiudi"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="action_journal_entries_view_wizard"
+                    name="Report Journal Entries"
+                    res_model="journal.entries.wizard"
+                    view_mode="form"
+                    target="new"
+                    view_id="journal_entries_view_wizard"/>
+
+        <menuitem id="menu_journal_entries_view_wizard"
+                  name="Report Journal Entries"
+                  parent="account.menu_finance_legal_statement"
+                  action="action_journal_entries_view_wizard"
+                  sequence="99"/>
+
+    </data>
+</openerp>

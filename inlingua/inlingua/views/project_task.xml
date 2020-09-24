@@ -101,8 +101,14 @@
                         </field>
                     </group>
                 </xpath>
+                <xpath expr="//form/header/field[@name='stage_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
                 <xpath expr="//form/sheet/notebook/page[@name='extra_info']" position="attributes">
-                    <attribute name="invisible">True</attribute>
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/group/group/field[@name='project_id']" position="attributes">
+                    <attribute name="domain">[('managed_by_teacher', '=', True)]</attribute>
                 </xpath>
                 <xpath expr="//form/sheet/group/group/field[@name='user_id']" position="replace">
                     <field name="user_id"
@@ -160,11 +166,27 @@
                     <field name="professor_id"/>
                     <field name="language_course_id"/>
                 </field>
+                <filter name="my_tasks" position="replace"/>
                 <filter name="User" position="after">
                     <filter string="Language" name="language" context="{'group_by':'language_course_id'}"/>
                 </filter>
             </field>
         </record>
+
+        <!-- OVERRIDE DELL'AZIONE DI ODOO BASE: in OCB/addons/project/views/project_views.xml : start -->
+        <record id="project.action_view_task" model="ir.actions.act_window">
+            <field name="name">Lessons</field>
+            <field name="res_model">project.task</field>
+            <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+            <field name="context">{'search_default_my_tasks': 0}</field>
+            <field name="search_view_id" ref="project.view_task_search_form"/>
+            <field name="help" type="html">
+                <p>
+                    Odoo's project management allows you to manage the pipeline of your tasks efficiently. You can track progress, discuss on tasks, attach documents, etc.
+                </p>
+            </field>
+        </record>
+        <!-- OVERRIDE DELL'AZIONE DI ODOO BASE: in OCB/addons/project/views/project_views.xml : start -->
 
     </data>
 </odoo>

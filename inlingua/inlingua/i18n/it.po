@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-16 13:02+0000\n"
-"PO-Revision-Date: 2020-09-16 13:02+0000\n"
+"POT-Creation-Date: 2020-09-24 08:37+0000\n"
+"PO-Revision-Date: 2020-09-24 08:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -135,6 +135,11 @@ msgstr "<b>Art. 6</b>\n"
 "                                        Commissionario dichiara, inoltre, di non avanzare alcuna richiesta, anche futura, circa la corresponsione\n"
 "                                        della indennità per cessazione di rapporti di collaborazione coordinata e continuativa, essendo tale incarico\n"
 "                                        a termine e risolvibile dalle parti ipso jure."
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
+msgid "<b>Total</b>"
+msgstr "<b>Totale</b>"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
@@ -686,6 +691,7 @@ msgstr "Spunta se il contatto è un'azienda, altrimenti è una persona"
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.add_rate_view_wizard
 #: model:ir.ui.view,arch_db:inlingua.delivered_material_view_wizard
+#: model:ir.ui.view,arch_db:inlingua.journal_entries_view_wizard
 #: model:ir.ui.view,arch_db:inlingua.print_contract_view_wizard
 msgid "Chiudi"
 msgstr "Chiudi"
@@ -936,7 +942,7 @@ msgstr "Copia"
 #. module: inlingua
 #: model:ir.model.fields,help:inlingua.field_private_contract_cost_entry
 msgid "Cost of entry "
-msgstr "Costo iscrizione"
+msgstr "Costo iscrizione "
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
@@ -996,6 +1002,7 @@ msgstr "Crea azienda"
 #: model:ir.model.fields,field_description:inlingua.field_class_programm_create_uid
 #: model:ir.model.fields,field_description:inlingua.field_class_type_create_uid
 #: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_create_uid
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_create_uid
 #: model:ir.model.fields,field_description:inlingua.field_language_professor_create_uid
 #: model:ir.model.fields,field_description:inlingua.field_language_student_create_uid
 #: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_create_uid
@@ -1019,6 +1026,7 @@ msgstr "Creato da"
 #: model:ir.model.fields,field_description:inlingua.field_class_programm_create_date
 #: model:ir.model.fields,field_description:inlingua.field_class_type_create_date
 #: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_create_date
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_create_date
 #: model:ir.model.fields,field_description:inlingua.field_language_professor_create_date
 #: model:ir.model.fields,field_description:inlingua.field_language_student_create_date
 #: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_create_date
@@ -1035,6 +1043,11 @@ msgstr "Creato da"
 #: model:ir.model.fields,field_description:inlingua.field_type_due_create_date
 msgid "Created on"
 msgstr "Creato il"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
+msgid "Credit"
+msgstr "Uscita"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_currency_id
@@ -1064,8 +1077,10 @@ msgid "Current Year"
 msgstr "Anno corrente"
 
 #. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_customer_id
 #: model:ir.model.fields,field_description:inlingua.field_payment_term_line_partner_id
 #: model:ir.ui.view,arch_db:inlingua.payment_term_line_search_view
+#: selection:journal.entries.wizard,type_partner:0
 msgid "Customer"
 msgstr "Cliente"
 
@@ -1189,6 +1204,7 @@ msgstr "Data rimozione"
 #: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_date
 #: model:ir.model.fields,field_description:inlingua.field_payment_term_line_date
 #: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
 msgid "Date"
 msgstr "Data"
 
@@ -1198,11 +1214,13 @@ msgid "Date End"
 msgstr "Data Fine"
 
 #. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_date_from
 #: model:ir.model.fields,field_description:inlingua.field_print_contract_wizard_date_from
 msgid "Date From"
 msgstr "Da Data"
 
 #. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_date_to
 #: model:ir.model.fields,field_description:inlingua.field_print_contract_wizard_date_to
 msgid "Date To"
 msgstr "A Data"
@@ -1211,6 +1229,11 @@ msgstr "A Data"
 #: model:ir.ui.view,arch_db:inlingua.private_contract_form_view
 msgid "Dati economici"
 msgstr "Dati economici"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
+msgid "Debit"
+msgstr "Entrata"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.sale_order_form_view_inherit
@@ -1229,6 +1252,7 @@ msgstr "Acconto"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_project_project_description
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
 msgid "Description"
 msgstr "Descrizione"
 
@@ -1268,6 +1292,7 @@ msgstr "Dettaglio delle fatture emesse sul contratto"
 #: model:ir.model.fields,field_description:inlingua.field_class_programm_display_name
 #: model:ir.model.fields,field_description:inlingua.field_class_type_display_name
 #: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_display_name
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_display_name
 #: model:ir.model.fields,field_description:inlingua.field_language_professor_display_name
 #: model:ir.model.fields,field_description:inlingua.field_language_student_display_name
 #: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_display_name
@@ -1281,6 +1306,7 @@ msgstr "Dettaglio delle fatture emesse sul contratto"
 #: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_display_name
 #: model:ir.model.fields,field_description:inlingua.field_project_task_student_display_name
 #: model:ir.model.fields,field_description:inlingua.field_report_inlingua_report_contract_receipt_view_display_name
+#: model:ir.model.fields,field_description:inlingua.field_report_inlingua_template_journal_entries_view_display_name
 #: model:ir.model.fields,field_description:inlingua.field_student_level_display_name
 #: model:ir.model.fields,field_description:inlingua.field_type_due_display_name
 msgid "Display Name"
@@ -1482,6 +1508,7 @@ msgstr "Raggruppa per"
 #: model:ir.model.fields,field_description:inlingua.field_class_programm_id
 #: model:ir.model.fields,field_description:inlingua.field_class_type_id
 #: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_id
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_id
 #: model:ir.model.fields,field_description:inlingua.field_language_professor_id
 #: model:ir.model.fields,field_description:inlingua.field_language_student_id
 #: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_id
@@ -1495,6 +1522,7 @@ msgstr "Raggruppa per"
 #: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_id
 #: model:ir.model.fields,field_description:inlingua.field_project_task_student_id
 #: model:ir.model.fields,field_description:inlingua.field_report_inlingua_report_contract_receipt_view_id
+#: model:ir.model.fields,field_description:inlingua.field_report_inlingua_template_journal_entries_view_id
 #: model:ir.model.fields,field_description:inlingua.field_student_level_id
 #: model:ir.model.fields,field_description:inlingua.field_type_due_id
 msgid "ID"
@@ -1720,6 +1748,12 @@ msgid "Iva default per fatture da contratti"
 msgstr "Iva default per fatture da contratti"
 
 #. module: inlingua
+#: model:ir.actions.report.xml,name:inlingua.action_report_journal_entries
+#: model:ir.ui.view,arch_db:inlingua.journal_entries_view_wizard
+msgid "Journal Entries"
+msgstr "Prima nota"
+
+#. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
 msgid "La\n"
 "                                        <span style=\"font-weight:bold\">International School of Languages srl.,</span>\n"
@@ -1767,6 +1801,7 @@ msgstr "Lingue insegnate"
 #: model:ir.model.fields,field_description:inlingua.field_class_programm___last_update
 #: model:ir.model.fields,field_description:inlingua.field_class_type___last_update
 #: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings___last_update
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard___last_update
 #: model:ir.model.fields,field_description:inlingua.field_language_professor___last_update
 #: model:ir.model.fields,field_description:inlingua.field_language_student___last_update
 #: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard___last_update
@@ -1780,6 +1815,7 @@ msgstr "Lingue insegnate"
 #: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule___last_update
 #: model:ir.model.fields,field_description:inlingua.field_project_task_student___last_update
 #: model:ir.model.fields,field_description:inlingua.field_report_inlingua_report_contract_receipt_view___last_update
+#: model:ir.model.fields,field_description:inlingua.field_report_inlingua_template_journal_entries_view___last_update
 #: model:ir.model.fields,field_description:inlingua.field_student_level___last_update
 #: model:ir.model.fields,field_description:inlingua.field_type_due___last_update
 msgid "Last Modified on"
@@ -1791,6 +1827,7 @@ msgstr "Ultima modifica il"
 #: model:ir.model.fields,field_description:inlingua.field_class_programm_write_uid
 #: model:ir.model.fields,field_description:inlingua.field_class_type_write_uid
 #: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_write_uid
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_write_uid
 #: model:ir.model.fields,field_description:inlingua.field_language_professor_write_uid
 #: model:ir.model.fields,field_description:inlingua.field_language_student_write_uid
 #: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_write_uid
@@ -1814,6 +1851,7 @@ msgstr "Ultima modifica di"
 #: model:ir.model.fields,field_description:inlingua.field_class_programm_write_date
 #: model:ir.model.fields,field_description:inlingua.field_class_type_write_date
 #: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_write_date
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_write_date
 #: model:ir.model.fields,field_description:inlingua.field_language_professor_write_date
 #: model:ir.model.fields,field_description:inlingua.field_language_student_write_date
 #: model:ir.model.fields,field_description:inlingua.field_material_delivered_wizard_write_date
@@ -2251,8 +2289,14 @@ msgstr "Partita IVA"
 
 #. module: inlingua
 #: model:ir.model,name:inlingua.model_res_partner
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
 msgid "Partner"
 msgstr "Partner"
+
+#. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_type_partner
+msgid "Partner Type"
+msgstr "Tipo partner"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_language_professor_partner_id
@@ -2362,6 +2406,11 @@ msgid "Print Delivered Material"
 msgstr "Stampa Materiale Consegnato"
 
 #. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.journal_entries_view_wizard
+msgid "Print Journal Entries"
+msgstr "Stampa prima nota"
+
+#. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.add_rate_view_wizard
 msgid "Print Receipt and Add"
 msgstr "Aggiungi e Stampa Ricevuta"
@@ -2399,13 +2448,13 @@ msgstr "Prodotto"
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_partner_professional_title_name
 msgid "Professional Title"
-msgstr "Titolo professionale"
+msgstr "Professional Title"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_res_partner_professional_title_ids
 #: model:ir.model.fields,field_description:inlingua.field_res_users_professional_title_ids
 msgid "Professional Titles"
-msgstr "Titoli professionali"
+msgstr "Professional Titles"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_project_task_professor_id
@@ -2530,6 +2579,13 @@ msgstr "Referenti (Nome, Cognome, Recapito)"
 #: model:ir.model.fields,field_description:inlingua.field_inlingua_config_settings_contract_invoice_journal
 msgid "Registro fatture contratti"
 msgstr "Registro fatture contratti"
+
+#. module: inlingua
+#: model:ir.actions.act_window,name:inlingua.action_journal_entries_view_wizard
+#: model:ir.ui.menu,name:inlingua.menu_journal_entries_view_wizard
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
+msgid "Report Journal Entries"
+msgstr "Report prima nota"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_private_contract_partner_resident
@@ -2813,6 +2869,12 @@ msgid "Students"
 msgstr "Allievi"
 
 #. module: inlingua
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_supplier_id
+#: selection:journal.entries.wizard,type_partner:0
+msgid "Supplier"
+msgstr "Fornitore"
+
+#. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
 msgid "Tags..."
 msgstr "tags..."
@@ -2937,7 +2999,7 @@ msgstr "A"
 #: model:ir.model.fields,field_description:inlingua.field_add_rate_wizard_to_account
 #: model:ir.model.fields,field_description:inlingua.field_payment_term_line_to_account
 msgid "To Account"
-msgstr "Da fatturare"
+msgstr "Da Contabilizzare"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.private_contract_search_view
@@ -3069,6 +3131,11 @@ msgid "a mezzo raccomandata."
 msgstr "a mezzo raccomandata."
 
 #. module: inlingua
+#: model:ir.model,name:inlingua.model_account_move_line_wizard
+msgid "account.move.line.wizard"
+msgstr "account.move.line.wizard"
+
+#. module: inlingua
 #: model:ir.model,name:inlingua.model_add_rate_wizard
 msgid "add.rate.wizard"
 msgstr "add.rate.wizard"
@@ -3152,6 +3219,11 @@ msgid "e.g. www.odoo.com"
 msgstr "es. www.odoo.com"
 
 #. module: inlingua
+#: model:ir.model,name:inlingua.model_first_notice_wizard
+msgid "first.notice.wizard"
+msgstr "first.notice.wizard"
+
+#. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
 msgid "il Progetto '"
 msgstr "il Progetto '"
@@ -3210,6 +3282,11 @@ msgstr "ir.actions.act_window.view"
 #: model:ir.model,name:inlingua.model_ir_ui_view
 msgid "ir.ui.view"
 msgstr "ir.ui.view"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_journal_entries_wizard
+msgid "journal.entries.wizard"
+msgstr "journal.entries.wizard"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.custom_report_purchase_order_type
@@ -3384,12 +3461,17 @@ msgstr "Numero Moduli"
 #: model:ir.model.fields,field_description:inlingua.field_private_contract_module4lesson
 #: model:ir.model.fields,field_description:inlingua.field_project_project_module4lesson
 msgid "number of module for lesson "
-msgstr "Moduli per Lezione"
+msgstr "Moduli per Lezione "
 
 #. module: inlingua
 #: model:ir.model,name:inlingua.model_office_office
 msgid "office.office"
 msgstr "office.office"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.journal_entries_view_wizard
+msgid "or"
+msgstr "o"
 
 #. module: inlingua
 #: model:ir.model,name:inlingua.model_partner_professional_title
@@ -3428,9 +3510,24 @@ msgid "rate a cadenza"
 msgstr "rate a cadenza"
 
 #. module: inlingua
+#: model:ir.model,name:inlingua.model_report_inlingua_report_account_move_line_view
+msgid "report.inlingua.report_account_move_line_view"
+msgstr "report.inlingua.report_account_move_line_view"
+
+#. module: inlingua
 #: model:ir.model,name:inlingua.model_report_inlingua_report_contract_receipt_view
 msgid "report.inlingua.report_contract_receipt_view"
 msgstr "report.inlingua.report_contract_receipt_view"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_report_inlingua_template_first_notice_view
+msgid "report.inlingua.template_first_notice_view"
+msgstr "report.inlingua.template_first_notice_view"
+
+#. module: inlingua
+#: model:ir.model,name:inlingua.model_report_inlingua_template_journal_entries_view
+msgid "report.inlingua.template_journal_entries_view"
+msgstr "report.inlingua.template_journal_entries_view"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.report_private_contract

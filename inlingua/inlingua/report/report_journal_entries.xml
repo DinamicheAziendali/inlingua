@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <report id="action_report_first_notice"
+            model="account.move.line"
+            string="First Notice"
+            report_type="qweb-pdf"
+            name="inlingua.template_journal_entries_view"
+            file="inlingua.template_journal_entries_view"
+            attachment_use="False"
+            menu="False"/>
+
+</odoo>

@@ -14,10 +14,11 @@ from odoo.exceptions import ValidationError
 class ProjectTaskInherit(models.Model):
     _inherit = 'project.task'
     _description = 'Lesson'
-    
-    professor_id = fields.Many2one('res.partner', string='Professor',
-                                   required=True,
-                                   domain=[('professor', '=', True)])
+
+    professor_id = fields.Many2one(
+        'res.partner', string='Professor',
+        required=True, domain=[('professor', '=', True)],
+        default=lambda self: self.env.user.partner_id if self.env.user.partner_id.professor else False)
     professor_user = fields.Many2one(compute='get_professor_user', store=True)
     start_time = fields.Datetime(string='Start Time', required=True)
     end_time = fields.Datetime(string='End Time', required=True)
@@ -32,6 +33,30 @@ class ProjectTaskInherit(models.Model):
 
     test = fields.Boolean(string='Test')
     notes = fields.Char(string='Note')
+
+    @api.onchange('project_id')
+    def get_task_student_ids(self):
+
+        id_task = False
+        if self._origin.id:
+            id_task = self._origin.id
+        if not id_task and self.id:
+            id_task = self.id
+        for task in self:
+            list_student = []
+            model_task_student = self.env['project.task.student']
+            if task.project_id and task.project_id.project_student_ids:
+                for student in task.project_id.project_student_ids:
+                    list_student.append(student.student_id.id)
+                for student in list_student:
+                    # if task.id:
+                    #     task = task.id
+                    # else:
+                    #     task = self._origin.id
+                    model_task_student.create({
+                        'task_id': id_task,
+                        'student_id': student
+                    })
 
     @api.onchange('start_time')
     def get_date_deadline(self):
