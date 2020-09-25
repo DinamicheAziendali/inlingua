@@ -36,27 +36,37 @@ class ProjectTaskInherit(models.Model):
 
     @api.onchange('project_id')
     def get_task_student_ids(self):
-
-        id_task = False
-        if self._origin.id:
-            id_task = self._origin.id
-        if not id_task and self.id:
-            id_task = self.id
         for task in self:
             list_student = []
             model_task_student = self.env['project.task.student']
             if task.project_id and task.project_id.project_student_ids:
                 for student in task.project_id.project_student_ids:
                     list_student.append(student.student_id.id)
-                for student in list_student:
-                    # if task.id:
-                    #     task = task.id
-                    # else:
-                    #     task = self._origin.id
-                    model_task_student.create({
-                        'task_id': id_task,
-                        'student_id': student
-                    })
+            for student in list_student:
+                if task.id:
+                    task = task.id
+                else:
+                    task = self._origin.id
+                model_task_student.create({
+                    'task_id': task,
+                    'student_id': student
+                })
+
+    @api.model
+    def create(self, vals):
+        res = super(ProjectTaskInherit, self).create(vals)
+        for task in res:
+            list_student = []
+            model_task_student = self.env['project.task.student']
+            if task.project_id and task.project_id.project_student_ids:
+                for student in task.project_id.project_student_ids:
+                    list_student.append(student.student_id.id)
+            for student in list_student:
+                model_task_student.create({
+                    'task_id': task.id,
+                    'student_id': student
+                })
+        return res
 
     @api.onchange('start_time')
     def get_date_deadline(self):
