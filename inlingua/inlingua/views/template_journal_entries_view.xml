@@ -23,28 +23,34 @@
                                     <t t-set="tot_credit" t-value="0"/>
                                     <t t-foreach="move.line_ids" t-as="line">
                                         <tr>
-                                            <td><t t-esc="line.date"/></td>
-                                            <td><span t-esc="line.date"/></td>
-                                            <td><t t-esc="line.name"/></td>
                                             <td>
-                                                <t t-esc="line.debit"/>
-                                                <t t-set="tot_debit" t-value="tot_debit + line.debit"/>
+                                                <t t-esc="time.strftime('%d/%m/%Y', time.strptime(line.date,'%Y-%m-%d'))"/>
                                             </td>
                                             <td>
-                                                <t t-esc="line.credit"/>
+                                                <t t-esc="line.name"/>
+                                            </td>
+                                            <td>
+                                                <t t-esc="line.partner_id.name"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="line.debit" />
+                                                <t t-set="tot_debit" t-value="tot_debit + line.debit"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-esc="line.credit" />
                                                 <t t-set="tot_credit" t-value="tot_credit + line.credit"/>
                                             </td>
                                         </tr>
                                     </t>
                                     <tr>
-                                        <td colspan="3" align="right">
+                                        <td colspan="3" class="text-right">
                                             <b>Total</b>
                                         </td>
-                                        <td>
-                                            <t t-esc="tot_debit"/>
+                                        <td class="text-right">
+                                            <t t-esc="tot_debit" />
                                         </td>
-                                        <td>
-                                            <t t-esc="tot_credit"/>
+                                        <td class="text-right">
+                                            <t t-esc="tot_credit" />
                                         </td>
                                     </tr>
                                 </t>

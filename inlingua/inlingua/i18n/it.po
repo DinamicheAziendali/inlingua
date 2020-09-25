@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-24 08:37+0000\n"
-"PO-Revision-Date: 2020-09-24 08:37+0000\n"
+"POT-Creation-Date: 2020-09-25 07:43+0000\n"
+"PO-Revision-Date: 2020-09-25 07:43+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1077,10 +1077,8 @@ msgid "Current Year"
 msgstr "Anno corrente"
 
 #. module: inlingua
-#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_customer_id
 #: model:ir.model.fields,field_description:inlingua.field_payment_term_line_partner_id
 #: model:ir.ui.view,arch_db:inlingua.payment_term_line_search_view
-#: selection:journal.entries.wizard,type_partner:0
 msgid "Customer"
 msgstr "Cliente"
 
@@ -1454,6 +1452,11 @@ msgid "Firma resp. acquisti"
 msgstr "Firma resp. acquisti"
 
 #. module: inlingua
+#: model:ir.actions.report.xml,name:inlingua.action_report_first_notice
+msgid "First Notice"
+msgstr "Prima nota"
+
+#. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_project_project_flexible_course
 msgid "Flexible Course"
 msgstr "Corso Flessibile"
@@ -1748,7 +1751,11 @@ msgid "Iva default per fatture da contratti"
 msgstr "Iva default per fatture da contratti"
 
 #. module: inlingua
-#: model:ir.actions.report.xml,name:inlingua.action_report_journal_entries
+#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_journal_ids
+msgid "Journal"
+msgstr "Sezionale"
+
+#. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.journal_entries_view_wizard
 msgid "Journal Entries"
 msgstr "Prima nota"
@@ -2292,11 +2299,6 @@ msgstr "Partita IVA"
 #: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
 msgid "Partner"
 msgstr "Partner"
-
-#. module: inlingua
-#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_type_partner
-msgid "Partner Type"
-msgstr "Tipo partner"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_language_professor_partner_id
@@ -2867,12 +2869,6 @@ msgstr "Firma Allievo"
 #: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
 msgid "Students"
 msgstr "Allievi"
-
-#. module: inlingua
-#: model:ir.model.fields,field_description:inlingua.field_journal_entries_wizard_supplier_id
-#: selection:journal.entries.wizard,type_partner:0
-msgid "Supplier"
-msgstr "Fornitore"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
