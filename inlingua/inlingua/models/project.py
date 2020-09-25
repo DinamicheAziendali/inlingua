@@ -68,12 +68,12 @@ class ProjectInherit(models.Model):
                                           compute='get_minutes_remaining')          
 
     # Lezioni già schedulati su timetable
-    modules_scheduled   = fields.Integer( string='Moduli schedulati',
-                                          compute='get_modules_scheduled')
+    modules_scheduled   = fields.Float( string='Moduli schedulati',
+                                        compute='get_modules_scheduled')
 
     # Lezioni rimanenti da schedulare
-    modules_remaining   = fields.Integer( string='Moduli da schedulare',
-                                          compute='get_modules_remaining')                                
+    modules_remaining   = fields.Float( string='Moduli da schedulare',
+                                        compute='get_modules_remaining')
 
     # Scheduling settings (Frequenza)
     scheduling_rules_ids = fields.One2many( comodel_name='project.task_scheduling_rule',

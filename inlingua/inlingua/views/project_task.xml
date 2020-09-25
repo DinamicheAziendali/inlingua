@@ -90,7 +90,7 @@
                                     </group>
                                 </group>
                             </form>
-                            <tree>
+                            <tree editable="top">
                                 <field name="task_id" invisible="True"/>
                                 <field name="student_id"/>
                                 <field name="present"/>
@@ -106,9 +106,6 @@
                 </xpath>
                 <xpath expr="//form/sheet/notebook/page[@name='extra_info']" position="attributes">
                     <attribute name="invisible">1</attribute>
-                </xpath>
-                <xpath expr="//form/sheet/group/group/field[@name='project_id']" position="attributes">
-                    <attribute name="domain">[('managed_by_teacher', '=', True)]</attribute>
                 </xpath>
                 <xpath expr="//form/sheet/group/group/field[@name='user_id']" position="replace">
                     <field name="user_id"

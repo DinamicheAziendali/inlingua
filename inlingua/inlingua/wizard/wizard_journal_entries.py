@@ -22,7 +22,9 @@ class JournalEntriesWizard(models.TransientModel):
 
     def _get_account_move_line(self):
         model_am = self.env['account.move']
-        # list_am = []
+        journal_name = ''
+        date_from = datetime.strptime(self.date_from, "%Y-%m-%d").strftime('%d/%m/%y')
+        date_to = datetime.strptime(self.date_to, "%Y-%m-%d").strftime('%d/%m/%y')
         if self.journal_ids:
             for journal in self.journal_ids:
                 am = model_am.search([
@@ -31,25 +33,24 @@ class JournalEntriesWizard(models.TransientModel):
                     ('date', '<=', self.date_to)
                 ], order='date')
                 model_am |= am
+            for journal in self.journal_ids:
+                if journal_name:
+                    journal_name += ', ' + journal.display_name
+                else:
+                    journal_name = journal.display_name
+
         else:
             am = model_am.search([
                 ('date', '>=', self.date_from),
                 ('date', '<=', self.date_to)
             ], order='date')
             model_am |= am
-        # list_am.append(model_am.ids)
-        # ml_list = []
-        # for am in list_am:
-        #     for aml in am.line_ids:
-        #         new_date = datetime.strptime(aml.date, "%Y-%m-%d").strftime('%d/%m/%y')
-        #         ml_list.append((
-        #             new_date,
-        #             aml.name,
-        #             aml.partner_id.name,
-        #             aml.debit,
-        #             aml.credit
-        #         ))
-        data = {'account_move': model_am.ids}
+        data = {
+            'journal': journal_name,
+            'date_from': date_from,
+            'date_to': date_to,
+            'account_move': model_am.ids
+        }
         return data
 
     @api.multi
@@ -66,7 +67,10 @@ class ReportJournalEntries(models.AbstractModel):
     def render_html(self, docids, data):
         account_move = self.env['account.move'].browse(data['account_move'])
         docargs = {
-            'account_move': account_move
+            'journal': data['journal'],
+            'date_from': data['date_from'],
+            'date_to': data['date_to'],
+            'account_move': account_move,
         }
         if 'context' in docargs.keys():
             del docargs['context']

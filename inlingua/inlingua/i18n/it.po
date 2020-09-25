@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-25 07:43+0000\n"
-"PO-Revision-Date: 2020-09-25 07:43+0000\n"
+"POT-Creation-Date: 2020-09-25 16:11+0000\n"
+"PO-Revision-Date: 2020-09-25 16:11+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -501,6 +501,16 @@ msgid "<strong>Ctr/Ord</strong>"
 msgstr "<strong>Ctr/Ord</strong>"
 
 #. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
+msgid "<strong>Date From:</strong>"
+msgstr "<strong>Da data:</strong>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
+msgid "<strong>Date To:</strong>"
+msgstr "<strong>A data:</strong>"
+
+#. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
 msgid "<strong>Date</strong>"
 msgstr "<strong>Data</strong>"
@@ -509,6 +519,11 @@ msgstr "<strong>Data</strong>"
 #: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
 msgid "<strong>Delivered Material</strong>"
 msgstr "<strong>Materiale Consegnato</strong>"
+
+#. module: inlingua
+#: model:ir.ui.view,arch_db:inlingua.template_journal_entries_view
+msgid "<strong>Journal:</strong>"
+msgstr "<strong>Sezionale:</strong>"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.report_view_material_delivered
@@ -2780,19 +2795,19 @@ msgstr "Livello Iniziale"
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_project_task_start_time
 msgid "Start Time"
-msgstr "Ora inizio"
+msgstr "Start Time"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_project_task_scheduling_rule_start_time
 msgid "Start time"
-msgstr "Ora inizio"
+msgstr "Start time"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_private_contract_state
 #: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
 #: model:ir.ui.view,arch_db:inlingua.private_contract_search_view
 msgid "State"
-msgstr "Provincia"
+msgstr "Stato"
 
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_office_office_street
@@ -2842,7 +2857,7 @@ msgstr "Numero Allievi"
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_private_contract_student_ids
 msgid "Student ids"
-msgstr "Alunni"
+msgstr "Student ids"
 
 #. module: inlingua
 #: model:ir.model,name:inlingua.model_project_student
@@ -3074,7 +3089,7 @@ msgstr "Tipo Contratto"
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_purchase_order_type_order
 msgid "Type order"
-msgstr "Tipo ordine"
+msgstr "Type order"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.report_attendance_register_view
@@ -3109,7 +3124,7 @@ msgstr "Mercoledì"
 #. module: inlingua
 #: model:ir.model,name:inlingua.model_project_task_scheduling_rule
 msgid "Weekly scheduling rule"
-msgstr "Regole di Schedulazione Settimanale"
+msgstr "Weekly scheduling rule"
 
 #. module: inlingua
 #: model:ir.ui.view,arch_db:inlingua.partner_student_form_view
@@ -3456,8 +3471,8 @@ msgstr "Numero Moduli"
 #. module: inlingua
 #: model:ir.model.fields,field_description:inlingua.field_private_contract_module4lesson
 #: model:ir.model.fields,field_description:inlingua.field_project_project_module4lesson
-msgid "number of module for lesson "
-msgstr "Moduli per Lezione "
+msgid "number of module for lesson"
+msgstr "number of module for lesson"
 
 #. module: inlingua
 #: model:ir.model,name:inlingua.model_office_office
