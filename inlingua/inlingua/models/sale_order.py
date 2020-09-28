@@ -76,7 +76,7 @@ class SaleOrderInherit(models.Model):
             else:
                 amount_residual = order.amount_total
                 for invoice in order.invoice_ids:
-                    if invoice.state == 'open' or order.state == 'paid':
+                    if invoice.state == 'open' or invoice.state == 'paid':
                         if invoice.type == 'out_invoice':
                             amount_residual -= invoice.amount_total
                         else:

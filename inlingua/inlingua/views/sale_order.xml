@@ -107,7 +107,7 @@
                 </field>
                 <field name="amount_total" position="replace">
                     <field name="original_total" sum="Total" widget="monetary"/>
-                    <field name="amount_residual" sum="Total Residual" widget="monetary"/>
+                    <field name="amount_residual" sum="Totale residuo" widget="monetary"/>
                     <field name="assigned_purchase_amount" sum="Total" string="Totale Assegnato"/>
                 </field>
                 <field name="name" position="after">
