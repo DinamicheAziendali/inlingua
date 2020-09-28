@@ -60,6 +60,32 @@ class SaleOrderInherit(models.Model):
     assigned_purchase_amount    = fields.Monetary(compute='compute_assigned_purchase_total', string='Assigned Amount')
     residual_to_assign          = fields.Monetary(compute='compute_sale_order_to_assign', string='Amount to assign')
 
+    # Totale residuo ordine
+    amount_residual = fields.Monetary(
+        string='Saldo Ordine',
+        readonly=True,
+        compute='_amount_residual',
+        track_visibility='always'
+    )
+
+    @api.depends('amount_total')
+    def _amount_residual(self):
+        for order in self:
+            if order.framework_agreement:
+                order.amount_residual = order.amount_total
+            else:
+                amount_residual = order.amount_total
+                for invoice in order.invoice_ids:
+                    if invoice.state == 'open' or order.state == 'paid':
+                        if invoice.type == 'out_invoice':
+                            amount_residual -= invoice.amount_total
+                        else:
+                            amount_residual += invoice.amount_total
+                if amount_residual < 0:
+                    order.amount_residual = 0
+                else:
+                    order.amount_residual = amount_residual
+
     # Totale ordini di acquisto ancora da assegnare a terzisti
     @api.depends('amount_untaxed', 'purchase_order_ids')
     def compute_sale_order_to_assign(self):

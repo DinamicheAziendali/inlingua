@@ -23,6 +23,7 @@
                     <field name="residual_framework_agreement"
                                 attrs="{'invisible':[('framework_agreement', '=', True)]}"/>
                     <field name="original_total" attrs="{'invisible':[('framework_agreement', '=', False)]}"/>
+                    <field name="amount_residual" invisible="True"/>
                 </field>
                 <xpath expr="//form/sheet/group/group/field[@name='partner_id']" position="replace">
                     <field name="partner_id" domain="[('is_company','=', 1),('customer','=', True)]"
@@ -106,7 +107,7 @@
                 </field>
                 <field name="amount_total" position="replace">
                     <field name="original_total" sum="Total" widget="monetary"/>
-                    <field name="amount_total" sum="Total Tax Included" widget="monetary" string="Saldo Ordine"/>
+                    <field name="amount_residual" sum="Total Residual" widget="monetary"/>
                     <field name="assigned_purchase_amount" sum="Total" string="Totale Assegnato"/>
                 </field>
                 <field name="name" position="after">
