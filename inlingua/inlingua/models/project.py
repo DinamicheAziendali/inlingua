@@ -9,6 +9,7 @@
 
 import logging
 from datetime import datetime, timedelta
+import pytz
 
 import croniter
 from dateutil.parser import parse
@@ -156,6 +157,12 @@ class ProjectInherit(models.Model):
         for schedule in self.scheduling_rules_ids:
             start_h = int(schedule.start_time)  # recupero ore di inizio
             start_m = int((schedule.start_time - start_h) * 60)  # recupero ore di fine
+
+            local_tz = pytz.timezone('Europe/Paris')
+            utc_tz = pytz.timezone('UTC')
+            dd = start_date.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(hours=(start_h))
+            dd = dd.replace(tzinfo=local_tz)
+            start_h = dd.astimezone(utc_tz).hour
 
             # test per ora legale
             #start_h -= 2
