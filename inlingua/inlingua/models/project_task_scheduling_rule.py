@@ -8,6 +8,7 @@ _logger = logging.getLogger('lesson_scheduler')
 class SchedulingRule(models.Model):
     _name       = 'project.task_scheduling_rule'
     _description = 'Weekly scheduling rule'
+    _order = 'weekday asc, start_time asc'
 
     professor_id = fields.Many2one(
         string='Professor', comodel_name='res.partner',

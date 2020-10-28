@@ -3472,7 +3472,7 @@ msgstr "Numero Moduli"
 #: model:ir.model.fields,field_description:inlingua.field_private_contract_module4lesson
 #: model:ir.model.fields,field_description:inlingua.field_project_project_module4lesson
 msgid "number of module for lesson"
-msgstr "number of module for lesson"
+msgstr "Default Moduli per Lezione"
 
 #. module: inlingua
 #: model:ir.model,name:inlingua.model_office_office

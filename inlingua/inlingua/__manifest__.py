@@ -27,6 +27,7 @@
         'project',
         'project_task_default_stage',
         'hr_timesheet',
+        'hr',
         'purchase',
         'sale',
         'partner_firstname',

@@ -40,7 +40,7 @@
                         <!-- ALLIEVI -->
                         <group string="Students">
                             
-                            <field name="project_student_ids">
+                            <field name="project_student_ids" nolabel="1">
                                 <tree editable="bottom">
                                     <field name="project_id" invisible="True" />
                                     <field name="student_id" />
@@ -74,7 +74,7 @@
                                 <field name="module4lesson" />
                                 <field name="module_type_id" />
                                 <field name="duration_lessons" />
-                                <field name="modules_scheduled" />
+                                <field name="modules_scheduled" invisible="1"/>
                                 <field name="modules_remaining" />
                             </group>
                             <group>
@@ -92,7 +92,7 @@
                         <group string="Frequenza">
                             <field name="scheduling_rules_ids"
                                    attrs="{'readonly': [('managed_by_teacher', '=', True)]}">
-                                <tree editable="top">
+                                <tree editable="bottom">
                                     <field name="professor_id" />
                                     <field name="modules" />
                                     <field name="weekday" />

@@ -3,6 +3,7 @@
     <data>
 
         <menuitem id="contract_root" name="Contract"
+                  groups="group_account_rate,group_manager,group_segretarie"
                   sequence="13"/>
 
         <menuitem id="contract_main" name="Contract" parent="contract_root"
@@ -114,7 +115,8 @@
 
         <!-- timetable -->
         <!-- TODO spostare in menu project-->
-        <menuitem name="Timetable" id="menu_timetable_root"/>
+        <menuitem name="Timetable" id="menu_timetable_root"
+                  groups="group_account_rate,group_manager,group_segretarie"/>
         <menuitem name="Timetable" id="menu_timetable_timetable" parent="menu_timetable_root"
                   action="project_task_hr_timesheet_timetable_window"/>
 
@@ -134,6 +136,16 @@
         <menuitem id="menu_contract_receipt_wizard" name="Contract Receipt" parent="contract_main"
                   action="action_wizard_contract_receipt"
                   sequence="7"/>
+
+        <!-- menu foglio ore -->
+        <record id="hr_timesheet.timesheet_menu_root" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('group_timesheet_user_menu')])]"/>
+        </record>
+
+        <!-- menu impiegato -->
+        <record id="hr.menu_hr_root" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6, 0, [ref('group_hr_user_menu')])]"/>
+        </record>
 
     </data>
 </odoo>

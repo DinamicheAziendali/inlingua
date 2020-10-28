@@ -12,6 +12,15 @@ class ProjectTaskStudent(models.Model):
     _description = "Student on Lesson"
     # _rec_name = 'partner_id'
 
+    def _check_login(self):
+        for lesson in self:
+            user = self.env.user
+            if user.has_group('inlingua.group_professor'):
+                lesson.check_login = True
+            else:
+                lesson.check_login = False
+
+    check_login = fields.Boolean(compute='_check_login', default=False)
     task_id = fields.Many2one('project.task')
     student_id = fields.Many2one('res.partner',
                                  domain=[('student', '=', True)],
