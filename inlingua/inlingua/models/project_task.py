@@ -81,17 +81,18 @@ class ProjectTaskInherit(models.Model):
     def get_task_student_ids(self):
         for task in self:
             list_student = []
+            task_id = False
             model_task_student = self.env['project.task.student']
             if task.project_id and task.project_id.project_student_ids:
                 for student in task.project_id.project_student_ids:
                     list_student.append(student.student_id.id)
             for student in list_student:
-                if task.id:
-                    task = task.id
-                else:
-                    task = self._origin.id
+                if self._origin.id:
+                    task_id = self._origin.id
+                if not task and task.id:
+                    task_id = task.id
                 model_task_student.create({
-                    'task_id': task,
+                    'task_id': task_id,
                     'student_id': student
                 })
 
