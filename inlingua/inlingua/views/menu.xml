@@ -147,5 +147,23 @@
             <field name="groups_id" eval="[(6, 0, [ref('group_hr_user_menu')])]"/>
         </record>
 
+        <!-- menu allievo aziendale -->
+
+        <menuitem id="lezioni_allievo_aziendale_root" name="Lezioni"
+                  groups="group_allievo_aziendale,group_allievo_privato"
+                  sequence="99"/>
+
+        <menuitem id="lezioni_allievo_aziendale_main" name="Lezioni"
+                  parent="lezioni_allievo_aziendale_root"
+                  sequence="1"/>
+
+        <act_window id="action_view_task_allievo_aziendale" name="Lezioni"
+                    res_model="project.task.student" view_mode="tree"/>
+
+        <menuitem id="lezioni_allievo_aziendale" name="Lezioni"
+                  parent="lezioni_allievo_aziendale_main"
+                  action="action_view_task_allievo_aziendale"
+                  sequence="1"/>
+
     </data>
 </odoo>

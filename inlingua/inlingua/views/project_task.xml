@@ -206,5 +206,23 @@
         </record>
         <!-- OVERRIDE DELL'AZIONE DI ODOO BASE: in OCB/addons/project/views/project_views.xml : start -->
 
+        <record model="ir.ui.view" id="project_task_student_tree_view">
+            <field name="name">project.task.student.tree</field>
+            <field name="model">project.task.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="check_login" invisible="1"/>
+                    <field name="student_id"/>
+                    <field name="task_id" string="Lezione"/>
+                    <field name="project_id"/>
+                    <field name="language_id" string="Lingua Corso"/>
+                    <field name="professor_id" string="Docente"/>
+                    <field name="date" string="Data"/>
+                    <field name="start_hour"/>
+                    <field name="end_hour"/>
+                </tree>
+            </field>
+        </record>
+
     </data>
 </odoo>

@@ -33,7 +33,9 @@
         'partner_firstname',
         'account',
         'base_location',
-        'web'
+        'web',
+        'portal',
+        'website_portal',
     ],
     'data': [
         'views/assets.xml',
@@ -75,6 +77,7 @@
         'views/account_invoice.xml',
         'views/res_users.xml',
         'views/contract_receipt_template.xml',
+        'views/website_portal_lessons_template.xml',
         'wizard/wizard_journal_entries.xml',
         'wizard/wizard_add_rate.xml',
         'wizard/wizard_delivered_material.xml',

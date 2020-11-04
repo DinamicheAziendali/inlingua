@@ -59,19 +59,17 @@ class ProjectTaskInherit(models.Model):
             if lesson.start_time:
                 start_time = datetime.strptime(lesson.start_time, '%Y-%m-%d %H:%M:%S')
                 start_time = start_time.replace(tzinfo=utc_tz)
-                lesson.start_hour = '%s:%s:%s' % (
+                lesson.start_hour = '%s:%s' % (
                     start_time.astimezone(local_tz).hour,
-                    start_time.strftime("%M"),
-                    start_time.strftime("%S"))
+                    start_time.strftime("%M"))
                 lesson.date_deadline = start_time.astimezone(local_tz)
                 lesson.weekday = start_time.astimezone(local_tz).strftime("%A")
             if lesson.end_time:
                 end_time = datetime.strptime(lesson.end_time, '%Y-%m-%d %H:%M:%S')
                 end_time = end_time.replace(tzinfo=utc_tz)
-                lesson.end_hour = '%s:%s:%s' % (
+                lesson.end_hour = '%s:%s' % (
                     end_time.astimezone(local_tz).hour,
-                    end_time.strftime("%M"),
-                    end_time.strftime("%S"))
+                    end_time.strftime("%M"))
                 if not lesson.date_deadline:
                     lesson.date_deadline = end_time.astimezone(local_tz)
                 if not lesson.weekday:

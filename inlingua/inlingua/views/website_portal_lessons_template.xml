@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home_menu_lesson" name="Portal layout : lessons" inherit_id="website_portal.portal_layout" priority="25">
+        <xpath expr="//ul[contains(@class,'o_portal_submenu')]" position="inside">
+            <li>
+                <a href="/my/lessons">Lezioni</a>
+            </li>
+        </xpath>
+    </template>
+
+    <template id="portal_my_home_lessons" name="Portal My Home : lessons" inherit_id="website_portal.portal_my_home" priority="25">
+        <xpath expr="//div[contains(@class,'o_my_home_content')]" position="inside">
+            <h3 class="page-header">
+                <a href="/my/lessons">Le mie lezioni
+                    <small class="ml8">
+                        <t t-if="lesson_count">
+                            <span class='badge'><t t-esc="lesson_count"/></span>
+                        </t>
+                        <t t-if="not lesson_count">
+                            Non ci sono attualmente lezioni schedulate per questa utenza.
+                        </t>
+                    </small>
+                </a>
+            </h3>
+        </xpath>
+    </template>
+
+    <template id="portal_my_lessons" name="My Lessons">
+        <t t-call="website_portal.portal_layout">
+            <h3 class="page-header">
+                Le mie lezioni
+            </h3>
+            <t t-if="not lessons">
+                <p>Non ci sono attualmente lezioni schedulate per questa utenza.</p>
+            </t>
+            <t t-if="lessons">
+                <table class="table table-hover o_my_status_table">
+                    <thead>
+                        <tr class="active">
+                            <th>Alunno</th>
+                            <th>Lezione</th>
+                            <th>Corso</th>
+                            <th>Lingua Corso</th>
+                            <th>Docente</th>
+                            <th>Data</th>
+                            <th>Ora inizio</th>
+                            <th>Ora fine</th>
+                            <t t-if="user.has_group('inlingua.group_allievo_privato')">
+                                <th></th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <t t-foreach="lessons" t-as="lesson">
+                        <tr>
+                            <td>
+                                <t t-esc="lesson.student_id.name"/>
+                            </td>
+                            <td class="cell_overflow">
+                                <t t-esc="lesson.task_id.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="lesson.project_id.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="lesson.language_id.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="lesson.professor_id.name"/>
+                            </td>
+                            <td>
+                                <t t-esc="lesson.date"/>
+                            </td>
+                            <td>
+                                <t t-esc="lesson.start_hour"/>
+                            </td>
+                            <td>
+                                <t t-esc="lesson.end_hour"/>
+                            </td>
+                            <t t-if="user.has_group('inlingua.group_allievo_privato')">
+                                <td class="text-right">
+                                    <a t-att-href="'/my/lessons/pdf/'+str(lesson.task_id.id)"
+                                       t-att-title="lesson.task_id.name">
+                                        Stampa Progress Report
+                                    </a>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                </table>
+                <div t-if="pager" class="o_portal_pager text-center">
+                    <t t-call="website.pager"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
