@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="report_test_summary"
+                string="Scheda riepilogo test mod. 512"
+                model="project.project"
+                report_type="qweb-pdf"
+                name="inlingua.report_view_test_summary"
+                attachment_use="False"
+                file="inlingua.report_view_test_summary"/>
+    </data>
+</odoo>

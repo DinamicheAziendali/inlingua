@@ -55,13 +55,13 @@ class website_account(website_account):
 
         return request.render("inlingua.portal_my_lessons", values)
 
-    @http.route(['/my/lessons/pdf/<int:task_id>'], type='http', auth="user", website=True)
-    def portal_get_lesson(self, task_id=None, **kw):
+    @http.route(['/my/lessons/pdf/<int:lesson_id>'], type='http', auth="user", website=True)
+    def portal_get_lesson(self, lesson_id=None, **kw):
         user = request.env.user
         if not user.has_group('inlingua.group_allievo_privato'):
             return request.render("website.403")
 
-        pdf = request.env['report'].sudo().get_pdf([task_id], 'account.report_invoice')
+        pdf = request.env['report'].sudo().get_pdf([lesson_id], 'inlingua.report_view_progress_report')
         pdfhttpheaders = [
             ('Content-Type', 'application/pdf'),
             ('Content-Length', len(pdf)),

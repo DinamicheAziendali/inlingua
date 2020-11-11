@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="report_view_progress_report">
+        <t t-call="inlingua.inlingua_contract_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="o">
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td width="10%">Mod. 511</td>
+                                <td style="text-align:center" width="70%">
+                                    Moduli per i fornitori di servizi linguistici
+                                </td>
+                                <td width="20%" style="border-bottom:1px solid white;text-align:center">
+                                    Rev. 0
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;text-align:center;font-size:16px" colspan="2">
+                                    Progress report
+                                </td>
+                                <td style="border-top:1px solid white;text-align:center"> </td>
+                            </tr>
+                        </table>
+
+                        <table class="table">
+                            <tr>
+                                <td style="border: 1px solid white;" colspan="2">
+                                    Cliente:
+                                    <span style="font-weight: bold;"
+                                          t-if="o.student_id"
+                                          t-esc="o.student_id.name"/>
+                                </td>
+                                <td style="border: 1px solid white;" colspan="2">
+                                    Corso:
+                                    <span style="font-weight: bold;"
+                                          t-if="o.project_id"
+                                          t-esc="o.project_id.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white;">
+                                    Data inizio: <span t-if="o.project_date_start" t-esc="datetime.datetime.strptime(o.project_date_start, '%Y-%m-%d').strftime('%d/%m/%Y')"/>
+                                </td>
+                                <td style="border: 1px solid white;">
+                                    Data fine prevista: <span t-if="o.project_date_end" t-esc="datetime.datetime.strptime(o.project_date_end, '%Y-%m-%d').strftime('%d/%m/%Y')"/>
+                                </td>
+                                <td style="border: 1px solid white;">
+                                    Lingua:
+                                    <span style="font-weight: bold;"
+                                          t-if="o.language_id"
+                                          t-esc="o.language_id.name"/>
+                                </td>
+                                <td style="border: 1px solid white;">
+                                    Livello iniziale: <span t-if="o.project_start_level" t-esc="o.project_start_level.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white;">
+                                    Durata lezione: <span t-if="o.project_duration_lessons" t-esc="o.project_duration_lessons"/>
+                                </td>
+                                <td style="border: 1px solid white;" colspan="2">
+                                    Programma: <span t-if="o.project_programm_id" t-esc="o.project_programm_id.name"/>
+                                </td>
+                                <td style="border: 1px solid white;">
+                                    Totale lezioni prenotate: <span t-if="o.project_book_lessons" t-esc="o.project_book_lessons"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white;">
+                                    Ultima unità:
+                                </td>
+                                <td style="border: 1px solid white;" colspan="2">
+                                    Frequenza:
+                                </td>
+                                <td style="border: 1px solid white;">
+                                    Lezioni svolte nel periodo:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white;" colspan="2">
+                                    Livello raggiunto:
+                                </td>
+                                <td style="border: 1px solid white;" colspan="2">
+                                    Lezioni totale svolte:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white;" colspan="4">
+                                    Luogo:
+                                    <t t-if="o.project_office_id">
+                                        <span t-esc="o.project_office_id.name" />
+                                        <t t-if="o.project_office_id.street">
+                                            - <span t-if="o.project_office_id.street" t-esc="o.project_office_id.street" />
+                                            <span t-if="o.project_office_id.zip" t-esc="o.project_office_id.zip" />
+                                            <span t-if="o.project_office_id.city" t-esc="o.project_office_id.city" />
+                                            <t t-if="o.project_office_id.state_id">
+                                                (<span t-esc="o.project_office_id.state_id.code" />)
+                                            </t>
+                                        </t>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-esc="o.company_id.partner_id.name" />
+                                        <t t-if="o.company_id.partner_id.street">
+                                            - <span t-if="o.company_id.partner_id.street" t-esc="o.company_id.partner_id.street" />
+                                            <span t-if="o.company_id.partner_id.zip" t-esc="o.company_id.partner_id.zip" />
+                                            <span t-if="o.company_id.partner_id.city" t-esc="o.company_id.partner_id.city" />
+                                            <t t-if="o.company_id.partner_id.state_id">
+                                                (<span t-esc="o.company_id.partner_id.state_id.code" />)
+                                            </t>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white;" colspan="4">
+                                    Partecipanti:
+                                </td>
+                            </tr>
+                        </table>
+
+                        <t t-set="list_lessons" t-value="o.get_list_lessons_progress_report()"/>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Orario</th>
+                                    <th>Lezione</th>
+                                    <th>Docente</th>
+                                    <th>Note</th>
+                                    <th>Presente/Assente</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="list_lessons" t-as="lesson">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="lesson[0]"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="lesson[1]"/> - <span t-esc="lesson[2]"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="lesson[3]"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="lesson[4]"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="lesson[5]"/>
+                                        </td>
+                                        <td>
+                                            <t t-if="lesson[6]">
+                                                Presente
+                                            </t>
+                                            <t t-else="">
+                                                Assente
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </t>
+            </div>
+            <xpath expr="//div[@class='footer']" position="replace">
+                <div class="footer">
+                    <div class="text-center" >
+                        <ul class="list-inline">
+                            <li>Pagina</li>
+                            <li><span class="page"/></li>
+                            <li>di</li>
+                            <li><span class="topage"/></li>
+                        </ul>
+                    </div>
+                </div>
+            </xpath>
+        </t>
+    </template>
+
+</odoo>

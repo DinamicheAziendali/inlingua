@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="report_view_attestation">
+        <div class="page">
+            <t t-foreach="docs" t-as="o">
+                <div class="row">
+                    <t t-foreach="o.project_student_ids" t-as="student">
+                        <h1 style="margin-left: 25%;">
+                            Teilnahmebescheinigung<br/>
+                            Confirmation<br/>
+                            Attestation<br/>
+                            Attestato
+                        </h1>
+
+                        <div style="padding-top: 80px;margin-left: 25%;">
+                            <h1>
+                                <span t-esc="student.student_id.name"/>
+                            </h1>
+                            <p style="font-size: 20px;">
+                                Nato/a a <span t-if="student.student_id.birthplace" t-esc="student.student_id.birthplace"/>
+                                il <span t-if="student.student_id.birthdate_date" t-esc="datetime.datetime.strptime(student.student_id.birthdate_date, '%Y-%m-%d').strftime('%d/%m/%Y')"/>
+                                <br/>
+                                ha frequentato un corso
+                                "<span style="font-style: italic;" t-esc="o.name"/>"
+                                di lingua <span t-if="o.language_id" t-esc="o.language_id.name"/>
+                                <br/>
+                                <t t-if="student.date_from">
+                                    dal
+                                    <span t-esc="datetime.datetime.strptime(student.date_from, '%Y-%m-%d').strftime('%d/%m/%Y')"/>
+                                </t>
+                                <t t-if="student.date_to">
+                                    al
+                                    <span t-esc="datetime.datetime.strptime(student.date_to, '%Y-%m-%d').strftime('%d/%m/%Y')"/>
+                                </t>
+                                <br/>
+                                <span style="font-weight: bold;">Livello iniziale: </span>
+                                <span t-if="o.start_level" t-esc="o.start_level.name"/>
+                                <br/>
+                                <span style="font-weight: bold;">Livello raggiunto: </span>
+                                <span t-if="student.level_achieve" t-esc="student.level_achieve.name"/>
+                                <br/>
+                                <br/>
+                                Giudizio complessivo: <span style="font-style: italic;font-weight: bold;"> </span>
+                            </p>
+                        </div>
+
+                        <div style="font-size: 80%;padding-top: 80px;margin-left: 25%;">
+                            <table style="width: 50%;">
+                                <tr>
+                                    <td rowspan="4" width="12.5%">Mod.530</td>
+                                    <td width="25%">Siegel</td>
+                                    <td width="12.5%">Ort und datum</td>
+                                </tr>
+                                <tr>
+                                    <td width="25%">Stamp</td>
+                                    <td width="12.5%">Place and date</td>
+                                </tr>
+                                <tr>
+                                    <td width="25%">Cachet</td>
+                                    <td width="12.5%">Délivé à ... le</td>
+                                </tr>
+                                <tr>
+                                    <td width="25%">Timbro</td>
+                                    <td width="12.5%">Luogo e data</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" style="text-align: right;">
+                                        <span t-if="o.company_id.partner_id.city" t-esc="o.company_id.partner_id.city"/>
+                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d %B %Y')"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <p style="page-break-after: always;"> </p>
+                    </t>
+                </div>
+            </t>
+        </div>
+    </template>
+
+</odoo>

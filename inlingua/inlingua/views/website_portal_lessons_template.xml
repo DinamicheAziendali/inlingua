@@ -47,7 +47,7 @@
                             <th>Ora inizio</th>
                             <th>Ora fine</th>
                             <t t-if="user.has_group('inlingua.group_allievo_privato')">
-                                <th></th>
+                                <th> </th>
                             </t>
                         </tr>
                     </thead>
@@ -56,7 +56,7 @@
                             <td>
                                 <t t-esc="lesson.student_id.name"/>
                             </td>
-                            <td class="cell_overflow">
+                            <td>
                                 <t t-esc="lesson.task_id.name"/>
                             </td>
                             <td>
@@ -78,9 +78,8 @@
                                 <t t-esc="lesson.end_hour"/>
                             </td>
                             <t t-if="user.has_group('inlingua.group_allievo_privato')">
-                                <td class="text-right">
-                                    <a t-att-href="'/my/lessons/pdf/'+str(lesson.task_id.id)"
-                                       t-att-title="lesson.task_id.name">
+                                <td>
+                                    <a t-att-href="'/my/lessons/pdf/'+str(lesson.id)">
                                         Stampa Progress Report
                                     </a>
                                 </td>

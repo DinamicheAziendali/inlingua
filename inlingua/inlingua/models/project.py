@@ -316,6 +316,61 @@ class ProjectInherit(models.Model):
             },
         }
 
+    def get_list_splitted(self, list_to_split, size):
+        list_splitted = []
+        while len(list_to_split) > size:
+            list_to_split_pice = list_to_split[:size]
+            list_splitted.append(list_to_split_pice)
+            list_to_split = list_to_split[size:]
+        list_to_split = self.check_list_size(list_to_split, size)
+        list_splitted.append(list_to_split)
+        return list_splitted
+
+    def check_list_size(self, list_to_check, size):
+        if len(list_to_check) < size:
+            list_to_check.extend([""] * (size - len(list_to_check)))
+            return list_to_check
+        else:
+            return list_to_check
+
+    def get_list_student_test_summary(self):
+        for project in self:
+            list_student = []
+            list_student_splitted = []
+            for lesson in project.task_ids:
+                if lesson.test:
+                    for student in lesson.task_student_ids:
+                        if student.student_id.name not in list_student:
+                            list_student.append(student.student_id.name)
+            if list_student:
+                list_student = self.check_list_size(list_student, 11)
+                list_student_splitted = self.get_list_splitted(list_student, 11)
+            return list_student_splitted
+
+    def get_dict_student(self):
+        dict_student = {}
+        list_student = self.get_list_student_test_summary()
+        for ls in list_student:
+            for student in ls:
+                dict_student[student] = ""
+        return dict_student
+
+    def get_list_date_result_test_summary(self):
+        for project in self:
+            list_date_result = []
+            for lesson in project.task_ids:
+                if lesson.test:
+                    date_lesson = datetime.strptime(
+                        lesson.date_deadline, '%Y-%m-%d').strftime("%d/%m/%Y")
+                    date_student = [date_lesson]
+                    dict_student = self.get_dict_student()
+                    for student in lesson.task_student_ids:
+                        dict_student[student.student_id.name] = student.grade
+                    date_student.append(dict_student)
+                    list_date_result.append(date_student)
+            return list_date_result
+
+
 class StudentLevel(models.Model):
     _name = 'student.level'
     _order = 'name'

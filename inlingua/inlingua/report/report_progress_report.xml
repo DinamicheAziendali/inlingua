@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+                id="report_progress_report"
+                string="Progress report"
+                model="project.task.student"
+                report_type="qweb-pdf"
+                name="inlingua.report_view_progress_report"
+                attachment_use="False"
+                file="inlingua.report_view_progress_report"/>
+    </data>
+</odoo>
