@@ -33,14 +33,15 @@
                                     <span t-esc="datetime.datetime.strptime(student.date_to, '%Y-%m-%d').strftime('%d/%m/%Y')"/>
                                 </t>
                                 <br/>
-                                <span style="font-weight: bold;">Livello iniziale: </span>
+                                <span t-if="o.start_level" style="font-weight: bold;">
+                                    Livello iniziale:
+                                </span>
                                 <span t-if="o.start_level" t-esc="o.start_level.name"/>
                                 <br/>
-                                <span style="font-weight: bold;">Livello raggiunto: </span>
+                                <span t-if="student.level_achieve" style="font-weight: bold;">
+                                    Livello raggiunto:
+                                </span>
                                 <span t-if="student.level_achieve" t-esc="student.level_achieve.name"/>
-                                <br/>
-                                <br/>
-                                Giudizio complessivo: <span style="font-style: italic;font-weight: bold;"> </span>
                             </p>
                         </div>
 

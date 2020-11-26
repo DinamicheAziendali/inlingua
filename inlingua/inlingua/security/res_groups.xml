@@ -111,5 +111,18 @@
             <field name="perm_create" eval="False"/>
         </record>
 
+        <record model="ir.rule" id="see_own_student_lessons_professor">
+            <field name="name">Project/Task: See own student lessons (professor)</field>
+            <field name="model_id" ref="inlingua.model_project_task_student"/>
+            <field name="domain_force">
+                [('task_id.professor_id', '=', user.partner_id.id)]
+            </field>
+            <field name="groups" eval="[(4, ref('group_professor'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_create" eval="False"/>
+        </record>
+
     </data>
 </odoo>

@@ -83,6 +83,9 @@ class ProjectInherit(models.Model):
                                             required=True
                                         )
 
+    # Campo per progress report
+    last_unit = fields.Char(string='Ultima unità')
+
     # Calcolo numero di moduli schedulati
     @api.depends('minutes_scheduled')
     @api.onchange('duration_lessons')

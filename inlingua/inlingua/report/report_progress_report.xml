@@ -4,7 +4,7 @@
 
         <report
                 id="report_progress_report"
-                string="Progress report"
+                string="Progress report mod. 511"
                 model="project.task.student"
                 report_type="qweb-pdf"
                 name="inlingua.report_view_progress_report"

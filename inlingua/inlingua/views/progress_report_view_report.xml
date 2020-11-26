@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
+
     <template id="report_view_progress_report">
         <t t-call="inlingua.inlingua_contract_layout">
             <div class="page">
@@ -28,8 +29,8 @@
                                 <td style="border: 1px solid white;" colspan="2">
                                     Cliente:
                                     <span style="font-weight: bold;"
-                                          t-if="o.student_id"
-                                          t-esc="o.student_id.name"/>
+                                          t-if="o.project_partner_id"
+                                          t-esc="o.project_partner_id.name"/>
                                 </td>
                                 <td style="border: 1px solid white;" colspan="2">
                                     Corso:
@@ -68,21 +69,21 @@
                             </tr>
                             <tr>
                                 <td style="border: 1px solid white;">
-                                    Ultima unità:
+                                    Ultima unità: <t t-esc="o.project_id.last_unit"/>
                                 </td>
                                 <td style="border: 1px solid white;" colspan="2">
-                                    Frequenza:
+                                    Frequenza: <t t-esc="o.get_project_attendance()"/>
                                 </td>
                                 <td style="border: 1px solid white;">
-                                    Lezioni svolte nel periodo:
+                                    Lezioni svolte nel periodo: <t t-esc="o.get_lessons_held()"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="border: 1px solid white;" colspan="2">
-                                    Livello raggiunto:
+                                    Livello raggiunto: <t t-esc="o.get_level_achieve()"/>
                                 </td>
                                 <td style="border: 1px solid white;" colspan="2">
-                                    Lezioni totale svolte:
+                                    Lezioni totale svolte: <t t-esc="o.get_total_lessons()"/>
                                 </td>
                             </tr>
                             <tr>
@@ -114,7 +115,7 @@
                             </tr>
                             <tr>
                                 <td style="border: 1px solid white;" colspan="4">
-                                    Partecipanti:
+                                    Partecipanti: <t t-esc="o.get_all_participants()"/>
                                 </td>
                             </tr>
                         </table>

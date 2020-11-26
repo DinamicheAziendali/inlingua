@@ -147,20 +147,20 @@
             <field name="groups_id" eval="[(6, 0, [ref('group_hr_user_menu')])]"/>
         </record>
 
-        <!-- menu allievo aziendale -->
+        <!-- menu lezioni studenti -->
 
-        <menuitem id="lezioni_allievo_aziendale_root" name="Lezioni"
-                  groups="group_allievo_aziendale,group_allievo_privato"
+        <menuitem id="lezioni_allievo_aziendale_root" name="Lezioni Studenti"
+                  groups="group_allievo_aziendale,group_allievo_privato,group_professor"
                   sequence="99"/>
 
-        <menuitem id="lezioni_allievo_aziendale_main" name="Lezioni"
+        <menuitem id="lezioni_allievo_aziendale_main" name="Lezioni Studenti"
                   parent="lezioni_allievo_aziendale_root"
                   sequence="1"/>
 
-        <act_window id="action_view_task_allievo_aziendale" name="Lezioni"
+        <act_window id="action_view_task_allievo_aziendale" name="Lezioni Studenti"
                     res_model="project.task.student" view_mode="tree"/>
 
-        <menuitem id="lezioni_allievo_aziendale" name="Lezioni"
+        <menuitem id="lezioni_allievo_aziendale" name="Lezioni Studenti"
                   parent="lezioni_allievo_aziendale_main"
                   action="action_view_task_allievo_aziendale"
                   sequence="1"/>

@@ -47,6 +47,7 @@ class ProjectTaskStudent(models.Model):
     project_module4lesson = fields.Integer(related='task_id.project_id.module4lesson')
     project_book_lessons = fields.Integer(compute='get_project_book_lessons')
     project_office_id = fields.Many2one(related='task_id.project_id.office_id')
+    project_partner_id = fields.Many2one(related='task_id.project_id.partner_id')
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.user.company_id)
     active = fields.Boolean('Active', default=True)
 
@@ -66,7 +67,14 @@ class ProjectTaskStudent(models.Model):
     def get_list_lessons_progress_report(self):
         for student in self:
             list_lessons = []
-            for lesson in student.project_id.task_ids:
+            today = fields.Date.today()
+            model_lesson = self.env['project.task']
+            total_lessons = model_lesson.search([
+                ('project_id', '=', student.project_id.id),
+                ('date_deadline', '>=', student.project_date_start),
+                ('date_deadline', '<=', today),
+            ])
+            for lesson in total_lessons:
                 data_lesson = []
                 for students in lesson.task_student_ids:
                     if students.student_id.id == student.student_id.id:
@@ -83,3 +91,84 @@ class ProjectTaskStudent(models.Model):
                     list_lessons.append(data_lesson)
             return list_lessons
 
+    def get_total_lessons(self):
+        for student in self:
+            today = fields.Date.today()
+            total_lessons = len(self.env['project.task'].search([
+                ('project_id', '=', student.project_id.id),
+                ('date_deadline', '>=', student.project_date_start),
+                ('date_deadline', '<=', today),
+            ]))
+            return total_lessons
+
+    def get_level_achieve(self):
+        for student in self:
+            level_achieve = ''
+            for line in student.project_id.project_student_ids:
+                if student.student_id.id == line.student_id.id:
+                    level_achieve = line.level_achieve.name
+                    break
+            return level_achieve
+
+    def get_lessons_held(self):
+        for student in self:
+            lessons_held = 0
+            today = fields.Date.today()
+            model_lesson = self.env['project.task']
+            total_lessons = model_lesson.search([
+                ('project_id', '=', student.project_id.id),
+                ('date_deadline', '>=', student.project_date_start),
+                ('date_deadline', '<=', today),
+            ])
+            for lesson in total_lessons:
+                for students in lesson.task_student_ids:
+                    if students.student_id.id == student.student_id.id:
+                        if students.present:
+                            lessons_held += 1
+            return lessons_held
+
+    def get_all_participants(self):
+        for student in self:
+            list_participants = []
+            participants = ''
+            today = fields.Date.today()
+            model_lesson = self.env['project.task']
+            total_lessons = model_lesson.search([
+                ('project_id', '=', student.project_id.id),
+                ('date_deadline', '>=', student.project_date_start),
+                ('date_deadline', '<=', today),
+            ])
+            for lesson in total_lessons:
+                for line in lesson.task_student_ids:
+                    if line.student_id.name not in list_participants:
+                        list_participants.append(line.student_id.name)
+            for participant in list_participants:
+                if participants:
+                    participants += ', ' + participant
+                else:
+                    participants = participant
+            return participants
+
+    def get_project_attendance(self):
+        for student in self:
+            attendance = ''
+            if student.project_id.flexible_course:
+                attendance = 'Flessibile'
+            else:
+                for line in student.project_id.scheduling_rules_ids:
+                    list_weekday = {
+                        1: "Lunedì",
+                        2: "Martedì",
+                        3: "Mercoledì",
+                        4: "Giovedì",
+                        5: "Venerdì",
+                        6: "Sabato",
+                        7: "Domenica"
+                    }
+                    weekday = list_weekday[line.weekday]
+                    if attendance:
+                        attendance += \
+                            ', ' + weekday + ' - ' + str(line.start_time)
+                    else:
+                        attendance = weekday + ' - ' + str(line.start_time)
+            return attendance
