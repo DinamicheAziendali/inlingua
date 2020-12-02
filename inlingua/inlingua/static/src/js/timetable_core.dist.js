@@ -173,7 +173,7 @@ odoo.define('timetable.main', function (require) {
         appendTo: document.getElementById('timetable-container'),
         cls: "rounded-div",
         eventStyle: 'colored',
-        autoHeight: true,
+        height: 450,
         rowHeight: 50,
         workingTime: this.workingTime,
         columns: [{
