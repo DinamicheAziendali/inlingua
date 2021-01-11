@@ -25,5 +25,5 @@ class SchedulingRule(models.Model):
     )
 
     start_time  = fields.Float(required=True)  # fields.Text(string='hh:mm', required="true")
-    modules     = fields.Integer(string='Modules', required=True)
+    modules     = fields.Float(string='Modules', required=True)
     project_id  = fields.Many2one(comodel_name='project.project')

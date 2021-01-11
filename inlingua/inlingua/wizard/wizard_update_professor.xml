@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_update_professor_wizard" model="ir.ui.view">
+        <field name="name">Aggiorna Docente</field>
+        <field name="model">update.professor.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Aggiorna Docente">
+                <group>
+                    <field name="count" invisible="1"/>
+                    <field name="professor_id"/>
+                </group>
+                <footer>
+                    <button name="update_professor" string="Aggiorna" type="object" class="btn-primary"/>
+                    or
+                    <button string="Chiudi" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_update_professor_wizard" model="ir.actions.act_window">
+        <field name="name">Aggiorna Docente</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">update.professor.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- TODO: check if we need this -->
+    <record model="ir.values" id="project_task_update_professor">
+        <field name="model_id" ref="project.model_project_task" />
+        <field name="name">Aggiorna Docente</field>
+        <field name="key2">client_action_multi</field>
+        <field name="value" eval="'ir.actions.act_window,' + str(ref('action_view_update_professor_wizard'))" />
+        <field name="key">action</field>
+        <field name="model">project.task</field>
+    </record>
+
+</odoo>

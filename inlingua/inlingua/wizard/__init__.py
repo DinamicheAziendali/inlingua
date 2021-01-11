@@ -8,3 +8,5 @@ from . import wizard_add_rate
 from . import wizard_journal_entries
 from . import wizard_material_delivered
 from . import wizard_print_contract_receipt
+from . import wizard_update_professor
+from . import wizard_update_sospesa

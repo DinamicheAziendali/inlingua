@@ -87,6 +87,8 @@
         'wizard/wizard_journal_entries.xml',
         'wizard/wizard_add_rate.xml',
         'wizard/wizard_delivered_material.xml',
+        'wizard/wizard_update_professor.xml',
+        'wizard/wizard_update_sospesa.xml',
         'views/inlingua_config_settings.xml',
         'data/inlingua_data.xml',
     ],

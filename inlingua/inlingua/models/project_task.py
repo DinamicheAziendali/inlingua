@@ -31,8 +31,8 @@ class ProjectTaskInherit(models.Model):
         required=True, domain=[('professor', '=', True)],
         default=lambda self: self.env.user.partner_id if self.env.user.partner_id.professor else False)
     professor_user = fields.Many2one(compute='get_professor_user', store=True)
-    start_time = fields.Datetime(string='Start Time', required=True)
-    end_time = fields.Datetime(string='End Time', required=True)
+    start_time = fields.Datetime(string='Start Time', required=True, copy=False)
+    end_time = fields.Datetime(string='End Time', required=True, copy=False)
     start_hour = fields.Char(string='Ora inizio', compute='_get_hour_lesson')
     end_hour = fields.Char(string='Ora fine', compute='_get_hour_lesson')
     weekday = fields.Char(string="Giorno", compute='_get_hour_lesson')
@@ -48,12 +48,14 @@ class ProjectTaskInherit(models.Model):
     test = fields.Boolean(string='Test')
     notes = fields.Char(string='Note')
     date_deadline = fields.Date(string='Deadline', compute='_get_hour_lesson')
+    sospesa = fields.Boolean(string='Sospesa')
 
     @api.depends('start_time', 'end_time')
     def _get_hour_lesson(self):
         for lesson in self:
             local_tz = pytz.timezone('Europe/Paris')
             utc_tz = pytz.timezone('UTC')
+            rome_tz = pytz.timezone('Europe/Rome')
             lesson.date_deadline = False
             lesson.weekday = False
             if lesson.start_time:
@@ -63,7 +65,7 @@ class ProjectTaskInherit(models.Model):
                     start_time.astimezone(local_tz).hour,
                     start_time.strftime("%M"))
                 lesson.date_deadline = start_time.astimezone(local_tz)
-                lesson.weekday = start_time.astimezone(local_tz).strftime("%A")
+                lesson.weekday = start_time.astimezone(rome_tz).strftime("%A")
             if lesson.end_time:
                 end_time = datetime.strptime(lesson.end_time, '%Y-%m-%d %H:%M:%S')
                 end_time = end_time.replace(tzinfo=utc_tz)
@@ -73,7 +75,7 @@ class ProjectTaskInherit(models.Model):
                 if not lesson.date_deadline:
                     lesson.date_deadline = end_time.astimezone(local_tz)
                 if not lesson.weekday:
-                    lesson.weekday = end_time.astimezone(local_tz).strftime("%A")
+                    lesson.weekday = end_time.astimezone(rome_tz).strftime("%A")
 
     @api.onchange('project_id')
     def get_task_student_ids(self):

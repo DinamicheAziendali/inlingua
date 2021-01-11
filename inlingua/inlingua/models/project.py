@@ -49,8 +49,8 @@ class ProjectInherit(models.Model):
 
     office_id           = fields.Many2one('office.office', string='Office')
 
-    number_of_module    = fields.Integer('number of module')
-    module4lesson       = fields.Integer('number of module for lesson')
+    number_of_module    = fields.Float('number of module')
+    module4lesson       = fields.Float('number of module for lesson')
     module_type_id      = fields.Many2one('module.type', string='Duration Module', track_visibility='onchange')
     duration_lessons    = fields.Integer(string='Duration Lesson', compute='compute_duration_lesson')
     project_student_ids = fields.One2many('project.student', 'project_id', string='Students')
@@ -199,6 +199,7 @@ class ProjectInherit(models.Model):
         logger.info(' *** Ricerca lezioni già presente project_id %s', self.id)
         scheduled_lessons = task_model.search([
             ('project_id', '=', self.id),
+            ('sospesa', '=', False),
             #('start_time', '<', date.strftime("%Y-%m-%d"))
         ])
         for lesson in scheduled_lessons:

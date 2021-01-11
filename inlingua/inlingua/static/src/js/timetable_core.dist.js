@@ -31,7 +31,7 @@ odoo.define('timetable.main', function (require) {
     scheduler: null,
     workingTime: {
       fromDay: 1,
-      toDay: 6,
+      toDay: 7,
       fromHour: 8,
       toHour: 22
     },
@@ -160,7 +160,7 @@ odoo.define('timetable.main', function (require) {
             }
 
             const start = DateHelper.add(getMonday(value), 8, 'hour');
-            const end = DateHelper.add(start, 5, 'day');
+            const end = DateHelper.add(start, 6, 'day');
             return this.scheduler.setTimeSpan(start, end);
           }
         }
