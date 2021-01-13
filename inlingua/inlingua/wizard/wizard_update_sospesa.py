@@ -21,4 +21,4 @@ class UpdateSospesaWizard(models.TransientModel):
     def update_sospesa(self):
         lessons = self.env['project.task'].browse(self._context.get('active_ids', []))
         for lesson in lessons:
-            lesson.sospesa = True
+            lesson.active = False

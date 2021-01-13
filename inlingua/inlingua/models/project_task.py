@@ -16,6 +16,7 @@ import pytz
 class ProjectTaskInherit(models.Model):
     _inherit = 'project.task'
     _description = 'Lesson'
+    _order = 'project_id, start_time'
 
     def _check_login(self):
         for lesson in self:
@@ -25,6 +26,16 @@ class ProjectTaskInherit(models.Model):
             else:
                 lesson.check_login = False
 
+    def _set_name_like_course(self):
+        model_project = self.env['project.project']
+        project_id = model_project.browse(
+            self.env.context.get('default_project_id'))
+        if project_id:
+            return project_id.name
+        else:
+            return False
+
+    name = fields.Char(default=_set_name_like_course)
     check_login = fields.Boolean(compute='_check_login', default=False)
     professor_id = fields.Many2one(
         'res.partner', string='Professor',
@@ -48,7 +59,6 @@ class ProjectTaskInherit(models.Model):
     test = fields.Boolean(string='Test')
     notes = fields.Char(string='Note')
     date_deadline = fields.Date(string='Deadline', compute='_get_hour_lesson')
-    sospesa = fields.Boolean(string='Sospesa')
 
     @api.depends('start_time', 'end_time')
     def _get_hour_lesson(self):
@@ -131,7 +141,8 @@ class ProjectTaskInherit(models.Model):
         query = "                                                                                   \
                     SELECT SUM(extract(epoch from (end_time - start_time)) :: integer / 60) m_sum   \
                     FROM project_task                                                               \
-                    WHERE project_id = " + str(project_id) + "                                      \
+                    WHERE active = True" \
+                "         AND project_id = " + str(project_id) + "                                      \
                           AND    id != " + str(lesson_to_ignore) + "                                \
                 "
         print query
@@ -144,7 +155,8 @@ class ProjectTaskInherit(models.Model):
         cr = self.env.cr
         q = 'SELECT t.name, t.start_time, t.end_time' \
             ' FROM  project_task t ' \
-            ' WHERE professor_id = %d' \
+            ' WHERE t.active = True' \
+            '   AND t.professor_id = %d' \
             '   AND tsrange(t.start_time, t.end_time, \'[]\') && tsrange(\'%s\', \'%s\', \'[]\')'
         if lesson_to_ignore is not None:
             q += 'AND id <> %d '

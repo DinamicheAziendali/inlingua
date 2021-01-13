@@ -11,7 +11,6 @@
                 </group>
                 <footer>
                     <button name="update_sospesa" string="Imposta lezione sospesa" type="object" class="btn-primary"/>
-                    or
                     <button string="Chiudi" class="btn-default" special="cancel"/>
                 </footer>
             </form>

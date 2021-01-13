@@ -39,6 +39,7 @@ class ProjectInherit(models.Model):
     date_end            = fields.Date(string='Expected Date End')
     date_last_lesson    = fields.Date(compute='get_last_timetable_lesson',
                                         string='Last timetable lesson')
+    date_scheduling     = fields.Date(string='Data schedulazione')
 
     # office_in = fields.Boolean(string='In')
     # office_out = fields.Boolean(string='Out')
@@ -199,7 +200,6 @@ class ProjectInherit(models.Model):
         logger.info(' *** Ricerca lezioni già presente project_id %s', self.id)
         scheduled_lessons = task_model.search([
             ('project_id', '=', self.id),
-            ('sospesa', '=', False),
             #('start_time', '<', date.strftime("%Y-%m-%d"))
         ])
         for lesson in scheduled_lessons:
@@ -217,7 +217,10 @@ class ProjectInherit(models.Model):
 
     # Fill empty spaces starting from specified date according to scheduling rule
     def fill_scheduling_rule(self, args, start_time=None):
-        self.handle_scheduling_rule(args, start_time=start_time, skip_conflicts=True)
+        if self.date_scheduling:
+            self.handle_scheduling_rule(args, start_time=parse(self.date_scheduling), skip_conflicts=True)
+        else:
+            raise ValidationError('Data schedulazione non impostata')
 
     # Append after last lesson of this course according to scheduling rules
     def append_scheduling_rule(self, args):
@@ -282,9 +285,11 @@ class ProjectInherit(models.Model):
             elif skip_conflicts:
                 logger.info('skipping conflict lesson %s', lesson['start_time'])
             else:
+                msg = 'Impossibile allocare il docente %s ' \
+                      'alla lezione del %s perche\' gia\' impegnato ' \
+                      'in un\'altra attivita\''
                 raise ValidationError(
-                    'impossibile allocare il docente ' + schedule_obj.professor_id.name +
-                    ' alla lezione del' + lesson['start_time'] + ' perché gia impegnato in un\' altra attività')
+                    msg % (schedule_obj.professor_id.name, lesson['start_time']))
 
         return "scheduling completato"
 

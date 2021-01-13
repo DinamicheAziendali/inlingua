@@ -12,7 +12,6 @@
                 </group>
                 <footer>
                     <button name="update_professor" string="Aggiorna" type="object" class="btn-primary"/>
-                    or
                     <button string="Chiudi" class="btn-default" special="cancel"/>
                 </footer>
             </form>
