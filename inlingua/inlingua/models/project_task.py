@@ -44,9 +44,12 @@ class ProjectTaskInherit(models.Model):
     professor_user = fields.Many2one(compute='get_professor_user', store=True)
     start_time = fields.Datetime(string='Start Time', required=True, copy=False)
     end_time = fields.Datetime(string='End Time', required=True, copy=False)
-    start_hour = fields.Char(string='Ora inizio', compute='_get_hour_lesson')
-    end_hour = fields.Char(string='Ora fine', compute='_get_hour_lesson')
-    weekday = fields.Char(string="Giorno", compute='_get_hour_lesson')
+    start_hour = fields.Char(string='Ora inizio', store=True,
+                             compute='_get_start_hour_lesson')
+    end_hour = fields.Char(string='Ora fine', store=True,
+                           compute='_get_end_hour_lesson')
+    weekday = fields.Char(string="Giorno", store=True,
+                          compute='_get_weekday_lesson')
 
     task_student_ids = fields.One2many('project.task.student', 'task_id')
     language_course_id = fields.Many2one('class.language',
@@ -58,34 +61,58 @@ class ProjectTaskInherit(models.Model):
 
     test = fields.Boolean(string='Test')
     notes = fields.Char(string='Note')
-    date_deadline = fields.Date(string='Deadline', compute='_get_hour_lesson')
+    date_deadline = fields.Date(string='Deadline', compute='_get_date_lesson')
 
-    @api.depends('start_time', 'end_time')
-    def _get_hour_lesson(self):
+    @api.depends('start_time', 'project_id')
+    def _get_start_hour_lesson(self):
         for lesson in self:
             local_tz = pytz.timezone('Europe/Paris')
             utc_tz = pytz.timezone('UTC')
-            rome_tz = pytz.timezone('Europe/Rome')
-            lesson.date_deadline = False
-            lesson.weekday = False
             if lesson.start_time:
-                start_time = datetime.strptime(lesson.start_time, '%Y-%m-%d %H:%M:%S')
+                start_time = parse(lesson.start_time)
                 start_time = start_time.replace(tzinfo=utc_tz)
-                lesson.start_hour = '%s:%s' % (
+                lesson.start_hour = '%s:%s:%s' % (
                     start_time.astimezone(local_tz).hour,
-                    start_time.strftime("%M"))
-                lesson.date_deadline = start_time.astimezone(local_tz)
-                lesson.weekday = start_time.astimezone(rome_tz).strftime("%A")
+                    start_time.strftime("%M"),
+                    start_time.strftime("%S"))
+
+    @api.depends('end_time')
+    def _get_end_hour_lesson(self):
+        for lesson in self:
+            local_tz = pytz.timezone('Europe/Paris')
+            utc_tz = pytz.timezone('UTC')
             if lesson.end_time:
-                end_time = datetime.strptime(lesson.end_time, '%Y-%m-%d %H:%M:%S')
+                end_time = parse(lesson.end_time)
                 end_time = end_time.replace(tzinfo=utc_tz)
-                lesson.end_hour = '%s:%s' % (
+                lesson.end_hour = '%s:%s:%s' % (
                     end_time.astimezone(local_tz).hour,
-                    end_time.strftime("%M"))
-                if not lesson.date_deadline:
-                    lesson.date_deadline = end_time.astimezone(local_tz)
-                if not lesson.weekday:
-                    lesson.weekday = end_time.astimezone(rome_tz).strftime("%A")
+                    end_time.strftime("%M"),
+                    end_time.strftime("%S"))
+
+    @api.depends('date_deadline')
+    def _get_weekday_lesson(self):
+        for lesson in self:
+            local_tz = pytz.timezone('Europe/Paris')
+            utc_tz = pytz.timezone('UTC')
+            if lesson.date_deadline:
+                date_deadline = parse(lesson.date_deadline)
+                date_deadline = date_deadline.replace(tzinfo=utc_tz)
+                lesson.weekday = date_deadline.astimezone(
+                    local_tz).strftime("%A")
+
+    @api.depends('start_time', 'end_time')
+    def _get_date_lesson(self):
+        for lesson in self:
+            local_tz = pytz.timezone('Europe/Paris')
+            utc_tz = pytz.timezone('UTC')
+            if lesson.start_time:
+                start_time = parse(lesson.start_time)
+                start_time = start_time.replace(tzinfo=utc_tz)
+                lesson.date_deadline = start_time.astimezone(local_tz)
+            if lesson.end_time and not lesson.date_deadline:
+                end_time = parse(lesson.end_time)
+                end_time = end_time.replace(tzinfo=utc_tz)
+                lesson.date_deadline = end_time.astimezone(local_tz)
 
     @api.onchange('project_id')
     def get_task_student_ids(self):
