@@ -251,6 +251,20 @@ odoo.define('timetable.main', function (require) {
               displayField: 'label'
             },
             {
+              type: 'text',
+              name: 'project_description',
+              label: 'Descrizione',
+              valueField: 'project_description',
+              displayField: 'label'
+            },
+            {
+              type: 'text',
+              name: 'project_contract',
+              label: 'Numero contratto',
+              valueField: 'project_contract',
+              displayField: 'label'
+            },
+            {
               type: 'button',
               name: 'recupera',
               text: 'Recupera alla fine',
@@ -262,28 +276,6 @@ odoo.define('timetable.main', function (require) {
                 console.log(btn);
               }
             },
-            {
-              type: 'list',
-              name: 'lista_allievi',
-              text: 'Allievi',
-              items: [{
-                nome: "pippo",
-                cognome: "Rossi"
-              },
-              {
-                nome: 'pluto',
-                cognome: "Verdi"
-              },
-              {
-                nome: 'paperino',
-                cognome: "Bianchi"
-              }
-              ],
-              itemTpl: (item) => {
-                return '<div><strong>' + item.cognome + '</strong> ' + item.nome + '</div>';
-              },
-              onClick: (item) => { console.log('click Lista allievi:', item) }
-            }
             ]
           }
         }
@@ -352,7 +344,7 @@ odoo.define('timetable.main', function (require) {
     },
     // Caricamento delle lezioni
     load_lessons: function load_lessons() {
-      return new Model('project.task').query(['id', 'name', 'professor_id', 'project_id', 'start_time', 'end_time', 'notes']).all();
+      return new Model('project.task').query(['id', 'name', 'professor_id', 'project_id', 'start_time', 'end_time', 'notes', 'project_description', 'project_contract']).all();
     },
     // Caricamento dei professori
     load_professors: function load_professors() {
@@ -392,7 +384,9 @@ odoo.define('timetable.main', function (require) {
             name: lesson.name,
             projectId: lesson.project_id[0],
             resourceId: lesson.professor_id[0],
-            notes: lesson.notes
+            notes: lesson.notes,
+            project_description: lesson.project_description,
+            project_contract: lesson.project_contract
           };
         });
       this.scheduler.eventStore.data = mappedData;

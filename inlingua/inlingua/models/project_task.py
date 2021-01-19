@@ -11,6 +11,9 @@ from odoo import fields, models, api
 from odoo.exceptions import ValidationError
 from datetime import datetime
 import pytz
+import calendar
+import locale
+locale.setlocale(locale.LC_ALL, 'it_IT.utf-8')
 
 
 class ProjectTaskInherit(models.Model):
@@ -62,6 +65,20 @@ class ProjectTaskInherit(models.Model):
     test = fields.Boolean(string='Test')
     notes = fields.Char(string='Note')
     date_deadline = fields.Date(string='Deadline', compute='_get_date_lesson')
+    project_description = fields.Char(
+        related='project_id.description', store=True)
+    project_contract = fields.Char(compute='_get_project_contract', store=True)
+
+    @api.depends('project_id')
+    def _get_project_contract(self):
+        for lesson in self:
+            if lesson.project_id:
+                for contract in lesson.project_id.contract_ids:
+                    if lesson.project_contract:
+                        lesson.project_contract += \
+                            ', ' + contract.number_contract
+                    else:
+                        lesson.project_contract = contract.number_contract
 
     @api.depends('start_time', 'project_id')
     def _get_start_hour_lesson(self):
@@ -89,16 +106,18 @@ class ProjectTaskInherit(models.Model):
                     end_time.strftime("%M"),
                     end_time.strftime("%S"))
 
+    def day_name_from_weekday(self, weekday):
+        locale.setlocale(locale.LC_ALL, 'it_IT.UTF-8')
+        days = list(calendar.day_name)
+        return days[weekday]
+
     @api.depends('date_deadline')
     def _get_weekday_lesson(self):
         for lesson in self:
-            local_tz = pytz.timezone('Europe/Paris')
-            utc_tz = pytz.timezone('UTC')
             if lesson.date_deadline:
                 date_deadline = parse(lesson.date_deadline)
-                date_deadline = date_deadline.replace(tzinfo=utc_tz)
-                lesson.weekday = date_deadline.astimezone(
-                    local_tz).strftime("%A")
+                weekday = date_deadline.weekday()
+                lesson.weekday = lesson.day_name_from_weekday(weekday)
 
     @api.depends('start_time', 'end_time')
     def _get_date_lesson(self):
