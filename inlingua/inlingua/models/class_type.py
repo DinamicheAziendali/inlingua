@@ -11,6 +11,7 @@ from odoo import models, fields
 class ClassType(models.Model):
     _name = 'class.type'
     _description = 'Class Type'
+    _order = 'name'
 
     name = fields.Char(required=True)
     max_student = fields.Integer(string='Number max of Student')

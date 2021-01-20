@@ -11,5 +11,6 @@ from odoo import models, fields
 class ClassProgramm(models.Model):
     _name = 'class.programm'
     _description = 'Class Programm'
+    _order = 'name'
 
     name = fields.Char(required=True)

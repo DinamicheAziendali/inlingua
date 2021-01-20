@@ -153,7 +153,10 @@ class ProjectInherit(models.Model):
 
     # Methods
     def schedule_lessons(self, args):
-        self.handle_scheduling_rule(args)
+        if self.date_scheduling:
+            self.handle_scheduling_rule(args, start_time=parse(self.date_start))
+        else:
+            raise ValidationError('Data di inizio non impostata')
 
     # calcola la prima data utile per schedulare una lezione
     def get_next_schedule(self, start_date):
@@ -230,7 +233,10 @@ class ProjectInherit(models.Model):
         last_lesson = task_model.search([('project_id', '=', self.id)], limit=1, order='end_time desc')
         start_time = parse(last_lesson.end_time) if last_lesson is not None else parse(self.date_start)
 
-        self.handle_scheduling_rule(args, start_time=start_time)
+        if start_time:
+            self.handle_scheduling_rule(args, start_time=start_time)
+        else:
+            raise ValidationError('Data di inizio non impostata')
 
     # Calcola la durata di una lezione in minuti
     @api.onchange('module4lesson', 'module_type_id')
@@ -245,6 +251,13 @@ class ProjectInherit(models.Model):
         env = self.env
         task_model = env['project.task']
         current_date = start_time if start_time is not None else parse(self.date_start)
+
+        if not current_date:
+            raise ValidationError('Data inizio o Data schedulazione non impostata')
+        if not self.module_type_id.time:
+            raise ValidationError('Durata Moduli non impostata')
+        if not self.number_of_module:
+            raise ValidationError('Numero Moduli non impostata')
 
         # self.clear_future_lessons(date_from)
         module_size         = self.module_type_id.time

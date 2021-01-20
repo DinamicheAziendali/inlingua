@@ -11,5 +11,6 @@ from odoo import models, fields
 class ClassLanguage(models.Model):
     _name = 'class.language'
     _description = 'Class Language'
+    _order = 'name'
 
     name = fields.Char(required=True)
