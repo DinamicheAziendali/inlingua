@@ -12,7 +12,6 @@ from odoo.exceptions import ValidationError
 from datetime import datetime
 import pytz
 import calendar
-import locale
 
 
 class ProjectTaskInherit(models.Model):
@@ -106,8 +105,15 @@ class ProjectTaskInherit(models.Model):
                     end_time.strftime("%S"))
 
     def day_name_from_weekday(self, weekday):
-        locale.setlocale(locale.LC_ALL, 'it_IT.UTF-8')
-        days = list(calendar.day_name)
+        days = [
+            'lunedì',
+            'martedì',
+            'mercoledì',
+            'giovedì',
+            'venerdì',
+            'sabato',
+            'domenica'
+        ]
         return days[weekday]
 
     @api.depends('date_deadline')

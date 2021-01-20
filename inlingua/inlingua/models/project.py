@@ -153,7 +153,7 @@ class ProjectInherit(models.Model):
 
     # Methods
     def schedule_lessons(self, args):
-        if self.date_scheduling:
+        if self.date_start:
             self.handle_scheduling_rule(args, start_time=parse(self.date_start))
         else:
             raise ValidationError('Data di inizio non impostata')
