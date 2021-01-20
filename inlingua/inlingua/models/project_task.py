@@ -13,7 +13,6 @@ from datetime import datetime
 import pytz
 import calendar
 import locale
-locale.setlocale(locale.LC_ALL, 'it_IT.utf-8')
 
 
 class ProjectTaskInherit(models.Model):
