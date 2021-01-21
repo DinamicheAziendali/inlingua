@@ -287,7 +287,7 @@ class ProjectInherit(models.Model):
                 "start_time": schedule_date.strftime('%Y-%m-%d %H:%M:%S.000000%z'),
                 "end_time": end_ts.strftime('%Y-%m-%d %H:%M:%S.000000%z'),
             }
-            current_date = end_ts + timedelta(minutes=1)
+            current_date = end_ts - timedelta(minutes=1)
 
             logger.info('Inizio %s - Fine %s', lesson['start_time'], lesson['end_time'])
             overlapped_lessons = task_model.get_overlapped_lessons(lesson['professor_id'], lesson['start_time'],
