@@ -163,7 +163,7 @@ class ProjectInherit(models.Model):
         available_schedules = []
         for schedule in self.scheduling_rules_ids:
             start_h = int(schedule.start_time)  # recupero ore di inizio
-            start_m = int((schedule.start_time - start_h) * 60)  # recupero ore di fine
+            start_m = int(round((schedule.start_time - start_h) * 60, 0))  # recupero ore di fine
 
             local_tz = pytz.timezone('Europe/Paris')
             utc_tz = pytz.timezone('UTC')
