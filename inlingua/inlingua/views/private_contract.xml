@@ -108,9 +108,9 @@
                     <group col="3" string="Dati economici">
                         <group>
                             <field name="cost_entry" />
-                            <field name="cost_module" />
-                            <field name="number_of_module" />
                             <field name="module_price" readonly="True" />
+                            <field name="number_of_module" />
+                            <field name="cost_module" />
                             <field name="cost_extra" />
                             <field name="payment_method_id" attrs="{'invisible':[('type_contract', '=', 'private')]}" />
                         </group>
