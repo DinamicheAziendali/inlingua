@@ -38,6 +38,7 @@
     </record>
 
     <menuitem id="menu_inlingua_general_settings"
+              groups="base.group_system"
               name="Settings"
               string="Setting" parent="contract_root"
               sequence="100"

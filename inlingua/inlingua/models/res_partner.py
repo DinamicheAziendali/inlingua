@@ -29,6 +29,13 @@ class PartnerInherit(models.Model):
     qualification = fields.Char(string='Qualification')
     # non più usati: end
 
+    lesson_ids = fields.One2many('project.task', 'professor_id', string='Lezioni')
+    lesson_count = fields.Integer(compute='_compute_lesson_count', string='# lezioni')
+
+    def _compute_lesson_count(self):
+        for partner in self:
+            partner.lesson_count = len(partner.lesson_ids)
+
     @api.multi
     def name_get(self):
         res = []
