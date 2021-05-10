@@ -72,6 +72,23 @@
             <!--<field name="menu_access" eval="[(4, ref('crm.menu_crm_lead_categ'))]"/>-->
         <!--</record>-->
 
+        <record model="ir.rule" id="see_own_course_professor">
+            <field name="name">Project: See own course (professor)</field>
+            <field name="model_id" ref="project.model_project_project"/>
+            <field name="domain_force">
+                [('scheduling_rules_ids.professor_id', 'in', [user.partner_id.id])]
+            </field>
+            <field name="groups" eval="[(4, ref('group_professor'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_create" eval="False"/>
+        </record>
+
+        <record model="ir.rule" id="project.project_public_members_rule">
+            <field name="active" eval="False"/>
+        </record>
+
         <record model="ir.rule" id="see_own_lessons_professor">
             <field name="name">Project/Task: See own lessons (professor)</field>
             <field name="model_id" ref="project.model_project_task"/>

@@ -6,9 +6,8 @@
 
 from dateutil.parser import parse
 
-from odoo import fields, models, api
-# from odoo.exceptions import ValidationError
-from odoo.exceptions import ValidationError
+from odoo import fields, models, api, _
+from odoo.exceptions import ValidationError, UserError
 from datetime import datetime
 import pytz
 import calendar
@@ -161,6 +160,9 @@ class ProjectTaskInherit(models.Model):
     def create(self, vals):
         res = super(ProjectTaskInherit, self).create(vals)
         for task in res:
+            user = self.env.user
+            if user.has_group('inlingua.group_professor') and not task.project_id.managed_by_teacher:
+                raise UserError(_("Corso selezionato non ha abilitato la gestione docente"))
             list_student = []
             model_task_student = self.env['project.task.student']
             if task.project_id and task.project_id.project_student_ids:
