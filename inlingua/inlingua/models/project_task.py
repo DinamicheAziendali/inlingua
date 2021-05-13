@@ -36,7 +36,7 @@ class ProjectTaskInherit(models.Model):
             return False
 
     name = fields.Char(default=_set_name_like_course)
-    check_login = fields.Boolean(compute='_check_login', default=False)
+    check_login = fields.Boolean(compute='_check_login', string='Utente è docente', default=False)
     professor_id = fields.Many2one(
         'res.partner', string='Professor',
         required=True, domain=[('professor', '=', True)],
