@@ -18,13 +18,6 @@ class ProjectTaskInherit(models.Model):
     _description = 'Lesson'
     _order = 'project_id, start_time'
 
-    def _check_login(self):
-        for lesson in self:
-            user = self.env.user
-            if user.has_group('inlingua.group_professor'):
-                lesson.check_login = True
-            else:
-                lesson.check_login = False
 
     def _set_name_like_course(self):
         model_project = self.env['project.project']
@@ -36,7 +29,6 @@ class ProjectTaskInherit(models.Model):
             return False
 
     name = fields.Char(default=_set_name_like_course)
-    check_login = fields.Boolean(compute='_check_login', string='Utente è docente', default=False)
     professor_id = fields.Many2one(
         'res.partner', string='Professor',
         required=True, domain=[('professor', '=', True)],
@@ -155,6 +147,12 @@ class ProjectTaskInherit(models.Model):
                     'task_id': task_id,
                     'student_id': student
                 })
+
+    @api.onchange('project_id')
+    def get_name_by_course(self):
+        for task in self:
+            if task.project_id:
+                task.name = task.project_id.name
 
     @api.model
     def create(self, vals):
