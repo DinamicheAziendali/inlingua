@@ -15,7 +15,7 @@ import croniter
 from dateutil.parser import parse
 
 from odoo import fields, models, api
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 logger = logging.getLogger(__name__)
 
@@ -52,6 +52,7 @@ class ProjectInherit(models.Model):
 
     number_of_module    = fields.Float('number of module')
     module4lesson       = fields.Float('number of module for lesson')
+    book_lessons        = fields.Integer(compute='get_project_book_lessons')
     module_type_id      = fields.Many2one('module.type', string='Duration Module', track_visibility='onchange')
     duration_lessons    = fields.Integer(string='Duration Lesson', compute='compute_duration_lesson')
     project_student_ids = fields.One2many('project.student', 'project_id', string='Students')
@@ -86,6 +87,74 @@ class ProjectInherit(models.Model):
 
     # Campo per progress report
     last_unit = fields.Char(string='Ultima unità')
+
+    @api.depends('number_of_module', 'module4lesson')
+    def get_project_book_lessons(self):
+        for project in self:
+            if project.number_of_module and project.module4lesson:
+                if project.module4lesson != 0:
+                    project.book_lessons = project.number_of_module / project.module4lesson
+                else:
+                    raise UserError(
+                        "Controllare 'Default Moduli per Lezione' uguale a 0 del progetto %s"
+                        % project.project_id.name
+                    )
+
+    def get_project_attendance(self):
+        for project in self:
+            attendance = ''
+            if project.flexible_course:
+                attendance = 'Flessibile'
+            else:
+                for line in project.scheduling_rules_ids:
+                    list_weekday = {
+                        1: "Lunedì",
+                        2: "Martedì",
+                        3: "Mercoledì",
+                        4: "Giovedì",
+                        5: "Venerdì",
+                        6: "Sabato",
+                        7: "Domenica"
+                    }
+                    weekday = list_weekday[line.weekday]
+                    if attendance:
+                        attendance += \
+                            ', ' + weekday + ' - ' + str(line.start_time)
+                    else:
+                        attendance = weekday + ' - ' + str(line.start_time)
+            return attendance
+
+    def get_total_lessons(self):
+        for project in self:
+            today = fields.Date.today()
+            total_lessons = len(self.env['project.task'].search([
+                ('project_id', '=', project.id),
+                ('date_deadline', '>=', project.date_start),
+                ('date_deadline', '<=', today),
+            ]))
+            return total_lessons
+
+    def get_all_participants(self):
+        for project in self:
+            list_participants = []
+            participants = ''
+            today = fields.Date.today()
+            model_lesson = self.env['project.task']
+            total_lessons = model_lesson.search([
+                ('project_id', '=', project.id),
+                ('date_deadline', '>=', project.date_start),
+                ('date_deadline', '<=', today),
+            ])
+            for lesson in total_lessons:
+                for line in lesson.task_student_ids:
+                    if line.student_id.name not in list_participants:
+                        list_participants.append(line.student_id.name)
+            for participant in list_participants:
+                if participants:
+                    participants += ', ' + participant
+                else:
+                    participants = participant
+            return participants
 
     # Calcolo numero di moduli schedulati
     @api.depends('minutes_scheduled')
@@ -234,6 +303,7 @@ class ProjectInherit(models.Model):
         start_time = parse(last_lesson.end_time) if last_lesson is not None else parse(self.date_start)
 
         if start_time:
+            start_time -= timedelta(minutes=1)
             self.handle_scheduling_rule(args, start_time=start_time)
         else:
             raise ValidationError('Data di inizio non impostata')

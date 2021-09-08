@@ -64,6 +64,7 @@
         'views/menu.xml',
         'views/project.xml',
         'views/test_summary_view_report.xml',
+        'views/progress_report_course_view_report.xml',
         'views/progress_report_view_report.xml',
         'views/attestation_view_report.xml',
         'views/office_activity.xml',

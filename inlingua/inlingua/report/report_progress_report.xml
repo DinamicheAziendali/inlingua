@@ -10,5 +10,15 @@
                 name="inlingua.report_view_progress_report"
                 attachment_use="False"
                 file="inlingua.report_view_progress_report"/>
+
+        <report
+                id="report_progress_report_course"
+                string="Progress report mod. 511"
+                model="project.project"
+                report_type="qweb-pdf"
+                name="inlingua.report_view_progress_report_course"
+                attachment_use="False"
+                file="inlingua.report_view_progress_report_course"/>
+
     </data>
 </odoo>
