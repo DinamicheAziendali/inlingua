@@ -235,10 +235,10 @@ class ProjectInherit(models.Model):
             start_m = int(round((schedule.start_time - start_h) * 60, 0))  # recupero ore di fine
 
             local_tz = pytz.timezone('Europe/Paris')
-            utc_tz = pytz.timezone('UTC')
             dd = start_date.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(hours=(start_h))
             dd = dd.replace(tzinfo=local_tz)
-            start_h = dd.astimezone(utc_tz).hour
+            dd_utc = dd - timedelta(hours=1)
+            start_h = dd_utc.hour
 
             # test per ora legale
             #start_h -= 2
