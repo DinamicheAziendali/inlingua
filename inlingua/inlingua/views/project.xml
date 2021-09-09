@@ -83,6 +83,7 @@
                                 <field name="flexible_course" />
                                 <field name="managed_by_teacher"
                                        attrs="{'invisible': [('flexible_course', '=', False)]}"/>
+                                <field name="virtual_course"/>
                                 <field name="office_id" />
                                 <field name="type_office" widget="radio" options="{'horizontal': true}" />
                                 <field name="date_last_lesson" string="Ultima lezione sul timetable" />

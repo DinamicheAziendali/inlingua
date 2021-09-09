@@ -35,6 +35,7 @@ class ProjectInherit(models.Model):
 
     flexible_course     = fields.Boolean(string='Flexible Course')
     managed_by_teacher  = fields.Boolean(string='Managed By Teacher')
+    virtual_course      = fields.Boolean(string='Corso Virtuale')
     date_start          = fields.Date(string='Expected Date Start', required=True)
     date_end            = fields.Date(string='Expected Date End')
     date_last_lesson    = fields.Date(compute='get_last_timetable_lesson',
@@ -87,6 +88,11 @@ class ProjectInherit(models.Model):
 
     # Campo per progress report
     last_unit = fields.Char(string='Ultima unità')
+
+    @api.onchange('type_office')
+    def onchange_type_office(self):
+        if self.type_office and self.type_office == 'out' and self.office_id:
+            raise UserError("Prima di impostare Tipo Sede \'out\' eliminare campo Sede")
 
     @api.depends('number_of_module', 'module4lesson')
     def get_project_book_lessons(self):
@@ -190,10 +196,10 @@ class ProjectInherit(models.Model):
     def get_last_timetable_lesson(self):
         oLezione = self.env['project.task']
         # import pdb; pdb.set_trace()
-        
+
         lesson = oLezione.search([('project_id', '=', self.id)], order="start_time desc", limit=1)
         self.date_last_lesson = lesson.start_time
-            
+
 
     @api.constrains('module_type_id')
     def check_time(self):
@@ -284,7 +290,7 @@ class ProjectInherit(models.Model):
                 result += t
 
         logger.info('Total past scheduled time %s minutes', result)
-        self.minutes_scheduled = result 
+        self.minutes_scheduled = result
         return result
 
     # Fill empty spaces starting from specified date according to scheduling rule
