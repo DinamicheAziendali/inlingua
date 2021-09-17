@@ -35,11 +35,19 @@
 
 /* Bryntum */
 
-.b-column-line {}
+/* .b-column-line {
+  border-left-color: #000000;
+  border-left-style: solid;
+  border-left-width: 4px;
+}
 
 .b-column-line-major {
-    border-left-color: #000000;
-    border-left-style: solid;
-    border-left-width: 4px;
+  border-left-color: #000000;
+  border-left-style: solid;
+  border-left-width: 4px;
+} */
+
+.border-right {
+  border: 1px solid black
 }
 

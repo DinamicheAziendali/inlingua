@@ -154,7 +154,7 @@ window.bryntum.locales.It = {
     shortWeek: 'W',
     shortQuarter: 'q',
     week: 'Woche',
-    weekStartDay: 1,
+    weekStartDay:0,
     unitNames: [
       { single: 'Millisecondo', plural: 'Millisecondi', abbrev: 'ms' },
       { single: 'Secondo', plural: 'Secondi', abbrev: 's' },

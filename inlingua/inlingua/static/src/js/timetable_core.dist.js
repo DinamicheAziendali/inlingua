@@ -19,6 +19,10 @@ odoo.define('timetable.main', function (require) {
   //var Pager = require('web.Pager');
   //var Sidebar = require('web.Sidebar');
   //var utils = require('web.utils');
+  var Store = bryntum.Store;
+  var WidgetHelper = bryntum.scheduler.WidgetHelper;
+  var DateHelper = bryntum.scheduler.DateHelper;
+  var Fullscreen = bryntum.scheduler.Fullscreen;
 
   var _lt = core._lt;
   //var scheduler ;
@@ -47,13 +51,13 @@ odoo.define('timetable.main', function (require) {
       //load courses
       this.load_courses() //Loading courses
         .then(function (c) {
-          return console.log('courses loaded', c);
+          return console.log('TT: courses loaded', c);
         }) //loading professors
         .then(function () {
           return _this.load_professors();
         }) //Loading courses
         .then(function (c) {
-          return console.log('professors loaded', c);
+          return console.log('TT: professors loaded', c);
         }) //creating TimeTable
         .then(function (result) {
           return _this.init_timetable(result);
@@ -68,11 +72,6 @@ odoo.define('timetable.main', function (require) {
 
       //require scheduler
       //var scheduler ; //= bryntum.scheduler.Scheduler;
-      var Store = bryntum.Store;
-      var WidgetHelper = bryntum.scheduler.WidgetHelper;
-      var DateHelper = bryntum.scheduler.DateHelper;
-      var Fullscreen = bryntum.scheduler.Fullscreen;
-
 
 
       var dToday = luxon.DateTime.local().set({
@@ -142,7 +141,7 @@ odoo.define('timetable.main', function (require) {
         Fullscreen.onFullscreenChange(() => { fullscreenButton.pressed = Fullscreen.isFullscreen; });
       }
 
-      // Selettore data
+      // Selettore data, posiziona la vista sulla settimana del giorno selezionato.
       WidgetHelper.append([{
         type: 'datefield',
         label: 'Seleziona data',
@@ -150,25 +149,28 @@ odoo.define('timetable.main', function (require) {
         value: new Date(),
         format: 'DD/MM/YYYY',
         editable: false,
-
         listeners: {
           change: ({ value }) => {
-            function getMonday(d) {
-              var day = d.getDay(),
-                diff = d.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
-              return new Date(d.setDate(diff));
-            }
+            //console.log(value)
+            //const start = DateHelper.add(this.get_monday(value), 8, 'hour');
+            //const end = DateHelper.add(start, 6, 'day');
+            //this.scheduler.setTimeSpan(start, end);
+            //this.scheduler.scrollToDate(DateHelper.add(value, 8, 'hour'), {block:"start"});
 
-            const start = DateHelper.add(getMonday(value), 8, 'hour');
-            const end = DateHelper.add(start, 6, 'day');
-            return this.scheduler.setTimeSpan(start, end);
+            this.load_lessons(value).then(results => {
+              console.log(results);
+              this.set_data(results);
+              //this.scheduler.scrollToDate(DateHelper.add(value, 8, 'hour'), {block:"start"});
+
+            })
+            
           }
         }
       }], {
         insertFirst: tools || document.body
       }).this;
 
-
+      // Start del componente ed impostazione dei parametri
       this.scheduler = new bryntum.scheduler.Scheduler({
         appendTo: document.getElementById('timetable-container'),
         cls: "rounded-div",
@@ -177,36 +179,37 @@ odoo.define('timetable.main', function (require) {
         rowHeight: 50,
         workingTime: this.workingTime,
         columns: [{
-          text: 'Name',
-          field: 'name',
-          width: 150
-        }],
-        startDate: dToday.toISO(),
-        // '2017-01-01T06:00',
-        endDate: dToday.plus({
-          days: 7
-        }).toISO(),
+                    text: 'Name',
+                    field: 'name',
+                    width: 150
+                  }],
+                  startDate: this.get_monday(dToday.toJSDate()).toISOString(),
+                  // '2017-01-01T06:00',
+                  endDate: dToday.plus({
+                    days: 7
+                  }).toISO(),
 
+        // Impostazione di visualizzazione delle colonne
         viewPreset: {
           displayDateFormat: 'H:mm',
           timeResolution: {
-            unit: 'MINUTE',
+            unit: 'minute',
             increment: 5
           },
-          headerConfig: {
-            middle: {
-              unit: 'HOUR',
-              align: 'center',
-              dateFormat: 'H'
-            },
-            top: {
-              unit: 'DAY',
+          headers: [
+            {
+              unit: 'day',
               align: 'center',
               dateFormat: 'dddd DD/MM/YYYY'
-            }
-          },
-          columnLinesFor: 0
-
+            },
+            {
+              unit: 'hour',
+              align: 'center',
+              dateFormat: 'H',         
+            },
+          ]
+          ,
+          columnLinesFor: 1
         },
 
         //'hourAndDay',
@@ -248,7 +251,8 @@ odoo.define('timetable.main', function (require) {
               name: 'notes',
               label: 'Note',
               valueField: 'notes',
-              displayField: 'label'
+              displayField: 'label',
+              emptyText: ''
             },
             {
               type: 'text',
@@ -262,7 +266,8 @@ odoo.define('timetable.main', function (require) {
               name: 'project_contract',
               label: 'Numero contratto',
               valueField: 'project_contract',
-              displayField: 'label'
+              displayField: 'label',
+              emptyText: ''
             },
             {
               type: 'button',
@@ -293,6 +298,8 @@ odoo.define('timetable.main', function (require) {
         add: function add(event) {
           console.log(event);
           var d = event.records[0].data;
+          console.log(_this2.courses.find(x => x.key === d.projectId).lang[0]); // [d.projectId].language_id);
+          
           var lesson = {
             'name': d.name,
             'professor_id': d.resourceId,
@@ -309,8 +316,6 @@ odoo.define('timetable.main', function (require) {
         update: function update(event) {
           var d = event.record.data;
           console.log('date', new Date(d.startDate).toUTCString())
-
-
 
           var lesson = {
             'name': d.name,
@@ -335,6 +340,7 @@ odoo.define('timetable.main', function (require) {
     },
     refresh: function refresh() {
       var _this3 = this;
+      console.log("here")
 
       this.load_lessons().then(function (results) {
         console.log('found lessons: ', results);
@@ -343,8 +349,28 @@ odoo.define('timetable.main', function (require) {
       });
     },
     // Caricamento delle lezioni
-    load_lessons: function load_lessons() {
-      return new Model('project.task').query(['id', 'name', 'professor_id', 'project_id', 'start_time', 'end_time', 'notes', 'project_description', 'project_contract']).all();
+    load_lessons: function load_lessons(selectedDate) {
+      var startDate = selectedDate || luxon.DateTime.local().set({
+        hour: 0,
+        minute: 0,
+        second: 0
+      }).toJSDate();
+
+      var previousMonday = this.get_monday(startDate);
+      
+      var endDate =  luxon.DateTime.fromJSDate(previousMonday).plus({
+        days: 7
+      }).toJSDate();
+
+     this.scheduler.setTimeSpan(previousMonday, endDate);
+    this.scheduler.scrollToDate(DateHelper.add(startDate, 8, 'hour'), {block:"start"});
+
+      return new Model('project.task', null, [
+       [('start_time'), '>', previousMonday],
+       [('end_time'), '<', endDate]
+      ]).query(['id', 'name', 'professor_id', 'project_id', 
+                      'start_time', 'end_time', 'notes', 'project_description', 
+                      'project_contract', 'language_course_id']).all();
     },
     // Caricamento dei professori
     load_professors: function load_professors() {
@@ -456,6 +482,13 @@ odoo.define('timetable.main', function (require) {
           _this8.courses = result;
           return result;
         });
+    },
+
+    get_monday: function getMonday(d) {
+      var date = new Date(d.toISOString())
+      var day = date.getDay();
+      var diff = date.getDate() - day + (day == 0 ? -6 : 1); // adjust when day is sunday
+      return new Date(date.setDate(diff));
     }
   });
 
