@@ -9,7 +9,7 @@
             <!-- timeline -->
             <script src="/inlingua/static/src/js/libs/custom.locale.it.js"></script>
             <script src='/inlingua/static/src/js/libs/luxon.js' type="text/javascript" charset="utf-8"/>
-            <script data-default-locale="It" src='/inlingua/static/src/js/libs/scheduler.umd.js' type="text/javascript" charset="utf-8"></script>
+            <script data-default-locale="It" src='/inlingua/static/src/js/libs/scheduler.umd.3.1.8.js' type="text/javascript" charset="utf-8"></script>
 
             <!-- core component -->
             <script type="text/javascript" src="/inlingua/static/src/js/timetable_core.dist.js"></script>
