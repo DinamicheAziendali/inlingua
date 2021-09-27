@@ -281,6 +281,14 @@ odoo.define('timetable.main', function (require) {
                 console.log(btn);
               }
             },
+            {
+              type: 'textarea',
+              name: 'list_student',
+              label: 'Allievi',
+              valueField: 'list_student',
+              displayField: 'label',
+              emptyText: ''
+            },
             ]
           }
         }
@@ -306,7 +314,10 @@ odoo.define('timetable.main', function (require) {
             'project_id': d.projectId,
             'start_time': d.startDate,
             'end_time': d.endDate,
-            'notes': d.notes
+            'notes': d.notes,
+            'project_description': d.project_description,
+            'project_contract': d.project_contract,
+            'list_student': d.list_student
           };
 
           _this2.create_lesson(lesson); // console.log('add', event);
@@ -323,7 +334,10 @@ odoo.define('timetable.main', function (require) {
             'project_id': d.projectId,
             'start_time': d.startDate,
             'end_time': d.endDate,
-            'notes': d.notes
+            'notes': d.notes,
+            'project_description': d.project_description,
+            'project_contract': d.project_contract,
+            'list_student': d.list_student
           };
 
           _this2.update_lesson(d.id, lesson);
@@ -370,7 +384,7 @@ odoo.define('timetable.main', function (require) {
        [('end_time'), '<', endDate]
       ]).query(['id', 'name', 'professor_id', 'project_id', 
                       'start_time', 'end_time', 'notes', 'project_description', 
-                      'project_contract', 'language_course_id']).all();
+                      'project_contract', 'list_student', 'language_course_id']).all();
     },
     // Caricamento dei professori
     load_professors: function load_professors() {
@@ -412,7 +426,8 @@ odoo.define('timetable.main', function (require) {
             resourceId: lesson.professor_id[0],
             notes: lesson.notes,
             project_description: lesson.project_description,
-            project_contract: lesson.project_contract
+            project_contract: lesson.project_contract,
+            list_student: lesson.list_student
           };
         });
       this.scheduler.eventStore.data = mappedData;
