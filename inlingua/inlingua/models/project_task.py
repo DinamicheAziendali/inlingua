@@ -57,6 +57,7 @@ class ProjectTaskInherit(models.Model):
     project_description = fields.Char(
         related='project_id.description', store=True)
     project_contract = fields.Char(compute='_get_project_contract', store=True)
+    list_student = fields.Text(compute='_compute_list_student_in_lesson', store=True)
 
     @api.depends('project_id')
     def _get_project_contract(self):
@@ -249,3 +250,15 @@ class ProjectTaskInherit(models.Model):
                         lesson.end_time) + "]"
 
                     raise ValidationError(message)
+
+    @api.depends('task_student_ids')
+    def _compute_list_student_in_lesson(self, lesson_ids):
+        lessons = self.env['project.task'].browse(lesson_ids)
+        for lesson in lessons:
+            list_student = ""
+            for task_student in lesson.task_student_ids:
+                if list_student:
+                    list_student += "\n" + task_student.student_id.name
+                else:
+                    list_student = task_student.student_id.name
+            lesson.list_student = list_student
