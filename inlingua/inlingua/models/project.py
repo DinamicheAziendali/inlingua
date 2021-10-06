@@ -58,6 +58,20 @@ class ProjectInherit(models.Model):
     duration_lessons    = fields.Integer(string='Duration Lesson', compute='compute_duration_lesson')
     project_student_ids = fields.One2many('project.student', 'project_id', string='Students')
     contract_ids        = fields.One2many('private.contract', 'project_course_id')
+    color               = fields.Selection([
+                            ('red', 'Rosso'),
+                            ('pink', 'Rosa'),
+                            ('purple', 'Viola'),
+                            ('violet', 'Violetto'),
+                            ('indigo', 'Indaco'),
+                            ('blue', 'Blu'),
+                            ('cyan', 'Ciano'),
+                            ('teal', 'Verde acqua'),
+                            ('lime', 'Lime'),
+                            ('yellow', 'Giallo'),
+                            ('orange', 'Arancio'),
+                            ('gray', 'Grigio')
+                        ], string='Colore')
 
     allow_timesheets    = fields.Boolean("Allow timesheets", default=False)
     label_tasks         = fields.Char(string='Use Lessons as', default='Lezioni',

@@ -175,6 +175,7 @@ odoo.define('timetable.main', function (require) {
         appendTo: document.getElementById('timetable-container'),
         cls: "rounded-div",
         eventStyle: 'colored',
+        eventColor : null,
         height: 450,
         rowHeight: 50,
         workingTime: this.workingTime,
@@ -213,11 +214,7 @@ odoo.define('timetable.main', function (require) {
         },
 
         //'hourAndDay',
-        resources: this.professors.map(function (p) {
-          return Object.assign({}, p, {
-            eventColor: 'blue'
-          });
-        }),
+        resources: this.professors,
 
         //events:   aLessons,
         features: {
@@ -287,7 +284,8 @@ odoo.define('timetable.main', function (require) {
               label: 'Allievi',
               valueField: 'list_student',
               displayField: 'label',
-              emptyText: ''
+              emptyText: '',
+              locked: false
             },
             ]
           }
@@ -384,7 +382,7 @@ odoo.define('timetable.main', function (require) {
        [('end_time'), '<', endDate]
       ]).query(['id', 'name', 'professor_id', 'project_id', 
                       'start_time', 'end_time', 'notes', 'project_description', 
-                      'project_contract', 'list_student', 'language_course_id']).all();
+                      'project_contract', 'list_student', 'language_course_id', 'color_course_id']).all();
     },
     // Caricamento dei professori
     load_professors: function load_professors() {
@@ -412,7 +410,7 @@ odoo.define('timetable.main', function (require) {
 
           var toLocaleDate = function (timestamp) {
             var date = new Date(timestamp);
-            return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
+            return new Date(date.getTime() + 60 * 60 * 1000);
           }
 
           return {
@@ -427,7 +425,8 @@ odoo.define('timetable.main', function (require) {
             notes: lesson.notes,
             project_description: lesson.project_description,
             project_contract: lesson.project_contract,
-            list_student: lesson.list_student
+            list_student: lesson.list_student,
+            eventColor: lesson.color_course_id
           };
         });
       this.scheduler.eventStore.data = mappedData;

@@ -58,6 +58,7 @@ class ProjectTaskInherit(models.Model):
         related='project_id.description', store=True)
     project_contract = fields.Char(compute='_get_project_contract', store=True)
     list_student = fields.Text(compute='_compute_list_student_in_lesson', store=True)
+    color_course_id = fields.Selection(related='project_id.color', string='Colore corso', store=True)
 
     @api.depends('project_id')
     def _get_project_contract(self):
@@ -252,13 +253,12 @@ class ProjectTaskInherit(models.Model):
                     raise ValidationError(message)
 
     @api.depends('task_student_ids')
-    def get_list_student_in_lesson(self, lesson_ids):
-        lessons = self.env['project.task'].browse(lesson_ids)
-        for lesson in lessons:
+    def _compute_list_student_in_lesson(self):
+        for lesson in self:
             list_student = ""
             for task_student in lesson.task_student_ids:
                 if list_student:
                     list_student += "\n" + task_student.student_id.name
                 else:
                     list_student = task_student.student_id.name
-            return list_student
+            lesson.list_student = list_student

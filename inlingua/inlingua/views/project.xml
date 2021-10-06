@@ -86,6 +86,7 @@
                                 <field name="virtual_course"/>
                                 <field name="office_id" />
                                 <field name="type_office" widget="radio" options="{'horizontal': true}" />
+                                <field name="color" />
                                 <field name="date_last_lesson" string="Ultima lezione sul timetable" />
                                 <field name="date_scheduling" />
                             </group>
