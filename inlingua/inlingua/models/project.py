@@ -391,11 +391,10 @@ class ProjectInherit(models.Model):
             else:
                 for o in overlapped_lessons:
                     activities_list_text += "\t– " + str(o[0]) + "\t[ " + str(o[1]) + " - " + str(o[2]) + "]\n"
-                msg = '%s e\' gia\' impegnato/a nelle seguenti attivita\':\n' \
+                msg = '{} e\' gia\' impegnato/a nelle seguenti attivita\':\n'.format(schedule_obj.professor_id.name) \
                       + activities_list_text + \
-                      'durante il periodo: [%s - %s]'
-                raise ValidationError(
-                    msg % (schedule_obj.professor_id.name, lesson['start_time'], lesson['end_time']))
+                      'durante il periodo: [{} - {}]'.format(lesson['start_time'], lesson['end_time'])
+                raise ValidationError(msg)
 
         return "scheduling completato"
 
