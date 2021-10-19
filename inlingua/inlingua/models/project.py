@@ -382,17 +382,20 @@ class ProjectInherit(models.Model):
             logger.info('Inizio %s - Fine %s', lesson['start_time'], lesson['end_time'])
             overlapped_lessons = task_model.get_overlapped_lessons(lesson['professor_id'], lesson['start_time'],
                                                                    lesson['end_time'])
+            activities_list_text = ""
             if not len(overlapped_lessons) > 0:
                 task_model.create(lesson)
                 remaining_minutes -= minutes_to_schedule
             elif skip_conflicts:
                 logger.info('skipping conflict lesson %s', lesson['start_time'])
             else:
-                msg = 'Impossibile allocare il docente %s ' \
-                      'alla lezione del %s perche\' gia\' impegnato ' \
-                      'in un\'altra attivita\''
+                for o in overlapped_lessons:
+                    activities_list_text += "\t– " + str(o[0]) + "\t[ " + str(o[1]) + " - " + str(o[2]) + "]\n"
+                msg = '%s è gia\' impegnato/a nelle seguenti attività:\n' \
+                      + activities_list_text + \
+                      'durante il periodo: [%s - %s]'
                 raise ValidationError(
-                    msg % (schedule_obj.professor_id.name, lesson['start_time']))
+                    msg % (schedule_obj.professor_id.name, lesson['start_time'], lesson['end_time']))
 
         return "scheduling completato"
 
