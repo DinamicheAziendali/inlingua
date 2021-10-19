@@ -391,7 +391,7 @@ class ProjectInherit(models.Model):
             else:
                 for o in overlapped_lessons:
                     activities_list_text += "\t– " + str(o[0]) + "\t[ " + str(o[1]) + " - " + str(o[2]) + "]\n"
-                msg = '%s è gia\' impegnato/a nelle seguenti attività:\n' \
+                msg = '%s e\' gia\' impegnato/a nelle seguenti attivita\':\n' \
                       + activities_list_text + \
                       'durante il periodo: [%s - %s]'
                 raise ValidationError(
