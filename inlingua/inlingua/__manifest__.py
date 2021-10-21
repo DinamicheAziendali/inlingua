@@ -85,6 +85,7 @@
         'views/res_users.xml',
         'views/contract_receipt_template.xml',
         'views/website_portal_lessons_template.xml',
+        'views/report_timetable_view.xml',
         'wizard/wizard_journal_entries.xml',
         'wizard/wizard_add_rate.xml',
         'wizard/wizard_delivered_material.xml',

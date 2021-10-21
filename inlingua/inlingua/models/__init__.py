@@ -28,3 +28,4 @@ from . import account_invoice
 from . import project_task_scheduling_rule
 from . import inlingua_config_settings
 from . import report_contract_receipt
+from . import report_timetable

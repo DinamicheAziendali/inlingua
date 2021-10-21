@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="report_timetable_form_view">
+            <field name="name">Report Timetable Form</field>
+            <field name="model">report.timetable</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="create_pdf" string="Create PDF" type="object" />
+                    </header>
+                    <sheet>
+		        <group>
+			    <field name="name" />
+                            <field name="date_start" />
+                            <field name="date_end" />
+                            <field name="file_pdf" filename="file_name_pdf" />
+                            <field name="file_name_pdf" invisible="1" />
+		        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="report_timetable_tree_view">
+            <field name="name">Report Timetable Tree</field>
+            <field name="model">report.timetable</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="date_start" />
+                    <field name="date_end" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_report_timetable">
+            <field name="name">Report Timetable</field>
+            <field name="res_model">report.timetable</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_report_timetable" name="Report Timetable" parent="project.menu_project_management"
+                  action="action_report_timetable"
+                  sequence="99"/>
+
+    </data>
+</odoo>
