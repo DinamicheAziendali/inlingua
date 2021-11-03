@@ -58,7 +58,7 @@ class ProjectTaskInherit(models.Model):
         related='project_id.description', store=True)
     project_contract = fields.Char(compute='_get_project_contract', store=True)
     list_student = fields.Text(compute='_compute_list_student_in_lesson', store=True)
-    color_course_id = fields.Selection(related='project_id.color', string='Colore corso', store=True)
+    color_course = fields.Selection(related='project_id.color', string='Colore corso', store=True)
 
     @api.depends('project_id')
     def _get_project_contract(self):

@@ -382,7 +382,7 @@ odoo.define('timetable.main', function (require) {
        [('end_time'), '<', endDate]
       ]).query(['id', 'name', 'professor_id', 'project_id', 
                       'start_time', 'end_time', 'notes', 'project_description', 
-                      'project_contract', 'list_student', 'language_course_id', 'color_course_id']).all();
+                      'project_contract', 'list_student', 'language_course_id', 'color_course']).all();
     },
     // Caricamento dei professori
     load_professors: function load_professors() {
@@ -426,7 +426,7 @@ odoo.define('timetable.main', function (require) {
             project_description: lesson.project_description,
             project_contract: lesson.project_contract,
             list_student: lesson.list_student,
-            eventColor: lesson.color_course_id
+            eventColor: lesson.color_course
           };
         });
       this.scheduler.eventStore.data = mappedData;

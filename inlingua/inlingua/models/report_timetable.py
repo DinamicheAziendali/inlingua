@@ -11,26 +11,35 @@ from datetime import timedelta
 import base64
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_LEFT, TA_RIGHT, TA_CENTER, TA_JUSTIFY
+from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import A3, landscape
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import cm
 from reportlab.lib.utils import ImageReader
 from reportlab.pdfgen import canvas
-from reportlab.platypus import Table, TableStyle
+from reportlab.platypus import Table
 from reportlab.platypus.paragraph import Paragraph
 from werkzeug.urls import url_join
 
 
 class ReportTimetable(models.Model):
-    _name = 'report.timetable'
+    _name = "report.timetable"
     _description = "Print report timetable"
 
     name = fields.Char(string="Descrizione", compute="_compute_name")
     date_start = fields.Date(string="Data inizio", required=True)
-    date_end = fields.Date(string="Data fine", required=True)
+    date_end = fields.Date(string="Data fine", compute="_compute_date_end")
     file_pdf = fields.Binary(string="File PDF")
     file_name_pdf = fields.Char(string="File Name", compute="_compute_file_name_pdf")
+
+    @api.depends("date_start")
+    def _compute_date_end(self):
+        for report in self:
+            if report.date_start:
+                date_start = parse(report.date_start)
+                report.date_end = date_start + timedelta(days=6)
+            else:
+                report.date_end = False
 
     @api.depends("name", "file_pdf")
     def _compute_file_name_pdf(self):
@@ -97,13 +106,31 @@ class ReportTimetable(models.Model):
         month_paragraph.drawOn(report, 32 * cm, 28.5 * cm)
         return report
 
+    def create_dict_professors_colors(self, lessons_ids):
+        dict_professors_colors = {}
+        for professor_id in lessons_ids.mapped("professor_id").sorted(lambda p: p.name):
+            dict_hour_lesson = {}
+            for lesson_id in lessons_ids.filtered(lambda x: x.professor_id.id == professor_id.id).sorted(
+                    lambda x: x.start_time):
+                start_hour = \
+                    "0" + lesson_id.start_hour[:-3] if len(lesson_id.start_hour) == 7 else lesson_id.start_hour[:-3]
+                end_hour = "0" + lesson_id.end_hour[:-3] if len(lesson_id.end_hour) == 7 else lesson_id.end_hour[:-3]
+                hour_lesson = start_hour + " - " + end_hour + "\n" + lesson_id.name
+                if hour_lesson in dict_hour_lesson:
+                    dict_hour_lesson[hour_lesson].append(lesson_id.color_course)
+                else:
+                    dict_hour_lesson[hour_lesson] = [lesson_id.color_course]
+                dict_professors_colors[professor_id.name] = dict_hour_lesson
+        return dict_professors_colors
+
     def create_dict_professors(self, lessons_ids):
         dict_professors = {}
         for professor_id in lessons_ids.mapped("professor_id").sorted(lambda p: p.name):
             dict_hour_lesson = {}
             for lesson_id in lessons_ids.filtered(lambda x: x.professor_id.id == professor_id.id).sorted(
                     lambda x: x.start_time):
-                start_hour = "0" + lesson_id.start_hour[:-3] if len(lesson_id.start_hour) == 7 else lesson_id.start_hour[:-3]
+                start_hour = \
+                    "0" + lesson_id.start_hour[:-3] if len(lesson_id.start_hour) == 7 else lesson_id.start_hour[:-3]
                 end_hour = "0" + lesson_id.end_hour[:-3] if len(lesson_id.end_hour) == 7 else lesson_id.end_hour[:-3]
                 hour_lesson = start_hour + " - " + end_hour
                 weekday = parse(lesson_id.start_time).weekday()
@@ -118,6 +145,35 @@ class ReportTimetable(models.Model):
                     }
                 dict_professors[professor_id.name] = dict_hour_lesson
         return dict_professors
+
+    def get_course_color(self, lessons_ids, professor_name, line):
+        dict_professors_colors = self.create_dict_professors_colors(lessons_ids)
+        if professor_name in dict_professors_colors.keys():
+            if line in dict_professors_colors[professor_name].keys():
+                if dict_professors_colors[professor_name][line][0] == 'red':
+                    return colors.red
+                elif dict_professors_colors[professor_name][line][0] == 'pink':
+                    return colors.pink
+                elif dict_professors_colors[professor_name][line][0] == 'violet':
+                    return colors.violet
+                elif dict_professors_colors[professor_name][line][0] == 'cyan':
+                    return colors.cyan
+                elif dict_professors_colors[professor_name][line][0] == 'teal':
+                    return colors.teal
+                elif dict_professors_colors[professor_name][line][0] == 'lime':
+                    return colors.lime
+                elif dict_professors_colors[professor_name][line][0] == 'yellow':
+                    return colors.yellow
+                elif dict_professors_colors[professor_name][line][0] == 'orange':
+                    return colors.orange
+                elif dict_professors_colors[professor_name][line][0] == 'gray':
+                    return colors.gray
+                else:
+                    return colors.white
+            else:
+                return colors.white
+        else:
+            return colors.white
 
     def create_pdf(self):
         file_name = "Timetable.pdf"
@@ -194,12 +250,42 @@ class ReportTimetable(models.Model):
                                 data.append(["", "", "", "", "", "", "", ""])
                             data[n - 1].pop()
                             data[n - 1].insert(-1, dict_professors[dict_professor][hour_lesson][weekday][0])
-            style = [
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("ALIGN", (0, 0), (-1, -1), "CENTER"),
-                ("GRID", (0, 0), (-1, -1), 1, colors.black),
-            ]
+
             for line in data:
+                style = [
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                    ("GRID", (0, 0), (-1, -1), 1, colors.black),
+                ]
+
+                if line[1] != '':
+                    style.append(
+                        ("BACKGROUND", (1, 0), (1, -1), self.get_course_color(lessons_ids, dict_professor, line[1])),
+                    )
+                if line[2] != '':
+                    style.append(
+                        ("BACKGROUND", (2, 0), (2, -1), self.get_course_color(lessons_ids, dict_professor, line[2])),
+                    )
+                if line[3] != '':
+                    style.append(
+                        ("BACKGROUND", (3, 0), (3, -1), self.get_course_color(lessons_ids, dict_professor, line[3])),
+                    )
+                if line[4] != '':
+                    style.append(
+                        ("BACKGROUND", (4, 0), (4, -1), self.get_course_color(lessons_ids, dict_professor, line[4])),
+                    )
+                if line[5] != '':
+                    style.append(
+                        ("BACKGROUND", (5, 0), (5, -1), self.get_course_color(lessons_ids, dict_professor, line[5])),
+                    )
+                if line[6] != '':
+                    style.append(
+                        ("BACKGROUND", (6, 0), (6, -1), self.get_course_color(lessons_ids, dict_professor, line[6])),
+                    )
+                if line[-1] != '':
+                    style.append(
+                        ("BACKGROUND", (-1, 0), (-1, -1), self.get_course_color(lessons_ids, dict_professor, line[-1])),
+                    )
                 tables.append(Table([line], colWidths=[5 * cm], style=style))
         aW = width
         aH = height - (4 * cm)

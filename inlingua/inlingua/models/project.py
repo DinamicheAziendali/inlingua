@@ -61,10 +61,7 @@ class ProjectInherit(models.Model):
     color               = fields.Selection([
                             ('red', 'Rosso'),
                             ('pink', 'Rosa'),
-                            ('purple', 'Viola'),
                             ('violet', 'Violetto'),
-                            ('indigo', 'Indaco'),
-                            ('blue', 'Blu'),
                             ('cyan', 'Ciano'),
                             ('teal', 'Verde acqua'),
                             ('lime', 'Lime'),

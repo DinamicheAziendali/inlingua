@@ -11,13 +11,13 @@
                         <button name="create_pdf" string="Create PDF" type="object" />
                     </header>
                     <sheet>
-		        <group>
-			    <field name="name" />
+                        <group>
+                            <field name="name" />
                             <field name="date_start" />
                             <field name="date_end" />
                             <field name="file_pdf" filename="file_name_pdf" />
                             <field name="file_name_pdf" invisible="1" />
-		        </group>
+                        </group>
                     </sheet>
                 </form>
             </field>
