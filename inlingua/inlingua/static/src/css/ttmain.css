@@ -14,13 +14,16 @@
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.35) !important;
 }
 
-.timetable-tools {
+#timetable-tools {
     display: flex;
-    flex-flow: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0px 25px;
-    background: #a2d2fa;
+}
+
+.timetable-teachers-filter{
+  margin-left: auto;
+  flex: unset !important;
 }
 
 .ml-10 {
