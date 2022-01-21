@@ -121,8 +121,8 @@ window.bryntum.locales.It = {
   },
 
   GridBase: {
-    loadMask: 'Laden...',
-    noRows: 'Keine Zeilen zum Anzeigen'
+    loadMask: 'Caricamento in corso...',
+    noRows: 'Nessun docente con lezioni programmate questa settimana'
   },
 
   //endregion
@@ -154,7 +154,7 @@ window.bryntum.locales.It = {
     shortWeek: 'W',
     shortQuarter: 'q',
     week: 'Woche',
-    weekStartDay:0,
+    weekStartDay: 0,
     unitNames: [
       { single: 'Millisecondo', plural: 'Millisecondi', abbrev: 'ms' },
       { single: 'Secondo', plural: 'Secondi', abbrev: 's' },

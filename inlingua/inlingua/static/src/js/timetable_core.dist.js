@@ -41,6 +41,19 @@ odoo.define('timetable.main', function (require) {
     },
     professors: [],
     courses: [],
+    isProfessorsFilterSet: true,
+
+    handleProfessorsFilter: function () {
+      if (this.scheduler !== null) {
+        this.scheduler.store.clearFilters();
+        if (this.isProfessorsFilterSet) {
+          const lessons = this.scheduler.eventStore.data;
+          this.scheduler.store.filterBy(row => {
+            return lessons.some(({ resourceId }) => resourceId === row.data.id)
+          })
+        }
+      }
+    },
 
     /**
      * Startup callback
@@ -115,16 +128,44 @@ odoo.define('timetable.main', function (require) {
             }
       */
 
+      // Creazione filtro docenti
+      const professorsFilterButton = WidgetHelper.createWidget({
+        type: 'buttongroup',
+        toggleGroup: true,
+        cls: 'timetable-teachers-filter',
+
+        items: [
+          {
+            text: "Docenti con lezioni programmate",
+            pressed: true,
+            value: "only",
+            onClick: () => {
+              this.isProfessorsFilterSet = true;
+              this.handleProfessorsFilter();
+            }
+          }, {
+            text: "Tutti i Docenti",
+            value: "all",
+            onClick: () => {
+              this.isProfessorsFilterSet = false;
+              this.handleProfessorsFilter();
+            }
+          },]
+      });
+
+      WidgetHelper.append(professorsFilterButton, { insertFirst: tools || document.body }).this;
+
+
       if (Fullscreen.enabled) {
 
         // Creazione tasto fullscreen
+
         const fullscreenButton = WidgetHelper.createWidget({
           type: 'button',
           id: 'fullscreen-button',
           //tooltip    : this.L('Fullscreen'),
           toggleable: true,
           cls: 'b-blue b-raised b-icon b-icon-fullscreen ml-10',
-          keep: true,
 
           onToggle: ({ pressed }) => {
             if (pressed) {
@@ -137,9 +178,11 @@ odoo.define('timetable.main', function (require) {
 
         // Aggiunta del tasto fullscreen alla toolbar
         WidgetHelper.append(fullscreenButton, { insertFirst: tools || document.body }).this;
-
-        Fullscreen.onFullscreenChange(() => { fullscreenButton.pressed = Fullscreen.isFullscreen; });
       }
+
+      Fullscreen.onFullscreenChange(() => { fullscreenButton.pressed = Fullscreen.isFullscreen; });
+
+
 
       // Selettore data, posiziona la vista sulla settimana del giorno selezionato.
       WidgetHelper.append([{
@@ -163,7 +206,7 @@ odoo.define('timetable.main', function (require) {
               //this.scheduler.scrollToDate(DateHelper.add(value, 8, 'hour'), {block:"start"});
 
             })
-            
+
           }
         }
       }], {
@@ -175,20 +218,19 @@ odoo.define('timetable.main', function (require) {
         appendTo: document.getElementById('timetable-container'),
         cls: "rounded-div",
         eventStyle: 'colored',
-        eventColor : null,
-        height: 450,
+        height: "75vh",
         rowHeight: 50,
         workingTime: this.workingTime,
         columns: [{
-                    text: 'Name',
-                    field: 'name',
-                    width: 150
-                  }],
-                  startDate: this.get_monday(dToday.toJSDate()).toISOString(),
-                  // '2017-01-01T06:00',
-                  endDate: dToday.plus({
-                    days: 7
-                  }).toISO(),
+          text: 'Name',
+          field: 'name',
+          width: 150
+        }],
+        startDate: this.get_monday(dToday.toJSDate()).toISOString(),
+        // '2017-01-01T06:00',
+        endDate: dToday.plus({
+          days: 7
+        }).toISO(),
 
         // Impostazione di visualizzazione delle colonne
         viewPreset: {
@@ -206,7 +248,7 @@ odoo.define('timetable.main', function (require) {
             {
               unit: 'hour',
               align: 'center',
-              dateFormat: 'H',         
+              dateFormat: 'H',
             },
           ]
           ,
@@ -214,7 +256,11 @@ odoo.define('timetable.main', function (require) {
         },
 
         //'hourAndDay',
-        resources: this.professors,
+        resources: this.professors.map(function (p) {
+          return Object.assign({}, p, {
+            eventColor: 'blue'
+          });
+        }),
 
         //events:   aLessons,
         features: {
@@ -278,15 +324,6 @@ odoo.define('timetable.main', function (require) {
                 console.log(btn);
               }
             },
-            {
-              type: 'textarea',
-              name: 'list_student',
-              label: 'Allievi',
-              valueField: 'list_student',
-              displayField: 'label',
-              emptyText: '',
-              locked: false
-            },
             ]
           }
         }
@@ -305,17 +342,14 @@ odoo.define('timetable.main', function (require) {
           console.log(event);
           var d = event.records[0].data;
           console.log(_this2.courses.find(x => x.key === d.projectId).lang[0]); // [d.projectId].language_id);
-          
+
           var lesson = {
             'name': d.name,
             'professor_id': d.resourceId,
             'project_id': d.projectId,
             'start_time': d.startDate,
             'end_time': d.endDate,
-            'notes': d.notes,
-            'project_description': d.project_description,
-            'project_contract': d.project_contract,
-            'list_student': d.list_student
+            'notes': d.notes
           };
 
           _this2.create_lesson(lesson); // console.log('add', event);
@@ -332,10 +366,7 @@ odoo.define('timetable.main', function (require) {
             'project_id': d.projectId,
             'start_time': d.startDate,
             'end_time': d.endDate,
-            'notes': d.notes,
-            'project_description': d.project_description,
-            'project_contract': d.project_contract,
-            'list_student': d.list_student
+            'notes': d.notes
           };
 
           _this2.update_lesson(d.id, lesson);
@@ -369,20 +400,20 @@ odoo.define('timetable.main', function (require) {
       }).toJSDate();
 
       var previousMonday = this.get_monday(startDate);
-      
-      var endDate =  luxon.DateTime.fromJSDate(previousMonday).plus({
+
+      var endDate = luxon.DateTime.fromJSDate(previousMonday).plus({
         days: 7
       }).toJSDate();
 
-     this.scheduler.setTimeSpan(previousMonday, endDate);
-    this.scheduler.scrollToDate(DateHelper.add(startDate, 8, 'hour'), {block:"start"});
+      this.scheduler.setTimeSpan(previousMonday, endDate);
+      this.scheduler.scrollToDate(DateHelper.add(startDate, 8, 'hour'), { block: "start" });
 
       return new Model('project.task', null, [
-       [('start_time'), '>', previousMonday],
-       [('end_time'), '<', endDate]
-      ]).query(['id', 'name', 'professor_id', 'project_id', 
-                      'start_time', 'end_time', 'notes', 'project_description', 
-                      'project_contract', 'list_student', 'language_course_id', 'color_course']).all();
+        [('start_time'), '>', previousMonday],
+        [('end_time'), '<', endDate]
+      ]).query(['id', 'name', 'professor_id', 'project_id',
+        'start_time', 'end_time', 'notes', 'project_description',
+        'project_contract', 'language_course_id']).all();
     },
     // Caricamento dei professori
     load_professors: function load_professors() {
@@ -410,7 +441,7 @@ odoo.define('timetable.main', function (require) {
 
           var toLocaleDate = function (timestamp) {
             var date = new Date(timestamp);
-            return new Date(date.getTime() + 60 * 60 * 1000);
+            return new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
           }
 
           return {
@@ -424,12 +455,11 @@ odoo.define('timetable.main', function (require) {
             resourceId: lesson.professor_id[0],
             notes: lesson.notes,
             project_description: lesson.project_description,
-            project_contract: lesson.project_contract,
-            list_student: lesson.list_student,
-            eventColor: lesson.color_course
+            project_contract: lesson.project_contract
           };
         });
       this.scheduler.eventStore.data = mappedData;
+      this.handleProfessorsFilter();
 
       console.log('eventStore.data:', this.scheduler.eventStore.data);
     },
