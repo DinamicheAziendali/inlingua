@@ -97,37 +97,7 @@ odoo.define('timetable.main', function (require) {
       var aLessons = [];
 
       let tools = document.getElementById('timetable-tools') || document.body;
-      /*
-            if (bryntum.scheduler.Fullscreen.enabled) {
-              //if (typeof fullscreenButton == 'undefined') {
-              if (!bryntum.scheduler.WidgetHelper.getById('fullscreen-button')) {
-                const fullscreenButton = bryntum.scheduler.WidgetHelper.createWidget({
-                  type: 'button',
-                  id: 'fullscreen-button',
-                  icon: 'b-icon b-icon-fullscreen',
-                  //tooltip    : this.L('Fullscreen'),
-                  toggleable: true,
-                  cls: 'b-blue b-raised',
-                  keep: true,
-                  appendTo: tools,
-                  onToggle: ({
-                    pressed
-                  }) => {
-                    if (pressed) {
-                      bryntum.scheduler.Fullscreen.request(document.documentElement);
-                    } else {
-                      bryntum.scheduler.Fullscreen.exit();
-                    }
-                  }
-                });
-
-                bryntum.scheduler.Fullscreen.onFullscreenChange(() => {
-                  fullscreenButton.pressed = bryntum.scheduler.Fullscreen.isFullscreen;
-                });
-              }
-            }
-      */
-
+   
       // Creazione filtro docenti
       const professorsFilterButton = WidgetHelper.createWidget({
         type: 'buttongroup',
@@ -155,20 +125,17 @@ odoo.define('timetable.main', function (require) {
 
       WidgetHelper.append(professorsFilterButton, { insertFirst: tools || document.body }).this;
 
-
       if (Fullscreen.enabled) {
 
         // Creazione tasto fullscreen
-
-        const fullscreenButton = WidgetHelper.createWidget({
+        const fullscreenButton = WidgetHelper.getById("fullscreen-button") || WidgetHelper.createWidget({
           type: 'button',
           id: 'fullscreen-button',
           //tooltip    : this.L('Fullscreen'),
-          toggleable: true,
           cls: 'b-blue b-raised b-icon b-icon-fullscreen ml-10',
 
-          onToggle: ({ pressed }) => {
-            if (pressed) {
+          onClick: () => {
+            if (!Fullscreen.isFullscreen) {
               Fullscreen.request(document.documentElement);
             } else {
               Fullscreen.exit();
@@ -176,11 +143,13 @@ odoo.define('timetable.main', function (require) {
           }
         });
 
+
         // Aggiunta del tasto fullscreen alla toolbar
         WidgetHelper.append(fullscreenButton, { insertFirst: tools || document.body }).this;
+        Fullscreen.onFullscreenChange(() => { fullscreenButton.pressed = Fullscreen.isFullscreen; });
+
       }
 
-      Fullscreen.onFullscreenChange(() => { fullscreenButton.pressed = Fullscreen.isFullscreen; });
 
 
 
